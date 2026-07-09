@@ -516,8 +516,32 @@ section {
 /* ─── Footer ────────────────────────────────────────────────────── */
 
 footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0;
+  gap: 8px;
+}
+
+#language-selector {
+  flex-shrink: 0;
+}
+
+#language-selector select {
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid var(--card-border, #e4e8ee);
+  border-radius: 4px;
+  background: var(--card-bg, #ffffff);
+  color: var(--text-secondary, #6b7c93);
+  font-family: var(--font);
+  cursor: pointer;
+  max-width: 85px;
+  appearance: auto;
+}
+
+#settings-link {
+  margin-left: auto;
 }
 
 #settings-link {

@@ -11,7 +11,7 @@
 
 import { sendMessage } from '../shared/messaging.js';
 import { DEFAULT_SETTINGS, STORAGE_KEYS, MSG } from '../shared/constants.js';
-import { t, applyLanguage } from '../shared/i18n.js';
+import { t, initI18n } from '../shared/i18n.js';
 
 // ─── State ─────────────────────────────────────────────────────────
 
@@ -36,7 +36,7 @@ async function init() {
   renderStatistics();
   renderAbout();
   applyTheme(state.settings.theme);
-  applyLanguage(state.settings.language);
+  await initI18n(state.settings.language);
 }
 
 async function loadData() {
@@ -190,7 +190,11 @@ async function onSettingChange(e) {
   await browser.storage.local.set({ [STORAGE_KEYS.SETTINGS]: state.settings });
 
   if (key === 'theme') applyTheme(value);
-  if (key === 'language') applyLanguage(value);
+  if (key === 'language') {
+    await initI18n(value);
+    // Re-render current tab with new language
+    switchTab(state.currentTab);
+  }
 }
 
 // ─── Whitelist Tab ────────────────────────────────────────────────

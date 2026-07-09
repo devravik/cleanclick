@@ -58,6 +58,17 @@ async function initBackground() {
     return await storage.getSettings();
   });
 
+  // Handle settings updates from popup/content scripts
+  onMessage('settings:update', async (payload) => {
+    if (payload?.key && payload?.value !== undefined) {
+      const settings = await storage.getSettings();
+      settings[payload.key] = payload.value;
+      await storage.updateSettings({ [payload.key]: payload.value });
+      return { ok: true };
+    }
+    return { ok: false, error: 'Invalid payload' };
+  });
+
   // 5. Handle incoming connections from content scripts
   onConnectFromContent((port, sender) => {
     // Content script connected - tab info is available

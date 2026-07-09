@@ -11,7 +11,7 @@ import {
   requestRevealHidden, getSettings,
 } from '../shared/messaging.js';
 import { MSG } from '../shared/constants.js';
-import { t, applyLanguage } from '../shared/i18n.js';
+import { t, initI18n } from '../shared/i18n.js';
 
 // ─── State ─────────────────────────────────────────────────────────
 
@@ -30,12 +30,10 @@ const $ = (id) => document.getElementById(id);
 // ─── Initialization ───────────────────────────────────────────────
 
 async function init() {
-  // Get current tab
   const tabs = await browser.tabs.query({ active: true, currentWindow: true });
   if (!tabs[0]) return;
   state.tabId = tabs[0].id;
 
-  // Load all data in parallel
   const [protection, stats, scanResults, settings] = await Promise.all([
     getProtectionStatus(state.tabId),
     getStats(),
@@ -49,7 +47,10 @@ async function init() {
   state.settings = settings;
 
   applyTheme(settings?.theme);
-  applyLanguage(settings?.language);
+
+  // Initialize translations
+  await initI18n(settings?.language);
+
   render();
 }
 
@@ -60,6 +61,7 @@ function render() {
   renderProtectionToggle();
   renderStats();
   renderLinkScanSummary();
+  renderLanguageSelector();
 }
 
 function renderStatusBar() {
@@ -165,6 +167,37 @@ function renderLinkScanSummary() {
   });
 }
 
+// ─── Language Selector in Popup ───────────────────────────────────
+
+function renderLanguageSelector() {
+  const container = $('language-selector');
+  if (!container) return;
+
+  const current = state.settings?.language || 'auto';
+  const langLabels = {
+    'auto': 'Auto', 'en': 'EN', 'hi': 'HI', 'es': 'ES', 'fr': 'FR',
+    'de': 'DE', 'zh_CN': '中文', 'ar': 'العربية', 'pt_BR': 'PT',
+    'ru': 'RU', 'ja': '日本語', 'ko': '한국어',
+  };
+
+  container.innerHTML =
+    '<select id="popup-lang-select" style="font-size:11px;padding:2px 6px;border:1px solid var(--card-border);border-radius:4px;background:var(--card-bg);color:var(--text-secondary);font-family:var(--font);cursor:pointer;max-width:100px">' +
+    Object.entries(langLabels).map(([code, label]) =>
+      '<option value="' + code + '"' + (current === code ? ' selected' : '') + '>' + label + '</option>'
+    ).join('') +
+    '</select>';
+
+  $('popup-lang-select')?.addEventListener('change', async (e) => {
+    const newLang = e.target.value;
+    state.settings.language = newLang;
+    await initI18n(newLang);
+    // Save to storage
+    await sendMessage('settings:update', { key: 'language', value: newLang });
+    // Re-render with new language
+    render();
+  });
+}
+
 // ─── Event Handlers ───────────────────────────────────────────────
 
 async function toggleProtection(e) {
@@ -180,7 +213,7 @@ async function toggleProtection(e) {
   renderProtectionToggle();
 }
 
-// ─── Settings Link ────────────────────────────────────────────────
+// ─── Footer Links ─────────────────────────────────────────────────
 
 $('settings-link')?.addEventListener('click', (e) => {
   e.preventDefault();
