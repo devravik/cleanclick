@@ -97,7 +97,7 @@ function renderStats() {
   const container = $('stats-panel');
   if (!container || !state.stats) return;
 
-  const { redirectsBlocked, popupsPrevented, suspiciousDomainsDetected, hiddenLinksFound, hijackedElementsFlagged } = state.stats;
+  const { redirectsBlocked, popupsPrevented, suspiciousDomainsDetected, hiddenLinksFound } = state.stats;
 
   container.innerHTML = `
     <div class="stats-grid">
