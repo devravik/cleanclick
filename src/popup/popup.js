@@ -100,22 +100,22 @@ function renderStats() {
   const { redirectsBlocked, popupsPrevented, suspiciousDomainsDetected, hiddenLinksFound } = state.stats;
 
   container.innerHTML = `
-    <div class="stats-grid">
+    <div class="stats-list">
       <div class="stat-item">
-        <span class="stat-value">${redirectsBlocked || 0}</span>
         <span class="stat-label">Redirects Blocked</span>
+        <span class="stat-value">${redirectsBlocked || 0}</span>
       </div>
       <div class="stat-item">
-        <span class="stat-value">${popupsPrevented || 0}</span>
         <span class="stat-label">Popups Prevented</span>
+        <span class="stat-value">${popupsPrevented || 0}</span>
       </div>
       <div class="stat-item">
-        <span class="stat-value">${suspiciousDomainsDetected || 0}</span>
         <span class="stat-label">Suspicious Domains</span>
+        <span class="stat-value">${suspiciousDomainsDetected || 0}</span>
       </div>
       <div class="stat-item">
-        <span class="stat-value">${hiddenLinksFound || 0}</span>
         <span class="stat-label">Hidden Links</span>
+        <span class="stat-value">${hiddenLinksFound || 0}</span>
       </div>
     </div>
   `;
