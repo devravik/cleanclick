@@ -30,6 +30,7 @@ module.exports = {
   },
   output: {
     globalObject: 'globalThis',
+    publicPath: '',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     clean: true,
