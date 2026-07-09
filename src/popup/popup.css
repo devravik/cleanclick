@@ -80,6 +80,8 @@ html {
   color: var(--text-primary);
   background: var(--page-bg);
   width: var(--popup-width);
+  max-width: var(--popup-width);
+  min-width: var(--popup-width);
   overflow-x: hidden;
   overflow-y: auto;
   overflow-wrap: break-word;
