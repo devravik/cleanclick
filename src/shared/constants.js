@@ -177,8 +177,8 @@ export const MSG = {
 // ─── Default Settings ──────────────────────────────────────────────
 export const DEFAULT_SETTINGS = {
   protectionEnabled: true,
-  showRiskBadges: true,
-  showTooltips: true,
+  showRiskBadges: false,
+  showTooltips: false,
   confirmLevel: 'suspicious', // 'never' | 'suspicious' | 'all'
   autoRevealHidden: false,
   sanitizeLinks: true,

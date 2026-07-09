@@ -47,25 +47,28 @@ html {
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
-  width: 360px;
+  width: 340px;
   overflow-x: hidden;
+  overflow-wrap: break-word;
 }
 
 body {
-  padding: 12px;
+  padding: 10px;
 }
 
 /* ─── Status Bar ────────────────────────────────────────────────── */
 
 #status-bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 8px 10px;
   border-radius: var(--radius);
   background: var(--bg-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-size: 12px;
+  min-height: 36px;
 }
 
 .status {
@@ -73,6 +76,7 @@ body {
   align-items: center;
   gap: 6px;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .status-dot {
@@ -80,6 +84,7 @@ body {
   height: 8px;
   border-radius: 50%;
   display: inline-block;
+  flex-shrink: 0;
 }
 
 .status.active .status-dot {
@@ -94,11 +99,13 @@ body {
 .domain {
   color: var(--text-secondary);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 140px;
+  max-width: 120px;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .warning-badge {
@@ -106,6 +113,8 @@ body {
   font-size: 11px;
   color: var(--warning);
   font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ─── Protection Toggle ─────────────────────────────────────────── */
@@ -114,8 +123,9 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 0;
-  margin-bottom: 12px;
+  padding: 6px 0;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .toggle {
@@ -164,6 +174,11 @@ body {
 .toggle-label {
   font-size: 12px;
   color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 }
 
 .badge-whitelisted {
@@ -173,6 +188,7 @@ body {
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 /* ─── Stats Panel ───────────────────────────────────────────────── */
@@ -180,53 +196,63 @@ body {
 #stats-panel {
   background: var(--bg-secondary);
   border-radius: var(--radius);
-  padding: 12px;
-  margin-bottom: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 6px;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 4px;
+  padding: 6px 2px;
   border-radius: 4px;
   background: var(--bg);
+  min-width: 0;
 }
 
 .stat-value {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--text);
-  line-height: 1.2;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .stat-label {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-secondary);
   text-align: center;
-  margin-top: 2px;
+  margin-top: 1px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 /* ─── Link Scan Summary ─────────────────────────────────────────── */
 
 #link-scan-summary {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .scan-summary {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 8px 10px;
   border-radius: var(--radius);
   font-size: 12px;
   font-weight: 500;
+  overflow: hidden;
 }
 
 .scan-summary.safe {
@@ -240,22 +266,38 @@ body {
 }
 
 .scan-icon {
-  font-size: 16px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.scan-summary span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .scan-details {
   list-style: none;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .scan-details li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 6px;
   padding: 4px 8px;
   font-size: 11px;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.scan-details li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 }
 
 .scan-details li:last-child {
@@ -269,8 +311,9 @@ body {
   cursor: pointer;
   font-size: 11px;
   text-decoration: underline;
-  padding: 2px 4px;
+  padding: 2px 6px;
   font-family: var(--font);
+  flex-shrink: 0;
 }
 
 .btn-link:hover {
@@ -281,7 +324,7 @@ body {
 
 footer {
   text-align: center;
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid var(--border);
 }
 
