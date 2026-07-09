@@ -152,9 +152,10 @@ function getRelevantListeners(element) {
  * Report a hijacked element to the background script.
  */
 function reportHijack(element, eventType, analysis) {
-  const href = element.href || element.getAttribute('href') || '';
-  // Build a selector for the element
-  const selector = buildSelector(element);
+  // element may be window, document, or other non-Element EventTarget
+  const isElement = element && typeof element.getAttribute === 'function';
+  const href = isElement ? (element.href || element.getAttribute('href') || '') : '';
+  const selector = isElement ? buildSelector(element) : element.constructor?.name || 'unknown';
 
   sendMessage(MSG.EVENT_FLAG, {
     elementSelector: selector,
