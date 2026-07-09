@@ -95,7 +95,8 @@
       "id": "dev.ravikgupt@gmail.com",
       "strict_min_version": "113.0",
       "data_collection_permissions": {
-        "data_collection_usage": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in the user's browser. No analytics, no telemetry, no external servers."
+        "required": false,
+        "data_collection_usage": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in the user browser. No analytics, no telemetry, no external servers."
       }
     }
   }
