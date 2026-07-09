@@ -1,11 +1,7 @@
 /**
  * CleanClick — Options Page Styles
  *
- * Stripe-inspired design:
- * - Clean, spacious, minimal
- * - Dark navy sidebar feel (horizontal tabs)
- * - Purple-blue accent (#635bff)
- * - Card-based setting groups
+ * Stripe Light — neutral white, clean cards, purple accent.
  */
 
 *, *::before, *::after {
@@ -15,57 +11,50 @@
 }
 
 :root {
-  --bg-page: #f6f9fc;
-  --bg-card: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --bg-hover: #eef0f5;
-  --text: #1a1a2e;
-  --text-secondary: #5b6784;
+  --page-bg: #f9fafb;
+  --card-bg: #ffffff;
+  --card-border: #e4e8ee;
+  --hover-bg: #f7f8fa;
+  --text-primary: #1a1f36;
+  --text-secondary: #6b7c93;
   --text-tertiary: #8898aa;
-  --border: #e6ebf1;
   --accent: #635bff;
-  --accent-hover: #5851ea;
-  --accent-subtle: #ebeaff;
-  --success: #00d4aa;
+  --accent-hover: #5851db;
+  --accent-subtle: #f4f3ff;
+  --success: #24b47e;
   --danger: #ef4444;
   --danger-hover: #dc2626;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06);
   --font: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
   --max-width: 680px;
-  --transition: 150ms ease;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-page: #0f111a;
-    --bg-card: #1a1d2e;
-    --bg-subtle: #232738;
-    --bg-hover: #2a2e42;
-    --text: #f1f5f9;
+    --page-bg: #0f111a;
+    --card-bg: #1a1d2e;
+    --card-border: #2d3148;
+    --hover-bg: #232738;
+    --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-tertiary: #64748b;
-    --border: #2d3148;
     --accent: #818cf8;
     --accent-hover: #6366f1;
     --accent-subtle: #1e1b4b;
     --success: #34d399;
     --danger: #f87171;
     --danger-hover: #ef4444;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 }
 
 html {
   font-family: var(--font);
   font-size: 14px;
-  color: var(--text);
-  background: var(--bg-page);
+  color: var(--text-primary);
+  background: var(--page-bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -79,9 +68,7 @@ body {
 
 /* ─── Header ────────────────────────────────────────────────────── */
 
-header {
-  margin-bottom: 32px;
-}
+header { margin-bottom: 32px; }
 
 h1 {
   font-size: 20px;
@@ -97,7 +84,7 @@ h1 {
   font-size: 11px;
   font-weight: 500;
   color: var(--text-tertiary);
-  background: var(--bg-subtle);
+  background: var(--hover-bg);
   padding: 2px 10px;
   border-radius: 99px;
   font-weight: 600;
@@ -108,17 +95,17 @@ h1 {
   font-size: 13px;
 }
 
-/* ─── Tab Navigation (Stripe: subtle segmented control style) ───── */
+/* ─── Tab Navigation (Stripe: subtle segmented control) ─────────── */
 
 #tabs {
   display: flex;
   gap: 2px;
-  background: var(--bg-subtle);
+  background: var(--hover-bg);
   border-radius: var(--radius-md);
   padding: 3px;
   margin-bottom: 28px;
   overflow-x: auto;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
 }
 
 #tabs button {
@@ -131,15 +118,15 @@ h1 {
   color: var(--text-tertiary);
   cursor: pointer;
   border-radius: var(--radius-sm);
-  transition: all var(--transition);
+  transition: all 0.15s;
   white-space: nowrap;
   flex: 1;
   text-align: center;
 }
 
 #tabs button:hover {
-  color: var(--text);
-  background: rgba(0,0,0,0.03);
+  color: var(--text-primary);
+  background: rgba(0,0,0,0.02);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -149,17 +136,15 @@ h1 {
 }
 
 #tabs button.active {
-  background: var(--bg-card);
-  color: var(--text);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   font-weight: 600;
 }
 
 /* ─── Section Content ───────────────────────────────────────────── */
 
-section {
-  animation: fadeIn 0.2s ease;
-}
+section { animation: fadeIn 0.2s ease; }
 
 h2 {
   font-size: 16px;
@@ -178,9 +163,7 @@ h3 {
   letter-spacing: 0.06em;
 }
 
-h3:first-child {
-  margin-top: 0;
-}
+h3:first-child { margin-top: 0; }
 
 p.description {
   color: var(--text-secondary);
@@ -189,20 +172,14 @@ p.description {
   line-height: 1.7;
 }
 
-/* ─── Setting Groups (Stripe: white card with clean dividers) ───── */
+/* ─── Setting Groups ────────────────────────────────────────────── */
 
 .setting-group {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   padding: 20px 24px;
   margin-bottom: 16px;
-  box-shadow: var(--shadow-card);
-  transition: box-shadow var(--transition);
-}
-
-.setting-group:hover {
-  box-shadow: var(--shadow-hover);
 }
 
 .setting-row {
@@ -214,14 +191,14 @@ p.description {
 }
 
 .setting-row + .setting-row {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--card-border);
 }
 
 .setting-row span:first-child {
   flex: 1;
   min-width: 140px;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-primary);
 }
 
 .setting-note {
@@ -233,7 +210,7 @@ p.description {
   line-height: 1.5;
 }
 
-/* ─── Form Controls (Stripe: clean, minimal) ────────────────────── */
+/* ─── Form Controls ─────────────────────────────────────────────── */
 
 input[type="checkbox"] {
   width: 16px;
@@ -246,13 +223,13 @@ input[type="checkbox"] {
 
 select, .input {
   padding: 6px 12px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);
-  background: var(--bg-card);
-  color: var(--text);
+  background: var(--card-bg);
+  color: var(--text-primary);
   font-family: var(--font);
   font-size: 13px;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: border-color 0.15s, box-shadow 0.15s;
   appearance: none;
   cursor: pointer;
 }
@@ -265,17 +242,15 @@ select {
   min-width: 120px;
 }
 
-.input {
-  width: 220px;
-}
+.input { width: 220px; }
 
 select:focus, .input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
 }
 
-/* ─── Buttons (Stripe: clean, borderless primary) ───────────────── */
+/* ─── Buttons ───────────────────────────────────────────────────── */
 
 .btn {
   padding: 7px 18px;
@@ -285,7 +260,7 @@ select:focus, .input:focus {
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition), box-shadow var(--transition);
+  transition: background 0.15s, box-shadow 0.15s;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -294,34 +269,32 @@ select:focus, .input:focus {
 .btn.primary {
   background: var(--accent);
   color: white;
-  box-shadow: 0 1px 2px rgba(99, 91, 255, 0.2);
 }
 
 .btn.primary:hover {
   background: var(--accent-hover);
-  box-shadow: 0 2px 6px rgba(99, 91, 255, 0.3);
+  box-shadow: 0 2px 6px rgba(99, 91, 255, 0.25);
 }
 
 .btn.secondary {
-  background: var(--bg-card);
+  background: var(--card-bg);
   color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
 }
 
 .btn.secondary:hover {
-  background: var(--bg-subtle);
-  color: var(--text);
-  border-color: var(--text-tertiary);
+  background: var(--hover-bg);
+  color: var(--text-primary);
 }
 
 .btn.danger {
   background: transparent;
   color: var(--danger);
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
 }
 
 .btn.danger:hover {
-  background: var(--danger-bg);
+  background: var(--danger-subtle);
   border-color: var(--danger);
 }
 
@@ -333,11 +306,11 @@ select:focus, .input:focus {
   font-size: 13px;
   color: var(--text-tertiary);
   border-radius: var(--radius-sm);
-  transition: background var(--transition), color var(--transition);
+  transition: background 0.15s, color 0.15s;
 }
 
 .btn-icon:hover {
-  background: var(--bg-subtle);
+  background: var(--hover-bg);
   color: var(--danger);
 }
 
@@ -357,7 +330,7 @@ select:focus, .input:focus {
 
 .whitelist-list {
   list-style: none;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
@@ -367,19 +340,15 @@ select:focus, .input:focus {
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--card-border);
   font-family: var(--font-mono);
   font-size: 12px;
-  transition: background var(--transition);
+  transition: background 0.15s;
 }
 
-.whitelist-item:last-child {
-  border-bottom: none;
-}
+.whitelist-item:last-child { border-bottom: none; }
 
-.whitelist-item:hover {
-  background: var(--bg-subtle);
-}
+.whitelist-item:hover { background: var(--hover-bg); }
 
 .empty-state {
   color: var(--text-tertiary);
@@ -391,11 +360,10 @@ select:focus, .input:focus {
 /* ─── Statistics ────────────────────────────────────────────────── */
 
 .stats-table {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
 }
 
 .stats-row {
@@ -403,36 +371,31 @@ select:focus, .input:focus {
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--card-border);
   font-size: 13px;
-  transition: background var(--transition);
+  transition: background 0.15s;
 }
 
-.stats-row:last-child {
-  border-bottom: none;
-}
+.stats-row:last-child { border-bottom: none; }
 
-.stats-row:hover {
-  background: var(--bg-subtle);
-}
+.stats-row:hover { background: var(--hover-bg); }
 
 .stats-val {
   font-weight: 600;
   font-family: var(--font-mono);
   font-size: 15px;
-  color: var(--text);
+  color: var(--text-primary);
   font-variant-numeric: tabular-nums;
 }
 
 /* ─── About ─────────────────────────────────────────────────────── */
 
 .about-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   padding: 32px;
   text-align: center;
-  box-shadow: var(--shadow-card);
 }
 
 .about-name {
@@ -460,12 +423,10 @@ select:focus, .input:focus {
   text-align: left;
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--card-border);
 }
 
-.about-section h3 {
-  margin-top: 0;
-}
+.about-section h3 { margin-top: 0; }
 
 .about-section p {
   color: var(--text-secondary);
@@ -490,7 +451,7 @@ select:focus, .input:focus {
   padding: 6px 14px;
   border-radius: 99px;
   background: var(--accent-subtle);
-  transition: background var(--transition), color var(--transition);
+  transition: background 0.15s, color 0.15s;
 }
 
 .links a:hover {
@@ -498,7 +459,7 @@ select:focus, .input:focus {
   color: white;
 }
 
-/* ─── Animations ────────────────────────────────────────────────── */
+/* ─── Keyframes ─────────────────────────────────────────────────── */
 
 @keyframes fadeIn {
   from { opacity: 0; }

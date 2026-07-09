@@ -1,12 +1,8 @@
 /**
  * CleanClick — Popup Styles
  *
- * Stripe-inspired design:
- * - Clean, minimal, spacious
- * - Dark navy header, white cards
- * - Purple-blue accent (#635bff)
- * - Green success (#00d4aa)
- * - Inter / system font stack
+ * Stripe Light — clean, neutral, minimal.
+ * White backgrounds, dark text, purple accent.
  */
 
 /* ─── Reset & Base ──────────────────────────────────────────────── */
@@ -18,27 +14,25 @@
 }
 
 :root {
-  --bg-page: #f6f9fc;
-  --bg-card: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --text: #1a1a2e;
-  --text-secondary: #5b6784;
+  --page-bg: #ffffff;
+  --card-bg: #ffffff;
+  --card-border: #e4e8ee;
+  --hover-bg: #f7f8fa;
+  --text-primary: #1a1f36;
+  --text-secondary: #6b7c93;
   --text-tertiary: #8898aa;
-  --border: #e6ebf1;
   --accent: #635bff;
-  --accent-hover: #5851ea;
-  --accent-subtle: #ebeaff;
-  --success: #00d4aa;
-  --success-bg: #e6faf5;
+  --accent-hover: #5851db;
+  --accent-subtle: #f4f3ff;
+  --success: #24b47e;
+  --success-subtle: #e6f9f0;
   --danger: #ef4444;
-  --danger-bg: #fef2f2;
+  --danger-subtle: #fef2f2;
   --warning: #f59e0b;
-  --warning-bg: #fffbeb;
+  --warning-subtle: #fffbeb;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06);
   --font: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
   --popup-width: 360px;
@@ -47,24 +41,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-page: #0f111a;
-    --bg-card: #1a1d2e;
-    --bg-subtle: #232738;
-    --text: #f1f5f9;
+    --page-bg: #0f111a;
+    --card-bg: #1a1d2e;
+    --card-border: #2d3148;
+    --hover-bg: #232738;
+    --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-tertiary: #64748b;
-    --border: #2d3148;
     --accent: #818cf8;
     --accent-hover: #6366f1;
     --accent-subtle: #1e1b4b;
     --success: #34d399;
-    --success-bg: #0f2d1f;
+    --success-subtle: #0f2d1f;
     --danger: #f87171;
-    --danger-bg: #2d0f0f;
+    --danger-subtle: #2d0f0f;
     --warning: #fbbf24;
-    --warning-bg: #2d210f;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --warning-subtle: #2d210f;
   }
 }
 
@@ -72,8 +64,8 @@ html {
   font-family: var(--font);
   font-size: 13px;
   line-height: 1.5;
-  color: var(--text);
-  background: var(--bg-page);
+  color: var(--text-primary);
+  background: var(--page-bg);
   width: var(--popup-width);
   overflow-x: hidden;
   overflow-y: auto;
@@ -87,7 +79,7 @@ body {
   padding: var(--popup-padding);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   min-height: 200px;
 }
 
@@ -99,22 +91,18 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-#app > *,
-header, main, footer,
-section {
+#app > *, header, main, footer, section {
   width: 100%;
   max-width: 100%;
   min-width: 0;
 }
 
-#app * {
-  min-width: 0;
-}
+#app * { min-width: 0; }
 
-/* ─── Status Bar — Stripe dark header style ─────────────────────── */
+/* ─── Status Bar — dark header (Stripe signature) ───────────────── */
 
 #status-bar {
   display: flex;
@@ -122,28 +110,26 @@ section {
   gap: 8px;
   padding: 12px 14px;
   border-radius: var(--radius-lg);
-  background: #0a2540;
+  background: #1a1f36;
   color: #fff;
   font-size: 12px;
   min-height: 44px;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.15);
 }
 
 @media (prefers-color-scheme: dark) {
   #status-bar {
     background: #1a1d2e;
-    border: 1px solid var(--border);
-    box-shadow: none;
+    border: 1px solid var(--card-border);
   }
 }
 
 .status {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   font-weight: 600;
   font-size: 12px;
   flex-shrink: 0;
@@ -163,20 +149,19 @@ section {
   height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
-  position: relative;
 }
 
 .status.active .status-dot {
   background: var(--success);
-  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2);
+  box-shadow: 0 0 0 3px rgba(36, 180, 126, 0.25);
 }
 
 .status.disabled .status-dot {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .domain {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.65);
   font-family: var(--font-mono);
   font-size: 10px;
   overflow: hidden;
@@ -193,7 +178,7 @@ section {
 
 @media (prefers-color-scheme: dark) {
   .domain {
-    background: var(--bg-subtle);
+    background: var(--hover-bg);
     color: var(--text-tertiary);
   }
 }
@@ -205,7 +190,7 @@ section {
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
-  background: rgba(245, 158, 11, 0.15);
+  background: rgba(245, 158, 11, 0.12);
   padding: 2px 8px;
   border-radius: 99px;
   display: inline-flex;
@@ -218,27 +203,23 @@ section {
 #protection-toggle {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
+  gap: 10px;
+  padding: 11px 14px;
   border-radius: var(--radius-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s;
 }
 
 #protection-toggle:hover {
-  border-color: #d0d5dd;
-  box-shadow: var(--shadow-hover);
+  border-color: #cdd3df;
 }
 
 @media (prefers-color-scheme: dark) {
-  #protection-toggle:hover {
-    border-color: var(--border);
-  }
+  #protection-toggle:hover { border-color: var(--card-border); }
 }
 
 .toggle {
@@ -262,7 +243,7 @@ section {
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background: #d0d5dd;
+  background: #cdd3df;
   border-radius: 20px;
   transition: background 0.15s;
   pointer-events: none;
@@ -278,7 +259,7 @@ section {
   background: white;
   border-radius: 50%;
   transition: transform 0.15s;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .toggle input:checked + .toggle-slider {
@@ -314,13 +295,12 @@ section {
 /* ─── Stats Panel ───────────────────────────────────────────────── */
 
 #stats-panel {
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
-  background: var(--bg-card);
+  background: var(--card-bg);
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
 }
 
 .stats-list {
@@ -340,17 +320,17 @@ section {
 }
 
 .stat-item:hover {
-  background: var(--bg-subtle);
+  background: var(--hover-bg);
 }
 
 .stat-item + .stat-item {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--card-border);
 }
 
 .stat-value {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-primary);
   line-height: 1.3;
   flex-shrink: 0;
   margin-left: 12px;
@@ -373,13 +353,12 @@ section {
 /* ─── Link Scan Summary ─────────────────────────────────────────── */
 
 #link-scan-summary {
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
-  background: var(--bg-card);
+  background: var(--card-bg);
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
 }
 
 .scan-summary {
@@ -391,7 +370,7 @@ section {
   font-weight: 500;
   overflow: hidden;
   width: 100%;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .scan-summary.safe {
@@ -434,11 +413,11 @@ section {
 }
 
 .scan-details li:hover {
-  background: var(--bg-subtle);
+  background: var(--hover-bg);
 }
 
 .scan-details li + li {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--card-border);
 }
 
 .scan-details li span {
@@ -451,7 +430,7 @@ section {
 
 .btn-link {
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid var(--card-border);
   color: var(--text-secondary);
   cursor: pointer;
   font-size: 11px;
@@ -501,24 +480,7 @@ footer {
   width: 100%;
 }
 
-.empty-state-icon {
-  font-size: 24px;
-  margin-bottom: 6px;
-  opacity: 0.5;
-}
-
 .empty-state-text {
   font-size: 12px;
   font-weight: 500;
-}
-
-/* ─── Animations ────────────────────────────────────────────────── */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-#app > * {
-  animation: fadeIn 0.2s ease both;
 }
