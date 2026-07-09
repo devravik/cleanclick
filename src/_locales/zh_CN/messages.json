@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "保护您免受不必要的重定向、弹出广告、虚假下载按钮和恶意导航技巧的侵害。"
+  },
+  "protectionEnabled": {
+    "message": "保护已启用"
+  },
+  "protectionDisabled": {
+    "message": "保护已禁用"
+  },
+  "hiddenLinksFound": {
+    "message": "发现隐藏链接"
+  },
+  "revealHiddenLinks": {
+    "message": "显示隐藏链接"
+  },
+  "linkSafetyCheck": {
+    "message": "检查链接安全性"
+  },
+  "copyCleanUrl": {
+    "message": "复制干净URL"
+  },
+  "reportLink": {
+    "message": "举报链接为垃圾信息"
+  }
+}

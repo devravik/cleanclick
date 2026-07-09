@@ -25,7 +25,7 @@ module.exports = {
     'content-scripts/edge-case-handler': './src/content-scripts/edge-case-handler.js',
     'content-scripts/link-density-analyzer': './src/content-scripts/link-density-analyzer.js',
     'content-scripts/clipboard-guard': './src/content-scripts/clipboard-guard.js',
-    'content-scripts/affiliate-injector': './src/content-scripts/affiliate-injector.js',
+    'content-scripts/check-injector': './src/content-scripts/check-injector.js',
     'content-scripts/url-shortener-bypass': './src/content-scripts/url-shortener-bypass.js',
   },
   output: {

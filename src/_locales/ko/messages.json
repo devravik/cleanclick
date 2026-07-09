@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "원치 않는 리디렉션, 팝업 광고, 가짜 다운로드 버튼 및 악성 탐색 트릭으로부터 보호합니다."
+  },
+  "protectionEnabled": {
+    "message": "보호 활성화"
+  },
+  "protectionDisabled": {
+    "message": "보호 비활성화"
+  },
+  "hiddenLinksFound": {
+    "message": "숨겨진 링크 발견"
+  },
+  "revealHiddenLinks": {
+    "message": "숨겨진 링크 표시"
+  },
+  "linkSafetyCheck": {
+    "message": "링크 안전 확인"
+  },
+  "copyCleanUrl": {
+    "message": "깨끗한 URL 복사"
+  },
+  "reportLink": {
+    "message": "링크를 스팸으로 신고"
+  }
+}

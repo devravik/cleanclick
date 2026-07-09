@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "Protegge da reindirizzamenti indesiderati, annunci pop-under, pulsanti di download falsi e trucchi di navigazione dannosi."
+  },
+  "protectionEnabled": {
+    "message": "Protezione attiva"
+  },
+  "protectionDisabled": {
+    "message": "Protezione disattivata"
+  },
+  "hiddenLinksFound": {
+    "message": "Link nascosti trovati"
+  },
+  "revealHiddenLinks": {
+    "message": "Mostra link nascosti"
+  },
+  "linkSafetyCheck": {
+    "message": "Controlla sicurezza link"
+  },
+  "copyCleanUrl": {
+    "message": "Copia URL pulito"
+  },
+  "reportLink": {
+    "message": "Segnala link come spam"
+  }
+}

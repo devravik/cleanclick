@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "不要なリダイレクト、ポップアンダー広告、偽のダウンロードボタン、悪意のあるナビゲーションから保護します。"
+  },
+  "protectionEnabled": {
+    "message": "保護中"
+  },
+  "protectionDisabled": {
+    "message": "保護オフ"
+  },
+  "hiddenLinksFound": {
+    "message": "隠しリンクが見つかりました"
+  },
+  "revealHiddenLinks": {
+    "message": "隠しリンクを表示"
+  },
+  "linkSafetyCheck": {
+    "message": "リンクの安全性を確認"
+  },
+  "copyCleanUrl": {
+    "message": "クリーンURLをコピー"
+  },
+  "reportLink": {
+    "message": "リンクをスパムとして報告"
+  }
+}

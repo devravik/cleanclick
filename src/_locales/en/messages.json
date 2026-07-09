@@ -1,11 +1,29 @@
 {
-  "extensionName": { "message": "CleanClick" },
-  "extensionDescription": { "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks." },
-  "protectionEnabled": { "message": "Protection active" },
-  "protectionDisabled": { "message": "Protection off" },
-  "hiddenLinksFound": { "message": "Hidden links found" },
-  "revealHiddenLinks": { "message": "Reveal hidden links" },
-  "linkSafetyCheck": { "message": "Check link safety" },
-  "copyCleanUrl": { "message": "Copy clean URL" },
-  "reportLink": { "message": "Report link as spam" }
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+  },
+  "protectionEnabled": {
+    "message": "Protection active"
+  },
+  "protectionDisabled": {
+    "message": "Protection off"
+  },
+  "hiddenLinksFound": {
+    "message": "Hidden links found"
+  },
+  "revealHiddenLinks": {
+    "message": "Reveal hidden links"
+  },
+  "linkSafetyCheck": {
+    "message": "Check link safety"
+  },
+  "copyCleanUrl": {
+    "message": "Copy clean URL"
+  },
+  "reportLink": {
+    "message": "Report link as spam"
+  }
 }

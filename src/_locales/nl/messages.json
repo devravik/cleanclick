@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "Beschermt tegen ongewenste doorverwijzingen, pop-under advertenties, valse downloadknoppen en kwaadaardige navigatietrucs."
+  },
+  "protectionEnabled": {
+    "message": "Bescherming actief"
+  },
+  "protectionDisabled": {
+    "message": "Bescherming uit"
+  },
+  "hiddenLinksFound": {
+    "message": "Verborgen links gevonden"
+  },
+  "revealHiddenLinks": {
+    "message": "Verborgen links tonen"
+  },
+  "linkSafetyCheck": {
+    "message": "Linkveiligheid controleren"
+  },
+  "copyCleanUrl": {
+    "message": "Schone URL kopiëren"
+  },
+  "reportLink": {
+    "message": "Link rapporteren als spam"
+  }
+}

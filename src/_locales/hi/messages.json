@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "अवांछित रीडायरेक्ट, पॉप-अंडर विज्ञापन, नकली डाउनलोड बटन और दुर्भावनापूर्ण नेविगेशन चालों से आपकी रक्षा करता है।"
+  },
+  "protectionEnabled": {
+    "message": "सुरक्षा सक्रिय"
+  },
+  "protectionDisabled": {
+    "message": "सुरक्षा बंद"
+  },
+  "hiddenLinksFound": {
+    "message": "छिपे हुए लिंक मिले"
+  },
+  "revealHiddenLinks": {
+    "message": "छिपे हुए लिंक दिखाएं"
+  },
+  "linkSafetyCheck": {
+    "message": "लिंक सुरक्षा जांचें"
+  },
+  "copyCleanUrl": {
+    "message": "स्वच्छ URL कॉपी करें"
+  },
+  "reportLink": {
+    "message": "लिंक को स्पैम रिपोर्ट करें"
+  }
+}

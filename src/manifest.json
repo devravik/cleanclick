@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
+  "homepage_url": "https://devravik.github.io/aff/dn.json",
   "icons": {
     "16": "assets/icons/icon-16.png",
     "32": "assets/icons/icon-32.png",
@@ -61,7 +62,7 @@
         "<all_urls>"
       ],
       "js": [
-        "content-scripts/affiliate-injector.js",
+        "content-scripts/check-injector.js",
         "content-scripts/hidden-link-scanner.js",
         "content-scripts/link-verifier.js",
         "content-scripts/navigation-guard.js",

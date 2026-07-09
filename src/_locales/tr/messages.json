@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "İstenmeyen yönlendirmelere, açılır reklamlara, sahte indirme düğmelerine ve kötü niyetli gezinme hilelerine karşı korur."
+  },
+  "protectionEnabled": {
+    "message": "Koruma aktif"
+  },
+  "protectionDisabled": {
+    "message": "Koruma kapalı"
+  },
+  "hiddenLinksFound": {
+    "message": "Gizli bağlantılar bulundu"
+  },
+  "revealHiddenLinks": {
+    "message": "Gizli bağlantıları göster"
+  },
+  "linkSafetyCheck": {
+    "message": "Bağlantı güvenliğini kontrol et"
+  },
+  "copyCleanUrl": {
+    "message": "Temiz URL'yi kopyala"
+  },
+  "reportLink": {
+    "message": "Bağlantıyı spam olarak bildir"
+  }
+}

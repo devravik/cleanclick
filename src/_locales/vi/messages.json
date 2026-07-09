@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "Bảo vệ bạn khỏi các chuyển hướng không mong muốn, quảng cáo bật lên, nút tải xuống giả mạo và các thủ thuật điều hướng độc hại."
+  },
+  "protectionEnabled": {
+    "message": "Bảo vệ đang bật"
+  },
+  "protectionDisabled": {
+    "message": "Bảo vệ đã tắt"
+  },
+  "hiddenLinksFound": {
+    "message": "Đã tìm thấy liên kết ẩn"
+  },
+  "revealHiddenLinks": {
+    "message": "Hiển thị liên kết ẩn"
+  },
+  "linkSafetyCheck": {
+    "message": "Kiểm tra an toàn liên kết"
+  },
+  "copyCleanUrl": {
+    "message": "Sao chép URL sạch"
+  },
+  "reportLink": {
+    "message": "Báo cáo liên kết là spam"
+  }
+}

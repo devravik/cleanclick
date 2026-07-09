@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "يحميك من إعادة التوجيه غير المرغوب فيه والإعلانات المنبثقة وأزرار التنزيل المزيفة وحيل التصفح الخبيثة."
+  },
+  "protectionEnabled": {
+    "message": "الحماية نشطة"
+  },
+  "protectionDisabled": {
+    "message": "الحماية معطلة"
+  },
+  "hiddenLinksFound": {
+    "message": "تم العثور على روابط مخفية"
+  },
+  "revealHiddenLinks": {
+    "message": "إظهار الروابط المخفية"
+  },
+  "linkSafetyCheck": {
+    "message": "تحقق من أمان الرابط"
+  },
+  "copyCleanUrl": {
+    "message": "نسخ عنوان URL نظيف"
+  },
+  "reportLink": {
+    "message": "الإبلاغ عن الرابط كبريد عشوائي"
+  }
+}

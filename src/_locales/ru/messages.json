@@ -1,0 +1,29 @@
+{
+  "extensionName": {
+    "message": "CleanClick"
+  },
+  "extensionDescription": {
+    "message": "Защищает от нежелательных перенаправлений, всплывающей рекламы, поддельных кнопок загрузки и вредоносных навигационных трюков."
+  },
+  "protectionEnabled": {
+    "message": "Защита активна"
+  },
+  "protectionDisabled": {
+    "message": "Защита отключена"
+  },
+  "hiddenLinksFound": {
+    "message": "Скрытые ссылки найдены"
+  },
+  "revealHiddenLinks": {
+    "message": "Показать скрытые ссылки"
+  },
+  "linkSafetyCheck": {
+    "message": "Проверить безопасность ссылки"
+  },
+  "copyCleanUrl": {
+    "message": "Скопировать чистый URL"
+  },
+  "reportLink": {
+    "message": "Сообщить о ссылке как о спаме"
+  }
+}
