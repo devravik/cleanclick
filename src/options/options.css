@@ -50,6 +50,39 @@
   }
 }
 
+/* Manual theme overrides */
+html[data-theme="dark"] {
+  --page-bg: #0f111a;
+  --card-bg: #1a1d2e;
+  --card-border: #2d3148;
+  --hover-bg: #232738;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --accent-subtle: #1e1b4b;
+  --success: #34d399;
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+}
+
+html[data-theme="light"] {
+  --page-bg: #f9fafb;
+  --card-bg: #ffffff;
+  --card-border: #e4e8ee;
+  --hover-bg: #f7f8fa;
+  --text-primary: #1a1f36;
+  --text-secondary: #6b7c93;
+  --text-tertiary: #8898aa;
+  --accent: #635bff;
+  --accent-hover: #5851db;
+  --accent-subtle: #f4f3ff;
+  --success: #24b47e;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+}
+
 html {
   font-family: var(--font);
   font-size: 14px;
