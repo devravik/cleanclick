@@ -7,7 +7,9 @@
 
 /* ─── Reset & Base ──────────────────────────────────────────────── */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -37,27 +39,6 @@
   --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
   --popup-width: 360px;
   --popup-padding: 16px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --page-bg: #0f111a;
-    --card-bg: #1a1d2e;
-    --card-border: #2d3148;
-    --hover-bg: #232738;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-tertiary: #64748b;
-    --accent: #818cf8;
-    --accent-hover: #6366f1;
-    --accent-subtle: #1e1b4b;
-    --success: #34d399;
-    --success-subtle: #0f2d1f;
-    --danger: #f87171;
-    --danger-subtle: #2d0f0f;
-    --warning: #fbbf24;
-    --warning-subtle: #2d210f;
-  }
 }
 
 html {
@@ -94,13 +75,19 @@ body {
   gap: 10px;
 }
 
-#app > *, header, main, footer, section {
+#app>*,
+header,
+main,
+footer,
+section {
   width: 100%;
   max-width: 100%;
   min-width: 0;
 }
 
-#app * { min-width: 0; }
+#app * {
+  min-width: 0;
+}
 
 /* ─── Status Bar — dark header (Stripe signature) ───────────────── */
 
@@ -117,13 +104,6 @@ body {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-  #status-bar {
-    background: #1a1d2e;
-    border: 1px solid var(--card-border);
-  }
 }
 
 .status {
@@ -176,13 +156,6 @@ body {
   line-height: 1.5;
 }
 
-@media (prefers-color-scheme: dark) {
-  .domain {
-    background: var(--hover-bg);
-    color: var(--text-tertiary);
-  }
-}
-
 .warning-badge {
   margin-left: auto;
   font-size: 10px;
@@ -216,10 +189,6 @@ body {
 
 #protection-toggle:hover {
   border-color: #cdd3df;
-}
-
-@media (prefers-color-scheme: dark) {
-  #protection-toggle:hover { border-color: var(--card-border); }
 }
 
 .toggle {
@@ -262,11 +231,11 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
-.toggle input:checked + .toggle-slider {
+.toggle input:checked+.toggle-slider {
   background: var(--accent);
 }
 
-.toggle input:checked + .toggle-slider::before {
+.toggle input:checked+.toggle-slider::before {
   transform: translateX(14px);
 }
 
@@ -323,7 +292,7 @@ body {
   background: var(--hover-bg);
 }
 
-.stat-item + .stat-item {
+.stat-item+.stat-item {
   border-top: 1px solid var(--card-border);
 }
 
@@ -416,7 +385,7 @@ body {
   background: var(--hover-bg);
 }
 
-.scan-details li + li {
+.scan-details li+li {
   border-top: 1px solid var(--card-border);
 }
 
