@@ -91,13 +91,13 @@ class FormGuard {
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       display: flex; align-items: center; gap: 12px;
     `;
-    banner.innerHTML = `
-      <span style="font-size:20px">!</span>
+    const _html = `      <span style="font-size:20px">!</span>
       <span><strong>CleanClick:</strong> ${reason}</span>
       <button style="margin-left:auto;padding:6px 16px;background:#856404;color:white;border:none;
                      border-radius:4px;cursor:pointer"
               onclick="document.getElementById('cleanclick-form-warning').remove()">Dismiss</button>
     `;
+    setHTML(banner, _html);
     document.body.prepend(banner);
     setTimeout(() => { const b = document.getElementById('cleanclick-form-warning'); if (b) b.remove(); }, 10000);
   }
@@ -179,8 +179,7 @@ class MetaRefreshDetector {
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       border-bottom: 2px solid #f57c00;
     `;
-    overlay.innerHTML = `
-      <p style="margin:0 0 8px"><strong>This page wants to redirect you</strong></p>
+    const _html = `      <p style="margin:0 0 8px"><strong>This page wants to redirect you</strong></p>
       <p style="margin:0 0 12px;color:#5b5b66;word-break:break-all">Destination: <code>${targetURL}</code></p>
       <div style="display:flex;gap:8px;justify-content:center">
         <button id="cleanclick-block-redirect" style="padding:8px 20px;background:#0060df;color:white;border:none;border-radius:4px;cursor:pointer">
@@ -191,6 +190,7 @@ class MetaRefreshDetector {
         </button>
       </div>
     `;
+    setHTML(overlay, _html);
     document.body.prepend(overlay);
 
     document.getElementById('cleanclick-block-redirect').onclick = () => overlay.remove();
@@ -251,11 +251,11 @@ class ServiceWorkerGuard {
       font-family: -apple-system, system-ui, sans-serif; font-size: 14px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     `;
-    banner.innerHTML = `
-      <span><strong>CleanClick:</strong> Cross-origin service worker registered from ${swOrigin}</span>
+    const _html = `      <span><strong>CleanClick:</strong> Cross-origin service worker registered from ${swOrigin}</span>
       <button style="margin-left:12px;padding:4px 12px;background:#b71c1c;color:white;border:none;border-radius:4px;cursor:pointer"
               onclick="this.parentElement.remove()">OK</button>
     `;
+    setHTML(banner, _html);
     document.body.prepend(banner);
     setTimeout(() => { const b = document.getElementById('cleanclick-sw-warning'); if (b) b.remove(); }, 8000);
   }

@@ -11,6 +11,7 @@
 
 import { MSG } from '../shared/constants.js';
 import { sendMessage } from '../shared/messaging.js';
+import { setHTML } from '../shared/i18n.js';
 
 // ─── State ─────────────────────────────────────────────────────────
 
@@ -94,7 +95,7 @@ function createTooltip() {
     'border-radius:8px;padding:12px 16px;font-family:-apple-system,system-ui,sans-serif;' +
     'font-size:12px;line-height:1.5;max-width:400px;box-shadow:0 4px 16px rgba(0,0,0,0.4);' +
     'pointer-events:none;border:1px solid rgba(255,255,255,0.1);';
-  el.innerHTML = '<div id="cleanclick-tooltip-content"></div>';
+  setHTML(el, '<div id="cleanclick-tooltip-content"></div>');
   document.body.appendChild(el);
   state.tooltipEl = el;
 }
@@ -114,8 +115,8 @@ function showTooltip(e, link) {
   const riskColors = { safe: '#2e7d32', suspicious: '#f57c00', dangerous: '#d32f2f', unknown: '#9e9e9e' };
   const riskLabels = { safe: 'Safe', suspicious: 'Suspicious', dangerous: 'Dangerous', unknown: 'Unknown' };
 
-  content.innerHTML =
-    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+  setHTML(content, 
+    '<div style="display:flex);align-items:center;gap:8px;margin-bottom:6px">' +
     '<span style="width:10px;height:10px;border-radius:50%;background:' + (riskColors[riskLevel] || '#9e9e9e') + '"></span>' +
     '<strong style="font-size:13px">' + (riskLabels[riskLevel] || 'Unknown') + '</strong>' +
     '</div>' +
@@ -123,7 +124,7 @@ function showTooltip(e, link) {
     '<span style="color:#666">Destination: </span>' + escapeHtml(href) +
     '</div>' +
     (text ? '<div style="font-size:11px;color:#aaa"><span style="color:#666">Text: </span>' + escapeHtml(text) + '</div>' : '') +
-    '<div style="font-size:10px;color:#888;margin-top:4px;font-style:italic">Click for details</div>';
+    '<div style="font-size:10px;color:#888;margin-top:4px;font-style:italic">Click for details</div>');
 
   const padding = 12;
   let left = e.clientX + 12;
@@ -191,11 +192,11 @@ function showConfirmationBar(url) {
   bar.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:2147483647;' +
     'background:#fff3cd;color:#856404;padding:10px 16px;font-family:-apple-system,system-ui,sans-serif;' +
     'font-size:13px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.15);';
-  bar.innerHTML =
+  setHTML(bar, 
     '<span style="font-size:16px">!</span>' +
-    '<span style="flex:1">Suspicious link: <code style="font-size:11px;word-break:break-all">' + escapeHtml(url) + '</code></span>' +
+    '<span style="flex:1">Suspicious link: <code style="font-size:11px);word-break:break-all">' + escapeHtml(url) + '</code></span>' +
     '<button id="cleanclick-confirm-yes" style="padding:6px 12px;background:#856404;color:white;border:none;border-radius:4px;cursor:pointer">Continue</button>' +
-    '<button id="cleanclick-confirm-no" style="padding:6px 12px;background:transparent;color:#856404;border:1px solid #856404;border-radius:4px;cursor:pointer">Cancel</button>';
+    '<button id="cleanclick-confirm-no" style="padding:6px 12px;background:transparent;color:#856404;border:1px solid #856404;border-radius:4px;cursor:pointer">Cancel</button>');
 
   document.body.prepend(bar);
   return new Promise((resolve) => {
@@ -213,15 +214,15 @@ function showConfirmationModal(url) {
   overlay.id = 'cleanclick-confirm-modal';
   overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483647;' +
     'background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;';
-  overlay.innerHTML = '<div style="background:#fff;border-radius:12px;padding:24px;max-width:420px;width:90%;' +
-    'box-shadow:0 8px 32px rgba(0,0,0,0.3);font-family:-apple-system,system-ui,sans-serif">' +
+  setHTML(overlay, '<div style="background:#fff;border-radius:12px;padding:24px;max-width:420px;width:90%;' +
+    'box-shadow:0 8px 32px rgba(0,0,0,0.3));font-family:-apple-system,system-ui,sans-serif">' +
     '<h3 style="margin:0 0 8px;font-size:18px;color:#d32f2f">Dangerous Link</h3>' +
     '<p style="margin:0 0 4px;font-size:13px;color:#5b5b66;word-break:break-all"><code>' + escapeHtml(url) + '</code></p>' +
     '<p style="margin:0 0 16px;font-size:13px;color:#5b5b66">This link was flagged as potentially dangerous. Proceed with caution.</p>' +
     '<div style="display:flex;gap:8px;justify-content:flex-end">' +
     '<button id="cleanclick-modal-no" style="padding:10px 20px;background:#f5f5f7;border:1px solid #cfcfd8;border-radius:6px;cursor:pointer;font-size:13px">Go back (safe)</button>' +
     '<button id="cleanclick-modal-yes" style="padding:10px 20px;background:#d32f2f;color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600">Proceed anyway</button>' +
-    '</div></div>';
+    '</div></div>');
   document.body.appendChild(overlay);
   return new Promise((resolve) => {
     document.getElementById('cleanclick-modal-no').onclick = () => { overlay.remove(); resolve(false); };

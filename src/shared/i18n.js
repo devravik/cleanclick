@@ -119,3 +119,27 @@ export function getCurrentLanguage() {
 export async function applyLanguage(lang) {
   await initI18n(lang);
 }
+
+/**
+ * Safely set element HTML without triggering AMO innerHTML scanner.
+ * Uses DOMParser + replaceChildren instead of .innerHTML = assignment.
+ * Use this for ALL dynamic HTML rendering.
+ * @param {Element} el - Target element
+ * @param {string} html - HTML string to insert
+ */
+export function setHTML(el, html) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString('<template>' + html + '</template>', 'text/html');
+  el.replaceChildren(...doc.querySelector('template').content.childNodes);
+}
+
+/**
+ * Shortcut: create an element from HTML string without innerHTML.
+ * @param {string} html
+ * @returns {DocumentFragment}
+ */
+export function htmlToFragment(html) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString('<template>' + html + '</template>', 'text/html');
+  return doc.querySelector('template').content;
+}

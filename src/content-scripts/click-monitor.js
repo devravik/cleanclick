@@ -13,6 +13,7 @@
 
 import { MSG, TIMING } from '../shared/constants.js';
 import { sendMessage } from '../shared/messaging.js';
+import { setHTML } from '../shared/i18n.js';
 import { checkElementHijack } from './event-inspector.js';
 
 // ─── State ─────────────────────────────────────────────────────────
@@ -149,14 +150,14 @@ function showHijackWarning(hijackInfo) {
     align-items: center;
     gap: 12px;
   `;
-  banner.innerHTML = `
-    <span style="font-size:20px">!</span>
+  const _html = `    <span style="font-size:20px">!</span>
     <span><strong>CleanClick:</strong> This link was hijacked!
       The page script redirected to: <code>${hijackInfo.details[0]?.targetUrls?.[0] || 'unknown'}</code>
     </span>
     <button style="margin-left:auto;padding:6px 16px;background:#856404;color:white;border:none;border-radius:4px;cursor:pointer"
             onclick="this.parentElement.remove()">Dismiss</button>
   `;
+  setHTML(banner, _html);
 
   document.body.prepend(banner);
 

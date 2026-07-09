@@ -29,6 +29,7 @@ module.exports = {
     'content-scripts/url-shortener-bypass': './src/content-scripts/url-shortener-bypass.js',
   },
   output: {
+    globalObject: 'globalThis',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     clean: true,

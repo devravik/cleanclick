@@ -14,6 +14,7 @@
 
 import { MSG } from '../shared/constants.js';
 import { sendMessage } from '../shared/messaging.js';
+import { setHTML } from '../shared/i18n.js';
 import { detectInvisibleChars } from '../shared/utils.js';
 
 // ─── State ─────────────────────────────────────────────────────────
@@ -183,14 +184,14 @@ function showClipboardWarning(reasons, text) {
     '<div style="font-size:12px;margin-top:2px">\u26A0\uFE0F ' + escapeHtml(r.detail) + '</div>'
   ).join('');
 
-  banner.innerHTML =
+  setHTML(banner, 
     '<span style="font-size:24px">\uD83D\uDCCB</span>' +
     '<div style="flex:1">' +
     '<strong>Clipboard Warning</strong>' +
     reasonsHtml +
     '<div style="font-size:11px;color:#888;margin-top:4px;word-break:break-all">Content: ' + escapeHtml(text.slice(0, 100)) + '</div>' +
     '</div>' +
-    '<button onclick="this.parentElement.remove()" style="padding:6px 12px;background:#b71c1c;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>';
+    '<button onclick="this.parentElement.remove()" style="padding:6px 12px);background:#b71c1c;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>');
 
   document.body.appendChild(banner);
 

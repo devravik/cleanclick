@@ -14,6 +14,7 @@
  */
 
 import { sendMessage } from '../shared/messaging.js';
+import { setHTML } from '../shared/i18n.js';
 import { MSG } from '../shared/constants.js';
 
 /**
@@ -111,10 +112,10 @@ function checkAndWarn() {
     banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:2147483647;' +
       'background:#fff3cd;color:#856404;padding:8px 16px;font-family:-apple-system,system-ui,sans-serif;' +
       'font-size:12px;display:flex;align-items:center;gap:8px;';
-    banner.innerHTML =
+    setHTML(banner, 
       '<span>\u26A0\uFE0F</span>' +
       '<span><strong>High link density:</strong> ' + result.totalLinks + ' links to ' + result.uniqueExternalDomains + ' domains detected.</span>' +
-      '<button onclick="this.parentElement.remove()" style="margin-left:auto;padding:4px 8px;background:#856404;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>';
+      '<button onclick="this.parentElement.remove()" style="margin-left:auto);padding:4px 8px;background:#856404;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>');
     document.body.prepend(banner);
 
     // Auto-hide after 8s

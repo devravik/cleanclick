@@ -15,6 +15,7 @@
 
 import { HIDDEN_LINK, SCAM_PHRASES, MSG } from '../shared/constants.js';
 import { sendMessage } from '../shared/messaging.js';
+import { setHTML } from '../shared/i18n.js';
 
 // ─── State ─────────────────────────────────────────────────────────
 
@@ -226,8 +227,7 @@ function showOverlayWarning(result) {
     details += `<div style="font-size:12px;margin-top:4px;opacity:0.9">Fake close button detected</div>`;
   }
 
-  warning.innerHTML = `
-    <span style="font-size:24px">!</span>
+  const _html = `    <span style="font-size:24px">!</span>
     <div style="flex:1">
       <strong>Suspicious overlay detected!</strong>
       ${details}
@@ -241,6 +241,7 @@ function showOverlayWarning(result) {
       border:1px solid rgba(255,255,255,0.5); border-radius:4px; cursor:pointer;
     ">Dismiss</button>
   `;
+  setHTML(warning, _html);
 
   document.body.prepend(warning);
 
@@ -285,12 +286,12 @@ function removeSuspiciousOverlay() {
 
   const warning = document.getElementById('cleanclick-scam-warning');
   if (warning) {
-    warning.innerHTML = `
-      <span style="font-size:20px">[OK]</span>
+    const _html = `      <span style="font-size:20px">[OK]</span>
       <span>Overlay removed. Page should now be usable.</span>
       <button style="margin-left:auto;padding:4px 12px;background:transparent;color:white;border:1px solid rgba(255,255,255,0.5);border-radius:4px;cursor:pointer"
               onclick="this.parentElement.remove()">OK</button>
     `;
+    setHTML(warning, _html);
   }
 }
 

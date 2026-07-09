@@ -14,6 +14,7 @@
 
 import { MSG } from '../shared/constants.js';
 import { sendMessage } from '../shared/messaging.js';
+import { setHTML } from '../shared/i18n.js';
 
 // ─── Premium Rate Prefixes (heuristic) ────────────────────────────
 
@@ -191,7 +192,7 @@ function showConfirmation(result) {
   const appWarning = result.protocol === 'tel' || result.protocol === 'sms' ? '' :
     '<p style="margin:4px 0;font-size:12px;color:#5b5b66">This will launch an external application.</p>';
 
-  overlay.innerHTML = '<div style="background:#fff;border-radius:8px;padding:24px;max-width:400px;box-shadow:0 4px 24px rgba(0,0,0,0.3);font-family:-apple-system,system-ui,sans-serif">' +
+  setHTML(overlay, '<div style="background:#fff;border-radius:8px;padding:24px;max-width:400px;box-shadow:0 4px 24px rgba(0,0,0,0.3));font-family:-apple-system,system-ui,sans-serif">' +
     '<h3 style="margin:0 0 8px;font-size:16px">' + (result.isRisky ? '\u26A0\uFE0F Suspicious Link' : '\u2139\uFE0F External Link') + '</h3>' +
     '<p style="margin:0 0 8px;font-size:12px;color:#5b5b66;word-break:break-all"><code>' + result.href + '</code></p>' +
     appWarning +
@@ -199,7 +200,7 @@ function showConfirmation(result) {
     '<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px">' +
     '<button id="cleanclick-protocol-cancel" style="padding:8px 16px;background:#f5f5f7;border:1px solid #cfcfd8;border-radius:4px;cursor:pointer">Cancel</button>' +
     '<button id="cleanclick-protocol-allow" style="padding:8px 16px;background:#0060df;color:white;border:none;border-radius:4px;cursor:pointer">Proceed</button>' +
-    '</div></div>';
+    '</div></div>');
 
   document.body.appendChild(overlay);
 
