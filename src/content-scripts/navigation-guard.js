@@ -333,10 +333,18 @@ class PostMessageGuard {
   }
 
   _monitorMessageListeners() {
+    // window.addEventListener may be read-only in some contexts (Firefox 113+)
+    let addListenerWritable = false;
+    try {
+      addListenerWritable = Object.getOwnPropertyDescriptor(window, 'addEventListener')?.writable !== false;
+    } catch {}
+    if (!addListenerWritable) return;
+
     const originalAddEventListener = window.addEventListener.bind(window);
     const guard = this;
 
-    window.addEventListener = function patchedAddEventListener(type, listener, options) {
+    try {
+      window.addEventListener = function patchedAddEventListener(type, listener, options) {
       if (type === 'message') {
         // Wrap the listener to check if it triggers navigation
         const wrappedListener = function (event) {
@@ -348,6 +356,9 @@ class PostMessageGuard {
       }
       return originalAddEventListener(type, listener, options);
     };
+    } catch (e) {
+      console.warn('CleanClick: window.addEventListener is read-only, skipping patching');
+    }
   }
 
   _checkOriginNavigation(event, origin) {
