@@ -75,7 +75,12 @@ export async function initI18n(lang) {
  * @returns {string}
  */
 export function t(key, ...args) {
-  let msg = localeCache[key] || fallbackLocale[key] || englishLocale[key] || key;
+  // Cascade: user locale → browser UI locale → English locale → browser.i18n → key
+  let msg = localeCache[key] || fallbackLocale[key] || englishLocale[key];
+  if (!msg) {
+    try { msg = browser.i18n.getMessage(key); } catch (e) { /* ignore */ }
+  }
+  if (!msg) msg = key;
 
   if (args.length > 0) {
     for (let i = 0; i < args.length; i++) {
