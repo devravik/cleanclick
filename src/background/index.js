@@ -14,6 +14,7 @@ import { init as initWhitelistManager } from './whitelist-manager.js';
 import { init as initStatistics } from './statistics.js';
 import { init as initReputation } from './reputation.js';
 import { init as initRulesEngine } from './rules-engine.js';
+import { init as initLinkHealth } from './link-health-pinger.js';
 
 // ─── Extension Lifecycle ───────────────────────────────────────────
 
@@ -47,6 +48,7 @@ async function initBackground() {
   initStatistics();
   initReputation();
   initRulesEngine();
+  initLinkHealth();
 
   // 3. Set up context menu items (right-click link inspector)
   setupContextMenus();

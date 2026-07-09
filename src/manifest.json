@@ -63,7 +63,9 @@
         "content-scripts/link-transparency-ui.js",
         "content-scripts/link-sanitizer.js",
         "content-scripts/edge-case-handler.js",
-        "content-scripts/link-density-analyzer.js"
+        "content-scripts/link-density-analyzer.js",
+        "content-scripts/clipboard-guard.js",
+        "content-scripts/url-shortener-bypass.js"
       ],
       "run_at": "document_idle",
       "world": "MAIN"
