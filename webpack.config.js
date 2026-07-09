@@ -48,6 +48,8 @@ module.exports = {
         { from: 'src/manifest.json', to: 'manifest.json' },
         { from: 'src/assets', to: 'assets' },
         { from: 'src/_locales', to: '_locales' },
+        { from: 'src/popup/popup.css', to: 'popup.css' },
+        { from: 'src/options/options.css', to: 'options.css' },
       ],
     }),
     new HtmlPlugin({
