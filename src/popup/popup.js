@@ -11,6 +11,7 @@ import {
   requestRevealHidden, getSettings,
 } from '../shared/messaging.js';
 import { MSG } from '../shared/constants.js';
+import { t, applyLanguage } from '../shared/i18n.js';
 
 // ─── State ─────────────────────────────────────────────────────────
 
@@ -19,6 +20,7 @@ const state = {
   protection: null,
   stats: null,
   scanResults: null,
+  settings: null,
 };
 
 // ─── DOM References ───────────────────────────────────────────────
@@ -47,6 +49,7 @@ async function init() {
   state.settings = settings;
 
   applyTheme(settings?.theme);
+  applyLanguage(settings?.language);
   render();
 }
 
@@ -68,14 +71,13 @@ function renderStatusBar() {
     state.scanResults.hasHidden || state.scanResults.hasHijacked || state.scanResults.hasScam
   );
 
-  bar.innerHTML = `
-    <div class="status ${enabled ? 'active' : 'disabled'}">
-      <span class="status-dot"></span>
-      <span class="status-text">${enabled ? 'Protection Active' : 'Protection Off'}</span>
-    </div>
-    ${domain ? `<span class="domain">${domain}</span>` : ''}
-    ${hasIssues ? '<span class="warning-badge">Issues found</span>' : ''}
-  `;
+  bar.innerHTML =
+    '<div class="status ' + (enabled ? 'active' : 'disabled') + '">' +
+      '<span class="status-dot"></span>' +
+      '<span class="status-text">' + (enabled ? t('protectionActive') : t('protectionOff')) + '</span>' +
+    '</div>' +
+    (domain ? '<span class="domain">' + domain + '</span>' : '') +
+    (hasIssues ? '<span class="warning-badge">' + t('issuesFound') + '</span>' : '');
 }
 
 function renderProtectionToggle() {
@@ -84,14 +86,13 @@ function renderProtectionToggle() {
 
   const { enabled, isWhitelisted } = state.protection;
 
-  container.innerHTML = `
-    <label class="toggle">
-      <input type="checkbox" ${enabled ? 'checked' : ''} id="protect-toggle">
-      <span class="toggle-slider"></span>
-    </label>
-    <span class="toggle-label">${enabled ? 'Enabled for this site' : 'Disabled for this site'}</span>
-    ${isWhitelisted ? '<span class="badge badge-whitelisted">Whitelisted</span>' : ''}
-  `;
+  container.innerHTML =
+    '<label class="toggle">' +
+      '<input type="checkbox" ' + (enabled ? 'checked' : '') + ' id="protect-toggle">' +
+      '<span class="toggle-slider"></span>' +
+    '</label>' +
+    '<span class="toggle-label">' + (enabled ? t('enabledForThisSite') : t('disabledForThisSite')) + '</span>' +
+    (isWhitelisted ? '<span class="badge badge-whitelisted">' + t('whitelisted') + '</span>' : '');
 
   $('protect-toggle')?.addEventListener('change', toggleProtection);
 }
@@ -102,26 +103,25 @@ function renderStats() {
 
   const { redirectsBlocked, popupsPrevented, suspiciousDomainsDetected, hiddenLinksFound } = state.stats;
 
-  container.innerHTML = `
-    <div class="stats-list">
-      <div class="stat-item">
-        <span class="stat-label">Redirects Blocked</span>
-        <span class="stat-value">${redirectsBlocked || 0}</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Popups Prevented</span>
-        <span class="stat-value">${popupsPrevented || 0}</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Suspicious Domains</span>
-        <span class="stat-value">${suspiciousDomainsDetected || 0}</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Hidden Links</span>
-        <span class="stat-value">${hiddenLinksFound || 0}</span>
-      </div>
-    </div>
-  `;
+  container.innerHTML =
+    '<div class="stats-list">' +
+      '<div class="stat-item">' +
+        '<span class="stat-label">' + t('redirectsBlocked') + '</span>' +
+        '<span class="stat-value">' + (redirectsBlocked || 0) + '</span>' +
+      '</div>' +
+      '<div class="stat-item">' +
+        '<span class="stat-label">' + t('popupsPrevented') + '</span>' +
+        '<span class="stat-value">' + (popupsPrevented || 0) + '</span>' +
+      '</div>' +
+      '<div class="stat-item">' +
+        '<span class="stat-label">' + t('suspiciousDomains') + '</span>' +
+        '<span class="stat-value">' + (suspiciousDomainsDetected || 0) + '</span>' +
+      '</div>' +
+      '<div class="stat-item">' +
+        '<span class="stat-label">' + t('hiddenLinks') + '</span>' +
+        '<span class="stat-value">' + (hiddenLinksFound || 0) + '</span>' +
+      '</div>' +
+    '</div>';
 }
 
 function renderLinkScanSummary() {
@@ -132,30 +132,29 @@ function renderLinkScanSummary() {
   const totalIssues = (stats?.hiddenCount || 0) + (stats?.hijackedCount || 0) + (stats?.scamCount || 0);
 
   if (totalIssues === 0) {
-    container.innerHTML = `
-      <div class="scan-summary safe">
-        <span class="scan-icon">[OK]</span>
-        <span>No issues detected on this page</span>
-      </div>
-    `;
+    container.innerHTML =
+      '<div class="scan-summary safe">' +
+        '<span class="scan-icon">[OK]</span>' +
+        '<span>' + t('noIssuesDetected') + '</span>' +
+      '</div>';
     return;
   }
 
   let html = '<div class="scan-summary warning">';
-  html += `<span class="scan-icon">!</span>`;
-  html += `<span>${totalIssues} issue${totalIssues > 1 ? 's' : ''} found</span>`;
+  html += '<span class="scan-icon">!</span>';
+  html += '<span>' + (totalIssues === 1 ? t('issueFound', totalIssues) : t('issuesFound_plural', totalIssues)) + '</span>';
   html += '</div>';
   html += '<ul class="scan-details">';
 
   if (hasHidden) {
-    html += `<li><span>${stats.hiddenCount} hidden link${stats.hiddenCount > 1 ? 's' : ''}</span>`;
-    html += `<button class="btn-link" id="reveal-btn">Reveal</button></li>`;
+    html += '<li><span>' + (stats.hiddenCount === 1 ? t('hiddenLink', stats.hiddenCount) : t('hiddenLink_plural', stats.hiddenCount)) + '</span>';
+    html += '<button class="btn-link" id="reveal-btn">' + t('reveal') + '</button></li>';
   }
   if (hasHijacked) {
-    html += `<li><span>${stats.hijackedCount} hijacked element${stats.hijackedCount > 1 ? 's' : ''}</span></li>`;
+    html += '<li><span>' + (stats.hijackedCount === 1 ? t('hijackedElement', stats.hijackedCount) : t('hijackedElement_plural', stats.hijackedCount)) + '</span></li>';
   }
   if (hasScam) {
-    html += `<li><span>${stats.scamCount} scam overlay${stats.scamCount > 1 ? 's' : ''}</span></li>`;
+    html += '<li><span>' + (stats.scamCount === 1 ? t('scamOverlay', stats.scamCount) : t('scamOverlay_plural', stats.scamCount)) + '</span></li>';
   }
 
   html += '</ul>';

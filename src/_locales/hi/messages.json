@@ -3,21 +3,282 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "अवांछित रीडायरेक्ट, पॉप-अंडर विज्ञापन, नकली डाउनलोड बटन और दुर्भावनापूर्ण नेविगेशन चालों से आपकी रक्षा करता है।"
+    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
   },
-  "protectionEnabled": {
+  "protectionActive": {
     "message": "सुरक्षा सक्रिय"
   },
-  "protectionDisabled": {
+  "protectionOff": {
     "message": "सुरक्षा बंद"
   },
-  "hiddenLinksFound": {
-    "message": "छिपे हुए लिंक मिले"
+  "issuesFound": {
+    "message": "समस्याएं मिलीं"
   },
-  "revealHiddenLinks": {
-    "message": "छिपे हुए लिंक दिखाएं"
+  "enabledForThisSite": {
+    "message": "इस साइट के लिए सक्षम"
   },
-  "linkSafetyCheck": {
+  "disabledForThisSite": {
+    "message": "इस साइट के लिए अक्षम"
+  },
+  "whitelisted": {
+    "message": "श्वेतसूचीबद्ध"
+  },
+  "redirectsBlocked": {
+    "message": "रीडायरेक्ट अवरुद्ध"
+  },
+  "popupsPrevented": {
+    "message": "पॉपअप रोके गए"
+  },
+  "suspiciousDomains": {
+    "message": "संदिग्ध डोमेन"
+  },
+  "hiddenLinks": {
+    "message": "छिपे लिंक"
+  },
+  "noIssuesDetected": {
+    "message": "इस पेज पर कोई समस्या नहीं मिली"
+  },
+  "issueFound": {
+    "message": "$1 issue found"
+  },
+  "issuesFound_plural": {
+    "message": "$1 issues found"
+  },
+  "hiddenLink": {
+    "message": "$1 hidden link"
+  },
+  "hiddenLink_plural": {
+    "message": "$1 hidden links"
+  },
+  "hijackedElement": {
+    "message": "$1 hijacked element"
+  },
+  "hijackedElement_plural": {
+    "message": "$1 hijacked elements"
+  },
+  "scamOverlay": {
+    "message": "$1 scam overlay"
+  },
+  "scamOverlay_plural": {
+    "message": "$1 scam overlays"
+  },
+  "reveal": {
+    "message": "दिखाएं"
+  },
+  "settings": {
+    "message": "सेटिंग्स"
+  },
+  "tabGeneral": {
+    "message": "सामान्य"
+  },
+  "tabWhitelist": {
+    "message": "श्वेतसूची"
+  },
+  "tabStatistics": {
+    "message": "आंकड़े"
+  },
+  "tabCustomRules": {
+    "message": "कस्टम नियम"
+  },
+  "tabAbout": {
+    "message": "बारे में"
+  },
+  "generalSettings": {
+    "message": "सामान्य सेटिंग्स"
+  },
+  "linkPreview": {
+    "message": "लिंक पूर्वावलोकन"
+  },
+  "showRiskBadges": {
+    "message": "लिंक पर जोखिम बैज दिखाएं"
+  },
+  "enableHoverTooltips": {
+    "message": "होवर टूलटिप्स सक्षम करें"
+  },
+  "autoRevealHiddenLinks": {
+    "message": "छिपे लिंक स्वचालित रूप से दिखाएं"
+  },
+  "appearance": {
+    "message": "दिखावट"
+  },
+  "theme": {
+    "message": "थीम"
+  },
+  "themeAuto": {
+    "message": "ऑटो (सिस्टम के अनुसार)"
+  },
+  "themeLight": {
+    "message": "लाइट"
+  },
+  "themeDark": {
+    "message": "डार्क"
+  },
+  "language": {
+    "message": "भाषा"
+  },
+  "languageAuto": {
+    "message": "ऑटो (ब्राउज़र डिफ़ॉल्ट)"
+  },
+  "navigation": {
+    "message": "नेविगेशन"
+  },
+  "clickConfirmationLevel": {
+    "message": "क्लिक पुष्टिकरण स्तर"
+  },
+  "confirmNever": {
+    "message": "कभी नहीं"
+  },
+  "confirmSuspicious": {
+    "message": "केवल संदिग्ध"
+  },
+  "confirmAll": {
+    "message": "सभी बाहरी लिंक"
+  },
+  "sanitizeLinks": {
+    "message": "लिंक साफ करें (ट्रैकिंग हटाएं)"
+  },
+  "showLinkDensityWarning": {
+    "message": "पेज पर लिंक घनत्व चेतावनी दिखाएं"
+  },
+  "websiteWhitelist": {
+    "message": "वेबसाइट श्वेतसूची"
+  },
+  "whitelistDescription": {
+    "message": "सुरक्षित साइटें जहां CleanClick रीडायरेक्ट या लिंक फ़्लैग नहीं करेगा।"
+  },
+  "whitelistPlaceholder": {
+    "message": "उदाहरण.कॉम"
+  },
+  "add": {
+    "message": "जोड़ें"
+  },
+  "exportJson": {
+    "message": "JSON निर्यात करें"
+  },
+  "importJson": {
+    "message": "JSON आयात करें"
+  },
+  "noWhitelistedDomains": {
+    "message": "अभी तक कोई श्वेतसूचीबद्ध डोमेन नहीं।"
+  },
+  "remove": {
+    "message": "हटाएं"
+  },
+  "statistics": {
+    "message": "आंकड़े"
+  },
+  "hijackedElementsFlagged": {
+    "message": "हाइजैक किए गए तत्व चिह्नित"
+  },
+  "sessionsProtected": {
+    "message": "सुरक्षित सत्र"
+  },
+  "resetAllStatistics": {
+    "message": "सभी आंकड़े रीसेट करें"
+  },
+  "resetConfirm": {
+    "message": "क्या आप सुनिश्चित हैं? यह सभी आंकड़े स्थायी रूप से हटा देगा।"
+  },
+  "version": {
+    "message": "संस्करण $1"
+  },
+  "privacy": {
+    "message": "गोपनीयता"
+  },
+  "privacyText": {
+    "message": "CleanClick कोई व्यक्तिगत डेटा एकत्र, संग्रहीत या प्रेषित नहीं करता है। सभी प्रसंस्करण आपके ब्राउज़र में स्थानीय रूप से होता है।"
+  },
+  "license": {
+    "message": "लाइसेंस"
+  },
+  "licenseText": {
+    "message": "MIT License - see $1 for details."
+  },
+  "links": {
+    "message": "लिंक"
+  },
+  "githubRepository": {
+    "message": "GitHub रिपॉजिटरी"
+  },
+  "reportIssue": {
+    "message": "समस्या रिपोर्ट करें"
+  },
+  "safe": {
+    "message": "सुरक्षित"
+  },
+  "suspicious": {
+    "message": "संदिग्ध"
+  },
+  "dangerous": {
+    "message": "खतरनाक"
+  },
+  "unknown": {
+    "message": "अज्ञात"
+  },
+  "destination": {
+    "message": "Destination"
+  },
+  "text": {
+    "message": "Text"
+  },
+  "clickForDetails": {
+    "message": "Click for details"
+  },
+  "suspiciousLink": {
+    "message": "Suspicious link"
+  },
+  "continue": {
+    "message": "जारी रखें"
+  },
+  "cancel": {
+    "message": "रद्द करें"
+  },
+  "dangerousLink": {
+    "message": "Dangerous Link"
+  },
+  "proceedWithCaution": {
+    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+  },
+  "goBackSafe": {
+    "message": "Go back (safe)"
+  },
+  "proceedAnyway": {
+    "message": "Proceed anyway"
+  },
+  "highLinkDensity": {
+    "message": "High link density"
+  },
+  "linksToDomains": {
+    "message": "$1 links to $2 domains detected."
+  },
+  "score": {
+    "message": "Score"
+  },
+  "hasDownloadAttribute": {
+    "message": "has download attribute"
+  },
+  "sameOrigin": {
+    "message": "same-origin"
+  },
+  "knownFileExtension": {
+    "message": "known file extension"
+  },
+  "hasFilename": {
+    "message": "has filename"
+  },
+  "adClass": {
+    "message": "ad class"
+  },
+  "insideIframe": {
+    "message": "inside iframe"
+  },
+  "crossDomain": {
+    "message": "cross-domain"
+  },
+  "adDomain": {
+    "message": "ad domain"
+  },
+  "checkLinkSafety": {
     "message": "लिंक सुरक्षा जांचें"
   },
   "copyCleanUrl": {
@@ -25,5 +286,14 @@
   },
   "reportLink": {
     "message": "लिंक को स्पैम रिपोर्ट करें"
+  },
+  "linkSafetyResult": {
+    "message": "Link Safety: $1"
+  },
+  "riskScore": {
+    "message": "Risk score: $1/100"
+  },
+  "noIssuesDetectedShort": {
+    "message": "No issues detected"
   }
 }

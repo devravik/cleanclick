@@ -39,6 +39,7 @@ describe('storage.js', () => {
       expect(settings.showRiskBadges).toBe(false);
       expect(settings.confirmLevel).toBe('suspicious');
       expect(settings.theme).toBe('auto');
+      expect(settings.language).toBe('auto');
     });
 
     test('updateSettings merges with existing', async () => {

@@ -3,27 +3,297 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protégele de redirecciones no deseadas, anuncios emergentes, botones de descarga falsos y trucos de navegación maliciosos."
+    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
   },
-  "protectionEnabled": {
-    "message": "Protección activa"
+  "protectionActive": {
+    "message": "Protection Active"
   },
-  "protectionDisabled": {
-    "message": "Protección desactivada"
+  "protectionOff": {
+    "message": "Protection Off"
   },
-  "hiddenLinksFound": {
-    "message": "Enlaces ocultos encontrados"
+  "issuesFound": {
+    "message": "Issues found"
   },
-  "revealHiddenLinks": {
-    "message": "Revelar enlaces ocultos"
+  "enabledForThisSite": {
+    "message": "Enabled for this site"
   },
-  "linkSafetyCheck": {
-    "message": "Verificar seguridad del enlace"
+  "disabledForThisSite": {
+    "message": "Disabled for this site"
+  },
+  "whitelisted": {
+    "message": "Whitelisted"
+  },
+  "redirectsBlocked": {
+    "message": "Redirects Blocked"
+  },
+  "popupsPrevented": {
+    "message": "Popups Prevented"
+  },
+  "suspiciousDomains": {
+    "message": "Suspicious Domains"
+  },
+  "hiddenLinks": {
+    "message": "Hidden Links"
+  },
+  "noIssuesDetected": {
+    "message": "No issues detected on this page"
+  },
+  "issueFound": {
+    "message": "$1 issue found"
+  },
+  "issuesFound_plural": {
+    "message": "$1 issues found"
+  },
+  "hiddenLink": {
+    "message": "$1 hidden link"
+  },
+  "hiddenLink_plural": {
+    "message": "$1 hidden links"
+  },
+  "hijackedElement": {
+    "message": "$1 hijacked element"
+  },
+  "hijackedElement_plural": {
+    "message": "$1 hijacked elements"
+  },
+  "scamOverlay": {
+    "message": "$1 scam overlay"
+  },
+  "scamOverlay_plural": {
+    "message": "$1 scam overlays"
+  },
+  "reveal": {
+    "message": "Reveal"
+  },
+  "settings": {
+    "message": "Configuración"
+  },
+  "tabGeneral": {
+    "message": "General"
+  },
+  "tabWhitelist": {
+    "message": "Lista blanca"
+  },
+  "tabStatistics": {
+    "message": "Estadísticas"
+  },
+  "tabCustomRules": {
+    "message": "Reglas personalizadas"
+  },
+  "tabAbout": {
+    "message": "Acerca de"
+  },
+  "generalSettings": {
+    "message": "General Settings"
+  },
+  "linkPreview": {
+    "message": "Link Preview"
+  },
+  "showRiskBadges": {
+    "message": "Show risk badges on links"
+  },
+  "enableHoverTooltips": {
+    "message": "Enable hover tooltips"
+  },
+  "autoRevealHiddenLinks": {
+    "message": "Auto-reveal hidden links"
+  },
+  "appearance": {
+    "message": "Appearance"
+  },
+  "theme": {
+    "message": "Theme"
+  },
+  "themeAuto": {
+    "message": "Automático"
+  },
+  "themeLight": {
+    "message": "Claro"
+  },
+  "themeDark": {
+    "message": "Oscuro"
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "languageAuto": {
+    "message": "Automático (idioma del navegador)"
+  },
+  "navigation": {
+    "message": "Navigation"
+  },
+  "clickConfirmationLevel": {
+    "message": "Click confirmation level"
+  },
+  "confirmNever": {
+    "message": "Nunca"
+  },
+  "confirmSuspicious": {
+    "message": "Solo sospechosos"
+  },
+  "confirmAll": {
+    "message": "Todos los enlaces externos"
+  },
+  "sanitizeLinks": {
+    "message": "Sanitize links (remove tracking)"
+  },
+  "showLinkDensityWarning": {
+    "message": "Show link density warning on pages"
+  },
+  "websiteWhitelist": {
+    "message": "Website Whitelist"
+  },
+  "whitelistDescription": {
+    "message": "Protected sites where CleanClick will not block redirects or flag links."
+  },
+  "whitelistPlaceholder": {
+    "message": "example.com"
+  },
+  "add": {
+    "message": "Añadir"
+  },
+  "exportJson": {
+    "message": "Export JSON"
+  },
+  "importJson": {
+    "message": "Import JSON"
+  },
+  "noWhitelistedDomains": {
+    "message": "No whitelisted domains yet."
+  },
+  "remove": {
+    "message": "Eliminar"
+  },
+  "statistics": {
+    "message": "Statistics"
+  },
+  "hijackedElementsFlagged": {
+    "message": "Hijacked Elements Flagged"
+  },
+  "sessionsProtected": {
+    "message": "Sessions Protected"
+  },
+  "resetAllStatistics": {
+    "message": "Reset All Statistics"
+  },
+  "resetConfirm": {
+    "message": "Are you sure? This will permanently delete all statistics."
+  },
+  "version": {
+    "message": "Version $1"
+  },
+  "privacy": {
+    "message": "Privacy"
+  },
+  "privacyText": {
+    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+  },
+  "license": {
+    "message": "License"
+  },
+  "licenseText": {
+    "message": "MIT License - see $1 for details."
+  },
+  "links": {
+    "message": "Links"
+  },
+  "githubRepository": {
+    "message": "GitHub Repository"
+  },
+  "reportIssue": {
+    "message": "Report Issue"
+  },
+  "safe": {
+    "message": "Seguro"
+  },
+  "suspicious": {
+    "message": "Sospechoso"
+  },
+  "dangerous": {
+    "message": "Peligroso"
+  },
+  "unknown": {
+    "message": "Desconocido"
+  },
+  "destination": {
+    "message": "Destination"
+  },
+  "text": {
+    "message": "Text"
+  },
+  "clickForDetails": {
+    "message": "Click for details"
+  },
+  "suspiciousLink": {
+    "message": "Suspicious link"
+  },
+  "continue": {
+    "message": "Continuar"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "dangerousLink": {
+    "message": "Dangerous Link"
+  },
+  "proceedWithCaution": {
+    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+  },
+  "goBackSafe": {
+    "message": "Go back (safe)"
+  },
+  "proceedAnyway": {
+    "message": "Proceed anyway"
+  },
+  "highLinkDensity": {
+    "message": "High link density"
+  },
+  "linksToDomains": {
+    "message": "$1 links to $2 domains detected."
+  },
+  "score": {
+    "message": "Score"
+  },
+  "hasDownloadAttribute": {
+    "message": "has download attribute"
+  },
+  "sameOrigin": {
+    "message": "same-origin"
+  },
+  "knownFileExtension": {
+    "message": "known file extension"
+  },
+  "hasFilename": {
+    "message": "has filename"
+  },
+  "adClass": {
+    "message": "ad class"
+  },
+  "insideIframe": {
+    "message": "inside iframe"
+  },
+  "crossDomain": {
+    "message": "cross-domain"
+  },
+  "adDomain": {
+    "message": "ad domain"
+  },
+  "checkLinkSafety": {
+    "message": "Check link safety"
   },
   "copyCleanUrl": {
-    "message": "Copiar URL limpia"
+    "message": "Copy clean URL"
   },
   "reportLink": {
-    "message": "Reportar enlace como spam"
+    "message": "Report link as spam"
+  },
+  "linkSafetyResult": {
+    "message": "Link Safety: $1"
+  },
+  "riskScore": {
+    "message": "Risk score: $1/100"
+  },
+  "noIssuesDetectedShort": {
+    "message": "No issues detected"
   }
 }

@@ -186,4 +186,5 @@ export const DEFAULT_SETTINGS = {
   healthCheckEnabled: false,
   densityWarningEnabled: false,
   theme: 'auto', // 'auto' | 'light' | 'dark'
+  language: 'auto', // 'auto' | language code (e.g. 'en', 'hi', 'es')
 };

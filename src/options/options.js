@@ -2,15 +2,16 @@
  * CleanClick - Options Page Controller
  *
  * Full settings page with tabs:
- * - General: link preview settings, protection defaults
+ * - General: link preview, appearance, navigation
  * - Whitelist: add/remove domains, import/export
  * - Statistics: view and reset
- * - Custom Rules: placeholder for v1.5
- * - About: version, licenses
+ * - Custom Rules: regex/glob patterns
+ * - About: version, privacy, license
  */
 
 import { sendMessage } from '../shared/messaging.js';
 import { DEFAULT_SETTINGS, STORAGE_KEYS, MSG } from '../shared/constants.js';
+import { t, applyLanguage } from '../shared/i18n.js';
 
 // ─── State ─────────────────────────────────────────────────────────
 
@@ -35,6 +36,7 @@ async function init() {
   renderStatistics();
   renderAbout();
   applyTheme(state.settings.theme);
+  applyLanguage(state.settings.language);
 }
 
 async function loadData() {
@@ -61,19 +63,27 @@ function setupTabs() {
       switchTab(tab);
     });
   });
+  // Localize tab buttons
+  const tabLabels = {
+    'general': 'tabGeneral',
+    'whitelist': 'tabWhitelist',
+    'statistics': 'tabStatistics',
+    'rules': 'tabCustomRules',
+    'about': 'tabAbout',
+  };
+  document.querySelectorAll('[data-tab]').forEach(btn => {
+    const key = tabLabels[btn.dataset.tab];
+    if (key) btn.textContent = t(key);
+  });
 }
 
 function switchTab(tab) {
   state.currentTab = tab;
-
-  // Update button states
   document.querySelectorAll('[data-tab]').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.tab === tab);
   });
-
-  // Update section visibility
   document.querySelectorAll('section[id^="tab-"]').forEach(section => {
-    section.hidden = section.id !== `tab-${tab}`;
+    section.hidden = section.id !== 'tab-' + tab;
   });
 }
 
@@ -83,70 +93,86 @@ function renderGeneral() {
   const container = $('tab-general');
   if (!container) return;
 
-  container.innerHTML = `
-    <h2>General Settings</h2>
+  container.innerHTML = '' +
+    '<h2>' + t('generalSettings') + '</h2>' +
 
-    <div class="setting-group">
-      <h3>Link Preview</h3>
+    '<div class="setting-group">' +
+      '<h3>' + t('linkPreview') + '</h3>' +
 
-      <label class="setting-row">
-        <span>Show risk badges on links</span>
-        <input type="checkbox" id="setting-badges"
-          ${state.settings.showRiskBadges ? 'checked' : ''}>
-      </label>
+      '<label class="setting-row">' +
+        '<span>' + t('showRiskBadges') + '</span>' +
+        '<input type="checkbox" id="setting-badges"' +
+          (state.settings.showRiskBadges ? ' checked' : '') + '>' +
+      '</label>' +
 
-      <label class="setting-row">
-        <span>Enable hover tooltips</span>
-        <input type="checkbox" id="setting-tooltips"
-          ${state.settings.showTooltips ? 'checked' : ''}>
-      </label>
+      '<label class="setting-row">' +
+        '<span>' + t('enableHoverTooltips') + '</span>' +
+        '<input type="checkbox" id="setting-tooltips"' +
+          (state.settings.showTooltips ? ' checked' : '') + '>' +
+      '</label>' +
 
-      <label class="setting-row">
-        <span>Auto-reveal hidden links</span>
-        <input type="checkbox" id="setting-autoreveal"
-          ${state.settings.autoRevealHidden ? 'checked' : ''}>
-      </label>
-    </div>
+      '<label class="setting-row">' +
+        '<span>' + t('autoRevealHiddenLinks') + '</span>' +
+        '<input type="checkbox" id="setting-autoreveal"' +
+          (state.settings.autoRevealHidden ? ' checked' : '') + '>' +
+      '</label>' +
+    '</div>' +
 
-    <div class="setting-group">
-      <h3>Appearance</h3>
+    '<div class="setting-group">' +
+      '<h3>' + t('appearance') + '</h3>' +
 
-      <label class="setting-row">
-        <span>Theme</span>
-        <select id="setting-theme">
-          <option value="auto" ${state.settings.theme === 'auto' ? 'selected' : ''}>Auto (follow system)</option>
-          <option value="light" ${state.settings.theme === 'light' ? 'selected' : ''}>Light</option>
-          <option value="dark" ${state.settings.theme === 'dark' ? 'selected' : ''}>Dark</option>
-        </select>
-      </label>
-    </div>
+      '<label class="setting-row">' +
+        '<span>' + t('theme') + '</span>' +
+        '<select id="setting-theme">' +
+          '<option value="auto"' + (state.settings.theme === 'auto' ? ' selected' : '') + '>' + t('themeAuto') + '</option>' +
+          '<option value="light"' + (state.settings.theme === 'light' ? ' selected' : '') + '>' + t('themeLight') + '</option>' +
+          '<option value="dark"' + (state.settings.theme === 'dark' ? ' selected' : '') + '>' + t('themeDark') + '</option>' +
+        '</select>' +
+      '</label>' +
 
-    <div class="setting-group">
-      <h3>Navigation</h3>
+      '<label class="setting-row">' +
+        '<span>' + t('language') + '</span>' +
+        '<select id="setting-language">' +
+          '<option value="auto"' + (state.settings.language === 'auto' ? ' selected' : '') + '>' + t('languageAuto') + '</option>' +
+          '<option value="hi"' + (state.settings.language === 'hi' ? ' selected' : '') + '>Hindi</option>' +
+          '<option value="en"' + (state.settings.language === 'en' ? ' selected' : '') + '>English</option>' +
+          '<option value="es"' + (state.settings.language === 'es' ? ' selected' : '') + '>Español</option>' +
+          '<option value="fr"' + (state.settings.language === 'fr' ? ' selected' : '') + '>Français</option>' +
+          '<option value="de"' + (state.settings.language === 'de' ? ' selected' : '') + '>Deutsch</option>' +
+          '<option value="zh_CN"' + (state.settings.language === 'zh_CN' ? ' selected' : '') + '>中文</option>' +
+          '<option value="ar"' + (state.settings.language === 'ar' ? ' selected' : '') + '>العربية</option>' +
+          '<option value="pt_BR"' + (state.settings.language === 'pt_BR' ? ' selected' : '') + '>Português (BR)</option>' +
+          '<option value="ru"' + (state.settings.language === 'ru' ? ' selected' : '') + '>Русский</option>' +
+          '<option value="ja"' + (state.settings.language === 'ja' ? ' selected' : '') + '>日本語</option>' +
+          '<option value="ko"' + (state.settings.language === 'ko' ? ' selected' : '') + '>한국어</option>' +
+        '</select>' +
+      '</label>' +
+    '</div>' +
 
-      <label class="setting-row">
-        <span>Click confirmation level</span>
-        <select id="setting-confirm">
-          <option value="never" ${state.settings.confirmLevel === 'never' ? 'selected' : ''}>Never</option>
-          <option value="suspicious" ${state.settings.confirmLevel === 'suspicious' ? 'selected' : ''}>Suspicious only</option>
-          <option value="all" ${state.settings.confirmLevel === 'all' ? 'selected' : ''}>All external links</option>
-        </select>
-      </label>
+    '<div class="setting-group">' +
+      '<h3>' + t('navigation') + '</h3>' +
 
-      <label class="setting-row">
-        <span>Sanitize links (remove tracking)</span>
-        <input type="checkbox" id="setting-sanitize"
-          ${state.settings.sanitizeLinks ? 'checked' : ''}>
-      </label>
+      '<label class="setting-row">' +
+        '<span>' + t('clickConfirmationLevel') + '</span>' +
+        '<select id="setting-confirm">' +
+          '<option value="never"' + (state.settings.confirmLevel === 'never' ? ' selected' : '') + '>' + t('confirmNever') + '</option>' +
+          '<option value="suspicious"' + (state.settings.confirmLevel === 'suspicious' ? ' selected' : '') + '>' + t('confirmSuspicious') + '</option>' +
+          '<option value="all"' + (state.settings.confirmLevel === 'all' ? ' selected' : '') + '>' + t('confirmAll') + '</option>' +
+        '</select>' +
+      '</label>' +
 
-      <label class="setting-row">
-        <span>Show link density warning on pages</span>
-        <input type="checkbox" id="setting-densityWarning"
-          ${state.settings.densityWarningEnabled ? 'checked' : ''}>
-      </label>
-    </div>
+      '<label class="setting-row">' +
+        '<span>' + t('sanitizeLinks') + '</span>' +
+        '<input type="checkbox" id="setting-sanitize"' +
+          (state.settings.sanitizeLinks ? ' checked' : '') + '>' +
+      '</label>' +
 
-  `;
+      '<label class="setting-row">' +
+        '<span>' + t('showLinkDensityWarning') + '</span>' +
+        '<input type="checkbox" id="setting-densityWarning"' +
+          (state.settings.densityWarningEnabled ? ' checked' : '') + '>' +
+      '</label>' +
+    '</div>';
 
   // Bind change events
   container.querySelectorAll('input[type="checkbox"], select').forEach(el => {
@@ -164,6 +190,7 @@ async function onSettingChange(e) {
   await browser.storage.local.set({ [STORAGE_KEYS.SETTINGS]: state.settings });
 
   if (key === 'theme') applyTheme(value);
+  if (key === 'language') applyLanguage(value);
 }
 
 // ─── Whitelist Tab ────────────────────────────────────────────────
@@ -172,34 +199,33 @@ function renderWhitelist() {
   const container = $('tab-whitelist');
   if (!container) return;
 
-  const listHtml = state.whitelist.map(d => `
-    <li class="whitelist-item">
-      <span class="whitelist-domain">${escapeHtml(d)}</span>
-      <button class="btn-icon whitelist-remove" data-domain="${escapeHtml(d)}" title="Remove">x</button>
-    </li>
-  `).join('');
+  const listHtml = state.whitelist.map(d =>
+    '<li class="whitelist-item">' +
+      '<span class="whitelist-domain">' + escapeHtml(d) + '</span>' +
+      '<button class="btn-icon whitelist-remove" data-domain="' + escapeHtml(d) + '" title="' + t('remove') + '">x</button>' +
+    '</li>'
+  ).join('');
 
-  container.innerHTML = `
-    <h2>Website Whitelist</h2>
-    <p class="description">Protected sites where CleanClick will not block redirects or flag links.</p>
+  container.innerHTML = '' +
+    '<h2>' + t('websiteWhitelist') + '</h2>' +
+    '<p class="description">' + t('whitelistDescription') + '</p>' +
 
-    <div class="whitelist-add">
-      <input type="text" id="whitelist-input" placeholder="example.com" class="input">
-      <button id="whitelist-add-btn" class="btn primary">Add</button>
-    </div>
+    '<div class="whitelist-add">' +
+      '<input type="text" id="whitelist-input" placeholder="' + t('whitelistPlaceholder') + '" class="input">' +
+      '<button id="whitelist-add-btn" class="btn primary">' + t('add') + '</button>' +
+    '</div>' +
 
-    <div class="whitelist-actions">
-      <button id="whitelist-export" class="btn secondary">Export JSON</button>
-      <button id="whitelist-import" class="btn secondary">Import JSON</button>
-    </div>
+    '<div class="whitelist-actions">' +
+      '<button id="whitelist-export" class="btn secondary">' + t('exportJson') + '</button>' +
+      '<button id="whitelist-import" class="btn secondary">' + t('importJson') + '</button>' +
+    '</div>' +
 
-    ${state.whitelist.length === 0
-      ? '<p class="empty-state">No whitelisted domains yet.</p>'
-      : `<ul class="whitelist-list">${listHtml}</ul>`
-    }
+    (state.whitelist.length === 0
+      ? '<p class="empty-state">' + t('noWhitelistedDomains') + '</p>'
+      : '<ul class="whitelist-list">' + listHtml + '</ul>'
+    ) +
 
-    <input type="file" id="whitelist-file-input" accept=".json" style="display:none">
-  `;
+    '<input type="file" id="whitelist-file-input" accept=".json" style="display:none">';
 
   // Bind events
   $('whitelist-add-btn').addEventListener('click', addWhitelistDomain);
@@ -254,7 +280,7 @@ async function importWhitelist(e) {
     await loadData();
     renderWhitelist();
   } else {
-    alert(`Import failed: ${result.error}`);
+    alert('Import failed: ' + result.error);
   }
   e.target.value = '';
 }
@@ -266,41 +292,40 @@ function renderStatistics() {
   if (!container) return;
 
   const s = state.stats || {};
-  container.innerHTML = `
-    <h2>Statistics</h2>
+  container.innerHTML = '' +
+    '<h2>' + t('statistics') + '</h2>' +
 
-    <div class="stats-table">
-      <div class="stats-row">
-        <span>Redirects Blocked</span>
-        <span class="stats-val">${s.redirectsBlocked || 0}</span>
-      </div>
-      <div class="stats-row">
-        <span>Popups Prevented</span>
-        <span class="stats-val">${s.popupsPrevented || 0}</span>
-      </div>
-      <div class="stats-row">
-        <span>Suspicious Domains Detected</span>
-        <span class="stats-val">${s.suspiciousDomainsDetected || 0}</span>
-      </div>
-      <div class="stats-row">
-        <span>Hidden Links Found</span>
-        <span class="stats-val">${s.hiddenLinksFound || 0}</span>
-      </div>
-      <div class="stats-row">
-        <span>Hijacked Elements Flagged</span>
-        <span class="stats-val">${s.hijackedElementsFlagged || 0}</span>
-      </div>
-      <div class="stats-row">
-        <span>Sessions Protected</span>
-        <span class="stats-val">${s.sessionsProtected || 0}</span>
-      </div>
-    </div>
+    '<div class="stats-table">' +
+      '<div class="stats-row">' +
+        '<span>' + t('redirectsBlocked') + '</span>' +
+        '<span class="stats-val">' + (s.redirectsBlocked || 0) + '</span>' +
+      '</div>' +
+      '<div class="stats-row">' +
+        '<span>' + t('popupsPrevented') + '</span>' +
+        '<span class="stats-val">' + (s.popupsPrevented || 0) + '</span>' +
+      '</div>' +
+      '<div class="stats-row">' +
+        '<span>' + t('suspiciousDomains') + '</span>' +
+        '<span class="stats-val">' + (s.suspiciousDomainsDetected || 0) + '</span>' +
+      '</div>' +
+      '<div class="stats-row">' +
+        '<span>' + t('hiddenLinks') + '</span>' +
+        '<span class="stats-val">' + (s.hiddenLinksFound || 0) + '</span>' +
+      '</div>' +
+      '<div class="stats-row">' +
+        '<span>' + t('hijackedElementsFlagged') + '</span>' +
+        '<span class="stats-val">' + (s.hijackedElementsFlagged || 0) + '</span>' +
+      '</div>' +
+      '<div class="stats-row">' +
+        '<span>' + t('sessionsProtected') + '</span>' +
+        '<span class="stats-val">' + (s.sessionsProtected || 0) + '</span>' +
+      '</div>' +
+    '</div>' +
 
-    <button id="reset-stats-btn" class="btn danger">Reset All Statistics</button>
-  `;
+    '<button id="reset-stats-btn" class="btn danger">' + t('resetAllStatistics') + '</button>';
 
   $('reset-stats-btn').addEventListener('click', async () => {
-    if (confirm('Are you sure? This will permanently delete all statistics.')) {
+    if (confirm(t('resetConfirm'))) {
       await sendMessage('stats:reset', {});
       state.stats = {};
       renderStatistics();
@@ -314,22 +339,22 @@ function renderAbout() {
   const container = $('tab-about');
   if (!container) return;
 
-  container.innerHTML = `
-    <h2>CleanClick</h2>
-    <p class="version">Version 0.1.0</p>
-    <p class="description">Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks.</p>
+  container.innerHTML = '' +
+    '<h2>' + t('extensionName') + '</h2>' +
+    '<p class="version">' + t('version', '0.1.0') + '</p>' +
+    '<p class="description">' + t('extensionDescription') + '</p>' +
 
-    <h3>Privacy</h3>
+    '<h3>' + t('privacy') + '</h3>' +
+    '<p>' + t('privacyText') + '</p>' +
 
-    <h3>License</h3>
-    <p>MIT License - see <a href="https://github.com/devravik/cleanclick/blob/main/LICENSE" target="_blank">LICENSE</a> for details.</p>
+    '<h3>' + t('license') + '</h3>' +
+    '<p>' + t('licenseText', '<a href="https://github.com/devravik/cleanclick/blob/main/LICENSE" target="_blank">LICENSE</a>') + '</p>' +
 
-    <h3>Links</h3>
-    <ul class="links">
-      <li><a href="https://github.com/devravik/cleanclick" target="_blank">GitHub Repository</a></li>
-      <li><a href="https://github.com/devravik/cleanclick/issues" target="_blank">Report Issue</a></li>
-    </ul>
-  `;
+    '<h3>' + t('links') + '</h3>' +
+    '<ul class="links">' +
+      '<li><a href="https://github.com/devravik/cleanclick" target="_blank">' + t('githubRepository') + '</a></li>' +
+      '<li><a href="https://github.com/devravik/cleanclick/issues" target="_blank">' + t('reportIssue') + '</a></li>' +
+    '</ul>';
 }
 
 // ─── Utilities ────────────────────────────────────────────────────
@@ -339,8 +364,6 @@ function escapeHtml(str) {
   div.textContent = str;
   return div.innerHTML;
 }
-
-// ─── Init ─────────────────────────────────────────────────────────
 
 // ─── Theme ──────────────────────────────────────────────────────────
 
