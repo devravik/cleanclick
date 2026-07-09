@@ -127,16 +127,6 @@ function renderGeneral() {
       </label>
     </div>
 
-    <div class="setting-group">
-      <h3>Privacy</h3>
-
-      <label class="setting-row">
-        <span>Enable cloud reputation checks</span>
-        <input type="checkbox" id="setting-cloud"
-          ${state.settings.cloudReputationEnabled ? 'checked' : ''}>
-        <span class="setting-note">Anonymous URL hashes only. Requires opt-in.</span>
-      </label>
-    </div>
   `;
 
   // Bind change events
@@ -309,7 +299,6 @@ function renderAbout() {
     <p class="description">Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks.</p>
 
     <h3>Privacy</h3>
-    <p>CleanClick processes navigation locally. No browsing history or personal data is collected or transmitted. Optional cloud features use anonymous URL hashes only.</p>
 
     <h3>License</h3>
     <p>MIT License — see <a href="https://github.com/devravik/cleanclick/blob/main/LICENSE" target="_blank">LICENSE</a> for details.</p>

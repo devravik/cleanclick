@@ -183,5 +183,4 @@ export const DEFAULT_SETTINGS = {
   autoRevealHidden: false,
   sanitizeLinks: true,
   healthCheckEnabled: false,
-  cloudReputationEnabled: false,
 };
