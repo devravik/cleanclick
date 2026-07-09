@@ -67,6 +67,7 @@ describe('constants.js', () => {
     expect(DEFAULT_SETTINGS.autoRevealHidden).toBe(false);
     expect(DEFAULT_SETTINGS.sanitizeLinks).toBe(true);
     expect(DEFAULT_SETTINGS.healthCheckEnabled).toBe(false);
+    expect(DEFAULT_SETTINGS.densityWarningEnabled).toBe(false);
     expect(DEFAULT_SETTINGS.theme).toBe('auto');
   });
 });

@@ -184,5 +184,6 @@ export const DEFAULT_SETTINGS = {
   autoRevealHidden: false,
   sanitizeLinks: true,
   healthCheckEnabled: false,
+  densityWarningEnabled: false,
   theme: 'auto', // 'auto' | 'light' | 'dark'
 };

@@ -138,6 +138,12 @@ function renderGeneral() {
         <input type="checkbox" id="setting-sanitize"
           ${state.settings.sanitizeLinks ? 'checked' : ''}>
       </label>
+
+      <label class="setting-row">
+        <span>Show link density warning on pages</span>
+        <input type="checkbox" id="setting-densityWarning"
+          ${state.settings.densityWarningEnabled ? 'checked' : ''}>
+      </label>
     </div>
 
   `;

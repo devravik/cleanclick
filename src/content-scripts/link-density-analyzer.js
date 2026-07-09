@@ -14,6 +14,7 @@
  */
 
 import { sendMessage } from '../shared/messaging.js';
+import { MSG } from '../shared/constants.js';
 
 /**
  * Analyze link density for the current page.
@@ -126,15 +127,22 @@ function checkAndWarn() {
 
 // ─── Init ─────────────────────────────────────────────────────────
 
-export function init() {
+export async function init() {
+  // Check user setting before showing warning
+  let showWarning = false;
+  try {
+    const settings = await sendMessage(MSG.GET_SETTINGS);
+    if (settings && settings.densityWarningEnabled) showWarning = true;
+  } catch {}
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       analyzeDensity();
-      checkAndWarn();
+      if (showWarning) checkAndWarn();
     });
   } else {
     analyzeDensity();
-    checkAndWarn();
+    if (showWarning) checkAndWarn();
   }
 }
 
