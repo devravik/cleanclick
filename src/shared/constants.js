@@ -25,11 +25,11 @@ export const TIMING = {
 
 // ─── Risk Score Thresholds ─────────────────────────────────────────
 export const RISK = {
-  SAFE_MAX: 20,
-  SUSPICIOUS_MAX: 60,
+  SAFE_MAX: 15,
+  SUSPICIOUS_MAX: 50,
   // >60 = dangerous
-  /** Default neutral score */
-  DEFAULT_SCORE: 50,
+  /** Default score (0 = safe, penalties added for suspicious features) */
+  DEFAULT_SCORE: 0,
   /** Per hop penalty in redirect chain */
   PER_REDIRECT_PENALTY: 10,
   /** Penalty for known malicious redirect pattern */

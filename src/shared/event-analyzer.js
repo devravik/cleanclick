@@ -26,7 +26,7 @@ import { HIJACK_EVENTS } from './constants.js';
  */
 const HIJACK_PATTERNS = [
   // Direct location assignment
-  { regex: /window\s*\.\s*location\s*(?:\s*=\s*|\.\s*href\s*=)/i, weight: 20, label: 'window.location = ...' },
+  { regex: /window\s*\.\s*location\s*(?:=|\s*\.\s*href\s*=)/i, weight: 20, label: 'window.location = ...' },
   { regex: /location\s*\.\s*href\s*=/, weight: 20, label: 'location.href = ...' },
   { regex: /location\s*\.\s*assign\s*\(/i, weight: 20, label: 'location.assign()' },
   { regex: /location\s*\.\s*replace\s*\(/i, weight: 15, label: 'location.replace()' },
@@ -35,24 +35,26 @@ const HIJACK_PATTERNS = [
   { regex: /top\s*\.\s*location\s*=/, weight: 25, label: 'top.location = ... (cross-origin redirect)' },
 
   // Window open
-  { regex: /window\s*\.\s*open\s*\(/, weight: 15, label: 'window.open() called' },
+  { regex: /window\s*\.\s*open\s*\(/, weight: 20, label: 'window.open() called' },
 
-  // Deferred navigation
-  { regex: /setTimeout\s*\(\s*(?:function\s*\(|\(\)\s*=>|["'`][^"'`]*["'`]\s*,\s*\d)/i, weight: 10, label: 'setTimeout with delay (possible deferred hijack)' },
-  { regex: /setInterval\s*\(\s*(?:function\s*\(|\(\)\s*=>)/i, weight: 10, label: 'setInterval (possible delayed hijack)' },
-  { regex: /setTimeout\s*\([^)]*location/i, weight: 20, label: 'setTimeout + location (deferred redirect)' },
+  // Deferred navigation via timers
+  { regex: /setTimeout\s*\(/, weight: 5, label: 'setTimeout called' },
+  { regex: /setInterval\s*\(/, weight: 5, label: 'setInterval called' },
+  // Check for both setTimeout/setInterval AND location/window.open patterns in same function
+  // We detect this by checking for the combined pattern across the full source
+  { regex: /set(?:Timeout|Interval)\s*\([\s\S]*(?:location|window\.open)/i, weight: 22, label: 'Timer + location/open (deferred redirect)' },
 
   // History manipulation
   { regex: /history\s*\.\s*(?:pushState|replaceState)\s*\(/, weight: 10, label: 'History API manipulation' },
 
   // Form manipulation
   { regex: /\.\s*submit\s*\(/, weight: 10, label: 'Form submit() called' },
-  { regex: /form\s*\[\s*['"]action['"]\s*\]\s*=/, weight: 15, label: 'Form action modified' },
+  { regex: /form\s*\[\s*['"]action['"]\s*\]\s*=/, weight: 20, label: 'Form action modified' },
 
   // Prevent default + redirect
   { regex: /preventDefault\s*\(\s*\).*location/i, weight: 25, label: 'preventDefault + location redirect' },
-  { regex: /preventDefault\s*\(\s*\).*window\.open/i, weight: 20, label: 'preventDefault + window.open' },
-  { regex: /return\s+false;?\s*}\s*(?:function)?\s*{?\s*(?:window\.)?location/i, weight: 25, label: 'return false + location redirect' },
+  { regex: /preventDefault\s*\(\s*\).*window\s*\.\s*open/i, weight: 20, label: 'preventDefault + window.open' },
+  { regex: /return\s+false;?\s*}.*(?:window\.)?location/i, weight: 25, label: 'return false + location redirect' },
 
   // Dynamic href modification
   { regex: /this\s*\.\s*href\s*=/, weight: 15, label: 'this.href = ... (mutation on interaction)' },
@@ -61,9 +63,6 @@ const HIJACK_PATTERNS = [
 
   // Meta refresh injection
   { regex: /meta\s+http-equiv\s*=\s*['"]refresh['"]/i, weight: 20, label: 'Meta refresh injected dynamically' },
-
-  // Fetch/XMLHttpRequest + document.write
-  { regex: /\.\s*open\s*\(\s*['"]GET['"]/, weight: 5, label: 'XHR/fetch request' },
 
   // PostMessage based navigation
   { regex: /postMessage\s*\(/, weight: 10, label: 'postMessage communication' },

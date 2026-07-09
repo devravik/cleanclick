@@ -54,7 +54,7 @@ export function classifyURL(url, options = {}) {
   const protocolCheck = checkProtocol(url);
   if (protocolCheck.isNonStandard) {
     if (protocolCheck.protocol === 'javascript') {
-      score += 30;
+      score += 55;
       reasons.push('Uses javascript: protocol (code execution)');
     } else if (protocolCheck.protocol === 'data') {
       score += 25;
@@ -76,18 +76,22 @@ export function classifyURL(url, options = {}) {
     }
   }
 
-  // 3. Homograph detection
-  const homograph = detectHomograph(parsed.hostname);
-  if (homograph.isHomograph) {
-    score += 35;
-    reasons.push(`Homograph characters detected: ${homograph.confusablesFound.join(', ')}`);
-  }
+  // 3. Homograph detection (on raw URL BEFORE URL parsing normalizes it to Punycode)
+  const rawHostname = extractRawHostname(url);
+  let homographResult = null;
+  if (rawHostname) {
+    homographResult = detectHomograph(rawHostname);
+    if (homographResult.isHomograph) {
+      score += 55;
+      reasons.push(`Homograph characters detected: ${homographResult.confusablesFound.join(', ')}`);
+    }
 
-  // 4. Invisible characters
-  const invisible = detectInvisibleChars(parsed.hostname);
-  if (invisible.found) {
-    score += 30;
-    reasons.push('Invisible unicode characters in domain');
+    // 4. Invisible characters (on raw hostname)
+    const invisible = detectInvisibleChars(rawHostname);
+    if (invisible.found) {
+      score += 30;
+      reasons.push('Invisible unicode characters in domain');
+    }
   }
 
   // 5. Typosquatting check
@@ -148,7 +152,7 @@ export function classifyURL(url, options = {}) {
       hostname: parsed.hostname,
       domain: parts.domain,
       tld: parts.tld,
-      homograph: homograph.isHomograph,
+      homograph: homographResult?.isHomograph || false,
     },
   };
 }
@@ -182,6 +186,18 @@ export function classifyURLs(urls, options = {}) {
     results.set(url, classifyURL(url, options));
   }
   return results;
+}
+
+/**
+ * Extract hostname from raw URL string WITHOUT going through URL constructor
+ * (which would convert IDN to Punycode, hiding homograph characters).
+ * @param {string} url
+ * @returns {string|null}
+ */
+function extractRawHostname(url) {
+  // Match the hostname portion: after :// and before next / ? # or end
+  const match = url.match(/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\/([^\/?#:]+)/);
+  return match ? match[1] : null;
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────
