@@ -4,6 +4,8 @@ const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
+    // Cross-browser shim must run first in every context
+    'content-scripts/browser-shim': './src/shared/browser-shim.js',
     background: './src/background/index.js',
     popup: './src/popup/popup.js',
     options: './src/options/options.js',
@@ -37,7 +39,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: { presets: [['@babel/preset-env', { targets: { firefox: '109' } }]] },
+          options: { presets: [['@babel/preset-env', { targets: { firefox: '109', chrome: '100' } }]] },
         },
       },
     ],
