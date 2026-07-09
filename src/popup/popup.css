@@ -118,6 +118,12 @@ section {
   min-width: 0;
 }
 
+/* ─── Every flex child in the popup gets shrinkable min-width ──── */
+
+#app * {
+  min-width: 0;
+}
+
 /* ─── Card Base ─────────────────────────────────────────────────── */
 
 .card {

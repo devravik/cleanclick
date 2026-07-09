@@ -145,14 +145,14 @@ function renderLinkScanSummary() {
   html += '<ul class="scan-details">';
 
   if (hasHidden) {
-    html += `<li>🔴 ${stats.hiddenCount} hidden link${stats.hiddenCount > 1 ? 's' : ''}`;
+    html += `<li><span>🔴 ${stats.hiddenCount} hidden link${stats.hiddenCount > 1 ? 's' : ''}</span>`;
     html += `<button class="btn-link" id="reveal-btn">Reveal</button></li>`;
   }
   if (hasHijacked) {
-    html += `<li>🔴 ${stats.hijackedCount} hijacked element${stats.hijackedCount > 1 ? 's' : ''}</li>`;
+    html += `<li><span>🔴 ${stats.hijackedCount} hijacked element${stats.hijackedCount > 1 ? 's' : ''}</span></li>`;
   }
   if (hasScam) {
-    html += `<li>🔴 ${stats.scamCount} scam overlay${stats.scamCount > 1 ? 's' : ''}</li>`;
+    html += `<li><span>🔴 ${stats.scamCount} scam overlay${stats.scamCount > 1 ? 's' : ''}</span></li>`;
   }
 
   html += '</ul>';
