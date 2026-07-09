@@ -12,6 +12,8 @@ import { init as initRedirectDetector } from './redirect-detector.js';
 import { init as initEventCoordinator } from './event-coordinator.js';
 import { init as initWhitelistManager } from './whitelist-manager.js';
 import { init as initStatistics } from './statistics.js';
+import { init as initReputation } from './reputation.js';
+import { init as initRulesEngine } from './rules-engine.js';
 
 // ─── Extension Lifecycle ───────────────────────────────────────────
 
@@ -43,6 +45,8 @@ async function initBackground() {
   initEventCoordinator();
   initWhitelistManager();
   initStatistics();
+  initReputation();
+  initRulesEngine();
 
   // 3. Set up context menu items (right-click link inspector)
   setupContextMenus();
