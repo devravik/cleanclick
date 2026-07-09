@@ -45,7 +45,6 @@ async function init() {
   state.scanResults = scanResults;
 
   render();
-  setupEventListeners();
 }
 
 // ─── Render ───────────────────────────────────────────────────────

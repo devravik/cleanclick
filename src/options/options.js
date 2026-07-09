@@ -34,7 +34,6 @@ async function init() {
   renderWhitelist();
   renderStatistics();
   renderAbout();
-  setupEventListeners();
 }
 
 async function loadData() {
