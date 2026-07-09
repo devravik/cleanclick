@@ -213,7 +213,7 @@ function showConfirmationBar(url, link) {
     'background:#fff3cd;color:#856404;padding:10px 16px;font-family:-apple-system,system-ui,sans-serif;' +
     'font-size:13px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px rgba(0,0,0,0.15);';
   bar.innerHTML =
-    '<span style="font-size:16px">\u26A0\uFE0F</span>' +
+    '<span style="font-size:16px"></span>' +
     '<span style="flex:1">This link looks suspicious: <code style="font-size:11px;word-break:break-all">' + escapeHtml(url) + '</code></span>' +
     '<button id="cleanclick-confirm-yes" style="padding:6px 12px;background:#856404;color:white;border:none;border-radius:4px;cursor:pointer">Continue anyway</button>' +
     '<button id="cleanclick-confirm-no" style="padding:6px 12px;background:transparent;color:#856404;border:1px solid #856404;border-radius:4px;cursor:pointer">Cancel</button>';

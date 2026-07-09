@@ -71,7 +71,7 @@ function renderStatusBar() {
       <span class="status-text">${enabled ? 'Protection Active' : 'Protection Off'}</span>
     </div>
     ${domain ? `<span class="domain">${domain}</span>` : ''}
-    ${hasIssues ? '<span class="warning-badge">⚠️ Issues found</span>' : ''}
+    ${hasIssues ? '<span class="warning-badge">Issues found</span>' : ''}
   `;
 }
 
@@ -131,7 +131,7 @@ function renderLinkScanSummary() {
   if (totalIssues === 0) {
     container.innerHTML = `
       <div class="scan-summary safe">
-        <span class="scan-icon">✅</span>
+        <span class="scan-icon">[OK]</span>
         <span>No issues detected on this page</span>
       </div>
     `;
@@ -139,20 +139,20 @@ function renderLinkScanSummary() {
   }
 
   let html = '<div class="scan-summary warning">';
-  html += `<span class="scan-icon">⚠️</span>`;
+  html += `<span class="scan-icon">!</span>`;
   html += `<span>${totalIssues} issue${totalIssues > 1 ? 's' : ''} found</span>`;
   html += '</div>';
   html += '<ul class="scan-details">';
 
   if (hasHidden) {
-    html += `<li><span>🔴 ${stats.hiddenCount} hidden link${stats.hiddenCount > 1 ? 's' : ''}</span>`;
+    html += `<li><span>${stats.hiddenCount} hidden link${stats.hiddenCount > 1 ? 's' : ''}</span>`;
     html += `<button class="btn-link" id="reveal-btn">Reveal</button></li>`;
   }
   if (hasHijacked) {
-    html += `<li><span>🔴 ${stats.hijackedCount} hijacked element${stats.hijackedCount > 1 ? 's' : ''}</span></li>`;
+    html += `<li><span>${stats.hijackedCount} hijacked element${stats.hijackedCount > 1 ? 's' : ''}</span></li>`;
   }
   if (hasScam) {
-    html += `<li><span>🔴 ${stats.scamCount} scam overlay${stats.scamCount > 1 ? 's' : ''}</span></li>`;
+    html += `<li><span>${stats.scamCount} scam overlay${stats.scamCount > 1 ? 's' : ''}</span></li>`;
   }
 
   html += '</ul>';

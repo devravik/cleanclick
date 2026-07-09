@@ -150,7 +150,7 @@ function showHijackWarning(hijackInfo) {
     gap: 12px;
   `;
   banner.innerHTML = `
-    <span style="font-size:20px">⚠️</span>
+    <span style="font-size:20px">!</span>
     <span><strong>CleanClick:</strong> This link was hijacked!
       The page script redirected to: <code>${hijackInfo.details[0]?.targetUrls?.[0] || 'unknown'}</code>
     </span>

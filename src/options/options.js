@@ -153,7 +153,7 @@ function renderWhitelist() {
   const listHtml = state.whitelist.map(d => `
     <li class="whitelist-item">
       <span class="whitelist-domain">${escapeHtml(d)}</span>
-      <button class="btn-icon whitelist-remove" data-domain="${escapeHtml(d)}" title="Remove">✕</button>
+      <button class="btn-icon whitelist-remove" data-domain="${escapeHtml(d)}" title="Remove">x</button>
     </li>
   `).join('');
 

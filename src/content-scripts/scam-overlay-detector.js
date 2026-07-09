@@ -223,11 +223,11 @@ function showOverlayWarning(result) {
     details += `<div style="font-size:12px;margin-top:4px;opacity:0.9">Detected: ${result.matchedPhrases.join(', ')}</div>`;
   }
   if (result.buttonIssues.length > 0) {
-    details += `<div style="font-size:12px;margin-top:4px;opacity:0.9">⚠️ Fake close button detected</div>`;
+    details += `<div style="font-size:12px;margin-top:4px;opacity:0.9">Fake close button detected</div>`;
   }
 
   warning.innerHTML = `
-    <span style="font-size:24px">🚨</span>
+    <span style="font-size:24px">!</span>
     <div style="flex:1">
       <strong>Suspicious overlay detected!</strong>
       ${details}
@@ -286,7 +286,7 @@ function removeSuspiciousOverlay() {
   const warning = document.getElementById('cleanclick-scam-warning');
   if (warning) {
     warning.innerHTML = `
-      <span style="font-size:20px">✅</span>
+      <span style="font-size:20px">[OK]</span>
       <span>Overlay removed. Page should now be usable.</span>
       <button style="margin-left:auto;padding:4px 12px;background:transparent;color:white;border:1px solid rgba(255,255,255,0.5);border-radius:4px;cursor:pointer"
               onclick="this.parentElement.remove()">OK</button>

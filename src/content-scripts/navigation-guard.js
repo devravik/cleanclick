@@ -92,7 +92,7 @@ class FormGuard {
       display: flex; align-items: center; gap: 12px;
     `;
     banner.innerHTML = `
-      <span style="font-size:20px">⚠️</span>
+      <span style="font-size:20px">!</span>
       <span><strong>CleanClick:</strong> ${reason}</span>
       <button style="margin-left:auto;padding:6px 16px;background:#856404;color:white;border:none;
                      border-radius:4px;cursor:pointer"
@@ -180,7 +180,7 @@ class MetaRefreshDetector {
       border-bottom: 2px solid #f57c00;
     `;
     overlay.innerHTML = `
-      <p style="margin:0 0 8px"><strong>⚠️ This page wants to redirect you</strong></p>
+      <p style="margin:0 0 8px"><strong>This page wants to redirect you</strong></p>
       <p style="margin:0 0 12px;color:#5b5b66;word-break:break-all">Destination: <code>${targetURL}</code></p>
       <div style="display:flex;gap:8px;justify-content:center">
         <button id="cleanclick-block-redirect" style="padding:8px 20px;background:#0060df;color:white;border:none;border-radius:4px;cursor:pointer">
