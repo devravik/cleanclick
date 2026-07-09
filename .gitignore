@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.webpack-cache/
+*.zip
+*.crx
+*.xpi
+.env
+.DS_Store

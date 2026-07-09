@@ -1,0 +1,78 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "0.1.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "96": "assets/icons/icon-96.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "permissions": [
+    "tabs",
+    "webNavigation",
+    "storage",
+    "scripting",
+    "declarativeNetRequest",
+    "menus",
+    "notifications"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_extensionName__",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "96": "assets/icons/icon-96.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content-scripts/click-monitor.js",
+        "content-scripts/event-inspector.js",
+        "content-scripts/hidden-link-scanner.js",
+        "content-scripts/link-verifier.js",
+        "content-scripts/navigation-guard.js",
+        "content-scripts/popup-blocker.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content-scripts/dynamic-link-watcher.js",
+        "content-scripts/scam-overlay-detector.js",
+        "content-scripts/fake-button-detector.js",
+        "content-scripts/protocol-link-validator.js",
+        "content-scripts/link-transparency-ui.js",
+        "content-scripts/link-sanitizer.js",
+        "content-scripts/edge-case-handler.js",
+        "content-scripts/link-density-analyzer.js"
+      ],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

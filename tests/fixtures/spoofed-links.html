@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html><head><title>Spoofed Links Test</title></head>
+<body>
+  <h1>Spoofed Links Test Page</h1>
+  <!-- A. Text mismatch -->
+  <a href="https://malicious-site.net/steal">https://facebook.com/login</a>
+  <!-- B. Homograph (Latin o vs Greek ο) -->
+  <a href="https://xn--gld-fma.com">gοοgle.com</a>
+  <!-- C. Base tag hijack -->
+  <a href="/relative-path">Relative Link (hijacked by base)</a>
+  <!-- D. javascript: URI -->
+  <a href="javascript:window.location='https://spam.example.com'">JavaScript Link</a>
+  <!-- E. data: URI -->
+  <a href="data:text/html,<script>location='https://spam.example.com'</script>">Data URI</a>
+  <!-- F. Subdomain confusion -->
+  <a href="https://paypal.security.fake-site.com">PayPal Alert</a>
+  <!-- Legitimate -->
+  <a href="https://example.com">Example</a>
+</body></html>

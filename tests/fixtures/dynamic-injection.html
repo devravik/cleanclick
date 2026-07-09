@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><title>Dynamic Injection Test</title></head>
+<body>
+  <h1>Dynamic Injection Test Page</h1>
+  <div id="content">
+    <p>Initial content. Links will be injected after delays.</p>
+  </div>
+  <script>
+    setTimeout(function() {
+      var a = document.createElement('a');
+      a.href = 'https://spam-injected.example.com/late';
+      a.textContent = 'Late injected link (1s)';
+      document.getElementById('content').appendChild(a);
+    }, 1000);
+    setTimeout(function() {
+      var a = document.createElement('a');
+      a.href = 'https://spam-injected.example.com/very-late';
+      a.textContent = 'Very late injected link (5s)';
+      document.getElementById('content').appendChild(a);
+    }, 5000);
+  </script>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><title>Event Hijack Test</title></head>
+<body>
+  <h1>Event Hijack Test Page</h1>
+  <!-- Click listener override -->
+  <a href="https://example.com/intended" id="hijack1">Click me (hijacked)</a>
+  <!-- Mousedown override -->
+  <a href="https://example.com/intended2" id="hijack2">Mousedown hijack</a>
+  <!-- Auxclick (middle click) override -->
+  <a href="https://example.com/intended3" id="hijack3">Middle-click hijack</a>
+  <!-- Legitimate -->
+  <a href="https://example.com/clean" id="clean">Clean link</a>
+  <script>
+    document.getElementById('hijack1').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location = 'https://spam.example.com/hijacked';
+    });
+    document.getElementById('hijack2').addEventListener('mousedown', function(e) {
+      this.href = 'https://spam.example.com/mousedown-hijack';
+    });
+    document.getElementById('hijack3').addEventListener('auxclick', function(e) {
+      e.preventDefault();
+      window.open('https://spam.example.com/aux-hijack');
+    });
+  </script>
+</body></html>

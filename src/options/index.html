@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div id="app">
+    <nav id="tabs">
+      <button data-tab="general" class="active">General</button>
+      <button data-tab="whitelist">Whitelist</button>
+      <button data-tab="statistics">Statistics</button>
+      <button data-tab="rules">Custom Rules</button>
+      <button data-tab="about">About</button>
+    </nav>
+    <main>
+      <section id="tab-general"></section>
+      <section id="tab-whitelist" hidden></section>
+      <section id="tab-statistics" hidden></section>
+      <section id="tab-rules" hidden></section>
+      <section id="tab-about" hidden></section>
+    </main>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

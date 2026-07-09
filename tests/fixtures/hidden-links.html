@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><title>Hidden Links Test</title></head>
+<body>
+  <h1>Hidden Links Test Page</h1>
+  <!-- 1. Zero opacity -->
+  <a href="https://spam.example.com/opacity" style="opacity:0">Zero Opacity Link</a>
+  <!-- 2. Zero size -->
+  <a href="https://spam.example.com/size" style="width:0;height:0;display:block">Zero Size</a>
+  <!-- 3. Off-screen -->
+  <a href="https://spam.example.com/offscreen" style="position:absolute;left:-9999px">Offscreen</a>
+  <!-- 4. Font-size 0 -->
+  <a href="https://spam.example.com/fontsize" style="font-size:0">Font Zero</a>
+  <!-- 5. Color matched (white on white) -->
+  <a href="https://spam.example.com/colormatch" style="color:#fff;background:#fff">White on White</a>
+  <!-- 6. Overflow hidden -->
+  <div style="overflow:hidden;width:10px;height:10px">
+    <a href="https://spam.example.com/overflow" style="display:block;width:200px">Overflow Hidden</a>
+  </div>
+  <!-- 7. Transparent overlay -->
+  <div style="position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;z-index:9999"
+       onclick="window.location='https://spam.example.com/overlay'"></div>
+  <!-- 8. Whitespace link -->
+  <a href="https://spam.example.com/whitespace">&nbsp; &nbsp; &nbsp;</a>
+  <!-- 9. Legitimate link (should not be flagged) -->
+  <a href="https://example.com/real">Real Link</a>
+</body></html>
