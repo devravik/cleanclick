@@ -41,6 +41,38 @@
   --popup-padding: 16px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #1a1d2e;
+    --card-bg: #232738;
+    --card-border: #2d3148;
+    --hover-bg: #2a2e42;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    --accent: #818cf8;
+    --accent-hover: #6366f1;
+    --accent-subtle: #1e1b4b;
+    --success: #34d399;
+    --success-subtle: #0f2d1f;
+    --danger: #f87171;
+    --danger-subtle: #2d0f0f;
+    --warning: #fbbf24;
+    --warning-subtle: #2d210f;
+  }
+
+  #status-bar {
+    background: #232738;
+    border: 1px solid var(--card-border);
+    box-shadow: none;
+  }
+
+  .domain {
+    background: var(--hover-bg);
+    color: var(--text-tertiary);
+  }
+}
+
 html {
   font-family: var(--font);
   font-size: 13px;
