@@ -3,67 +3,67 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "원치 않는 리디렉션, 팝언더 광고, 가짜 다운로드 버튼, 악의적인 탐색 트릭으로부터 사용자를 보호합니다."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "보호 활성"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "보호 꺼짐"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "발견된 문제"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "이 사이트에 대해 활성화됨"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "이 사이트에 대해 비활성화됨"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "화이트리스트에 추가됨"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "리디렉션이 차단됨"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "팝업이 차단됨"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "의심스러운 도메인"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "숨겨진 링크"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "문제 없음 이 페이지에서 감지됨"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "$1 문제 발견"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "$1 문제 발견"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "$1 숨겨진 링크"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "$1 숨겨진 링크"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "$1 하이재킹된 요소"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "$1 하이재킹된 요소"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "$1 사기 오버레이"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "$1 사기 오버레이"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "공개"
   },
   "settings": {
     "message": "설정"
@@ -84,25 +84,25 @@
     "message": "정보"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "일반 설정"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "링크 미리보기"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "링크에 위험 배지 표시"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "마우스 오버 툴팁 활성화"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "숨겨진 링크 자동 공개"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "모양"
   },
   "theme": {
-    "message": "Theme"
+    "message": "테마"
   },
   "themeAuto": {
     "message": "자동"
@@ -120,10 +120,10 @@
     "message": "자동 (브라우저 언어)"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "탐색"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "확인 수준 클릭"
   },
   "confirmNever": {
     "message": "안 함"
@@ -135,16 +135,16 @@
     "message": "모든 외부 링크"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "링크 삭제(추적 제거)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "링크 표시 페이지의 밀도 경고"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "웹사이트 화이트리스트"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "CleanClick이 리디렉션을 차단하거나 링크에 플래그를 지정하지 않는 보호된 사이트입니다."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
@@ -153,55 +153,55 @@
     "message": "추가"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "JSON 내보내기"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "JSON 가져오기"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "아직 허용된 도메인이 없습니다."
   },
   "remove": {
     "message": "삭제"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "통계"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "하이재킹된 요소에 플래그��� 지정됨"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "세션이 보호됨"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "모든 통계 재설정"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "계속하시겠습니까? 모든 통계가 영구적으로 삭제됩니다."
   },
   "version": {
-    "message": "Version $1"
+    "message": "버전 $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "개인 정보 보호"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick은 어떠한 개인 데이터도 수집, 저장 또는 전송하지 않습니다. 모든 처리는 귀하의 브라우저에서 로컬로 이루어집니다. 분석도, 원격 측정도, 외부 서버도 없습니다."
   },
   "license": {
-    "message": "License"
+    "message": "라이센스"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "MIT 라이센스 - 자세한 내용은 $1를 참조하십시오."
   },
   "links": {
-    "message": "Links"
+    "message": "링크"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "GitHub 저장소"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "문제 보고"
   },
   "safe": {
     "message": "안전"
@@ -216,16 +216,16 @@
     "message": "알 수 없음"
   },
   "destination": {
-    "message": "Destination"
+    "message": "대상"
   },
   "text": {
-    "message": "Text"
+    "message": "텍스트"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "자세한 내용을 보려면 클릭하세요."
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "의심스러운 링크"
   },
   "continue": {
     "message": "계속"
@@ -234,66 +234,66 @@
     "message": "취소"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "위험한 링크"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "이 링크는 잠재적으로 위험한 것으로 표시되었습니다. 주의해서 진행하세요."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "돌아가기(안전)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "계속 진행"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "높은 링크 밀도"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "$2 도메인에 대한 $1 링크가 감지되었습니다."
   },
   "score": {
-    "message": "Score"
+    "message": "점수"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "에는 다운로드 속성"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "동일 출처"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "알려진 파일 확장자가 있습니다"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "에는 iframe 내부에 파일 이름"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "광고 클래스"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "이 있습니다"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "교차 도메인"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "광고 도메인"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "링크 안전 확인"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "깨끗한 URL 복사"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "다음으로 링크 신고 스팸"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "링크 안전성: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "위험 점수: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "감지된 문제 없음"
   }
 }

@@ -3,67 +3,67 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "يحميك من عمليات إعادة التوجيه غير المرغوب فيها، والإعلانات المنبثقة، وأزرار التنزيل المزيفة، وحيل التنقل الضارة."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "الحماية نشطة"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "الحماية معطلة"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "تم العثور على مشاكل"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "ممكّن لهذا الموقع"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "معطل لهذا الموقع"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "تم إدراجه في القائمة البيضاء"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "عمليات إعادة التوجيه محظورة"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "منع النوافذ المنبثقة"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "المجالات المشبوهة"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "الروابط المخفية"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "لم يتم اكتشاف أي مشاكل في هذه الصفحة"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "تم العثور على مشكلة $1"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "تم العثور على مشكلات $1"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "$1 الرابط المخفي"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "$1 الروابط المخفية"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "$1 عنصر مختطف"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "$1 العناصر المختطفة"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "تراكب احتيال $1"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "تراكبات احتيال $1"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "يكشف"
   },
   "settings": {
     "message": "الإعدادات"
@@ -84,25 +84,25 @@
     "message": "حول"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "الإعدادات العامة"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "معاينة الارتباط"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "إظهار شارات المخاطر على الروابط"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "تمكين تلميحات الأدوات"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "الكشف التلقائي عن الروابط المخفية"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "مظهر"
   },
   "theme": {
-    "message": "Theme"
+    "message": "سمة"
   },
   "themeAuto": {
     "message": "تلقائي"
@@ -120,10 +120,10 @@
     "message": "تلقائي (لغة المتصفح)"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "ملاحة"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "انقر فوق مستوى التأكيد"
   },
   "confirmNever": {
     "message": "أبدًا"
@@ -135,16 +135,16 @@
     "message": "جميع الروابط الخارجية"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "تطهير الروابط (إزالة التتبع)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "إظهار تحذير كثافة الارتباط على الصفحات"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "القائمة البيضاء لموقع الويب"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "المواقع المحمية حيث لن يقوم CleanClick بحظر عمليات إعادة التوجيه أو وضع علامة على الروابط."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
@@ -153,55 +153,55 @@
     "message": "إضافة"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "تصدير JSON"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "استيراد جسون"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "لا توجد نطاقات مدرجة في القائمة البيضاء حتى الآن."
   },
   "remove": {
     "message": "إزالة"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "إحصائيات"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "تم وضع علامة على العناصر المختطفة"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "الجلسات محمية"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "إعادة ضبط جميع الإحصائيات"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "هل أنت متأكد؟ سيؤدي هذا إلى حذف جميع الإحصائيات بشكل دائم."
   },
   "version": {
-    "message": "Version $1"
+    "message": "الإصدار $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "خصوصية"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "لا تقوم CleanClick بجمع أو تخزين أو نقل أي بيانات شخصية. تتم جميع عمليات المعالجة محليًا في متصفحك. لا توجد تحليلات ولا قياس عن بعد ولا خوادم خارجية."
   },
   "license": {
-    "message": "License"
+    "message": "رخصة"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "ترخيص MIT - راجع $1 للحصول على التفاصيل."
   },
   "links": {
-    "message": "Links"
+    "message": "روابط"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "مستودع جيثب"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "تقرير المشكلة"
   },
   "safe": {
     "message": "آمن"
@@ -216,16 +216,16 @@
     "message": "غير معروف"
   },
   "destination": {
-    "message": "Destination"
+    "message": "وجهة"
   },
   "text": {
-    "message": "Text"
+    "message": "نص"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "انقر للحصول على التفاصيل"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "رابط مشبوه"
   },
   "continue": {
     "message": "متابعة"
@@ -234,66 +234,66 @@
     "message": "إلغاء"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "رابط خطير"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "تم وضع علامة على هذا الارتباط على أنه يحتمل أن يكون خطيرًا. المضي قدما بحذر."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "العودة (آمنة)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "المضي قدما على أي حال"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "كثافة الارتباط عالية"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "تم اكتشاف روابط $1 إلى مجالات $2."
   },
   "score": {
-    "message": "Score"
+    "message": "نتيجة"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "لديه سمة التحميل"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "نفس الأصل"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "امتداد الملف المعروف"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "لديه اسم الملف"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "فئة إعلانية"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "داخل إطار iframe"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "عبر المجال"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "مجال الإعلان"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "التحقق من سلامة الارتباط"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "انسخ عنوان URL النظيف"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "الإبلاغ عن الرابط كرسالة غير مرغوب فيها"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "سلامة الارتباط: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "درجة المخاطرة: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "لم يتم اكتشاف أية مشكلات"
   }
 }

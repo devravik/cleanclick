@@ -3,297 +3,297 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "Chroni Cię przed niechcianymi przekierowaniami, wyskakującymi reklamami, fałszywymi przyciskami pobierania i złośliwymi sztuczkami nawigacyjnymi."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "Ochrona aktywna"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "Ochrona wyłączona"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "Znaleziono problemy"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "Włączono dla tej witryny"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "Wyłączono dla tej witryny"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "Dodano do białej listy"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "Przekierowania zablokowane"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "Zablokowano wyskakujące okienka"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "Podejrzane domeny"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "Ukryte linki"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "Na tej stronie nie wykryto żadnych problemów"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "Znaleziono problem $1"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "Znaleziono problemy $1"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "Ukryty link $1"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "Ukryte linki $1"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "Przejęty element $1"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "Przejęte elementy $1"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "Nakładka oszustwa $1"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "Nakładki oszustwa $1"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "Pokaż"
   },
   "settings": {
-    "message": "Settings"
+    "message": "Ustawienia"
   },
   "tabGeneral": {
-    "message": "General"
+    "message": "Ogólne"
   },
   "tabWhitelist": {
-    "message": "Whitelist"
+    "message": "Biała lista"
   },
   "tabStatistics": {
-    "message": "Statistics"
+    "message": "Statystyki"
   },
   "tabCustomRules": {
-    "message": "Custom Rules"
+    "message": "Reguły niestandardowe"
   },
   "tabAbout": {
-    "message": "About"
+    "message": "Informacje"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "Ustawienia ogólne"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "Podgląd łącza"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "Pokaż plakietki ryzyka na linkach"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "Włącz podpowiedzi po najechaniu myszką"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "Automatyczne odkrywanie ukrytych linków"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "Wygląd"
   },
   "theme": {
-    "message": "Theme"
+    "message": "Motyw"
   },
   "themeAuto": {
-    "message": "Auto (follow system)"
+    "message": "Automatyczny (śledź system)"
   },
   "themeLight": {
-    "message": "Light"
+    "message": "Jasny"
   },
   "themeDark": {
-    "message": "Dark"
+    "message": "Ciemny"
   },
   "language": {
-    "message": "Language"
+    "message": "Język"
   },
   "languageAuto": {
-    "message": "Auto (browser default)"
+    "message": "Automatyczny (domyślny w przeglądarce)"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "Nawigacja"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "Poziom potwierdzenia kliknięcia"
   },
   "confirmNever": {
-    "message": "Never"
+    "message": "Nigdy"
   },
   "confirmSuspicious": {
-    "message": "Suspicious only"
+    "message": "Tylko podejrzane"
   },
   "confirmAll": {
-    "message": "All external links"
+    "message": "Wszystkie linki zewnętrzne"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "Oczyść linki (usuń śledzenie)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "Pokaż ostrzeżenie o gęstości linków na stronach"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "Biała lista witryn"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "Chronione witryny, na których CleanClick nie będzie blokować przekierowań ani oznaczać linków."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
   },
   "add": {
-    "message": "Add"
+    "message": "Dodaj"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "Eksportuj JSON"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "Importuj JSON"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "Nie ma jeszcze domen na białej liście."
   },
   "remove": {
-    "message": "Remove"
+    "message": "Usuń"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "Statystyki"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "Przejęte elementy oznaczone"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "Sesje chronione"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "Resetuj wszystkie statystyki"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "Czy jesteś pewien? Spowoduje to trwałe usunięcie wszystkich statystyk."
   },
   "version": {
-    "message": "Version $1"
+    "message": "Wersja $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "Prywatność"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick NIE gromadzi, nie przechowuje ani nie przekazuje żadnych danych osobowych. Całe przetwarzanie odbywa się lokalnie w Twojej przeglądarce. Żadnych analiz, żadnych telemetrii, żadnych serwerów zewnętrznych. Licencja"
   },
   "license": {
-    "message": "License"
+    "message": "Licencja"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "MIT – szczegóły znajdziesz w $1."
   },
   "links": {
-    "message": "Links"
+    "message": "Linki"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "Repozytorium GitHub"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "Zgłoś problem"
   },
   "safe": {
-    "message": "Safe"
+    "message": "Bezpieczny"
   },
   "suspicious": {
-    "message": "Suspicious"
+    "message": "Podejrzany"
   },
   "dangerous": {
-    "message": "Dangerous"
+    "message": "Niebezpieczny"
   },
   "unknown": {
-    "message": "Unknown"
+    "message": "Nieznany"
   },
   "destination": {
-    "message": "Destination"
+    "message": "Miejsce docelowe"
   },
   "text": {
-    "message": "Text"
+    "message": "Tekst"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "Kliknij, aby uzyskać szczegółowe informacje"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "Podejrzany link"
   },
   "continue": {
-    "message": "Continue"
+    "message": "Kontynuuj"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Anuluj"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "Niebezpieczny link"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "Ten link został oznaczony jako potencjalnie niebezpieczny. Postępuj ostrożnie."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "Wróć (bezpieczny)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "Kontynuuj mimo to"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "Wysoka gęstość łączy"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "Wykryto łącza $1 do domen $2."
   },
   "score": {
-    "message": "Score"
+    "message": "Wynik"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "ma atrybut pobierania"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "to samo pochodzenie"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "znane rozszerzenie pliku"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "ma nazwę pliku"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "klasa reklamy"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "wewnątrz iframe"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "między domenami"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "domena reklam"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "Sprawdź bezpieczeństwo linku"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "Skopiuj czysty adres URL"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "Zgłoś link jako spam"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "Bezpieczeństwo łącza: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "Ocena ryzyka: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "Nie wykryto żadnych problemów"
   }
 }

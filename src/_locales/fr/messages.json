@@ -3,67 +3,67 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "Vous protège des redirections indésirables, des publicités pop-under, des faux boutons de téléchargement et des astuces de navigation malveillantes."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "Protection active"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "Protection désactivée"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "Problèmes trouvés"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "Activé pour ce site"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "Désactivé pour ce site"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "Liste blanche"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "Redirections bloquées"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "Popups empêchés"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "Domaines suspects"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "Liens cachés"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "Aucun problème détecté sur cette page"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "Problème $1 trouvé"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "Problèmes $1 trouvés"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "Lien caché $1"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "Liens cachés $1"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "Élément piraté $1"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "Éléments piratés $1"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "Superposition d'arnaque $1"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "Superpositions d'arnaque $1"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "Révéler"
   },
   "settings": {
     "message": "Paramètres"
@@ -84,25 +84,25 @@
     "message": "À propos"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "Paramètres généraux"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "Aperçu des liens"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "Afficher les badges de risque sur les liens"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "Activer les info-bulles de survol"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "Révéler automatiquement les liens cachés"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "Apparence"
   },
   "theme": {
-    "message": "Theme"
+    "message": "Thème"
   },
   "themeAuto": {
     "message": "Automatique"
@@ -123,7 +123,7 @@
     "message": "Navigation"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "Cliquez sur le niveau de confirmation"
   },
   "confirmNever": {
     "message": "Jamais"
@@ -135,16 +135,16 @@
     "message": "Tous les liens externes"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "Nettoyer les liens (supprimer suivi)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "Afficher l'avertissement de densité des liens sur les pages"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "Liste blanche des sites Web"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "Sites protégés sur lesquels CleanClick ne bloquera pas les redirections ni ne signalera les liens."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
@@ -153,55 +153,55 @@
     "message": "Ajouter"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "Exporter JSON"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "Importer JSON"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "Aucun domaine sur liste blanche pour l'instant."
   },
   "remove": {
     "message": "Supprimer"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "Statistiques"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "Éléments piratés signalés"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "Sessions protégées"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "Réinitialiser toutes les statistiques"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "Êtes-vous sûr ? Cela supprimera définitivement toutes les statistiques."
   },
   "version": {
     "message": "Version $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "Confidentialité"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick ne collecte, ne stocke ni ne transmet aucune donnée personnelle. Tout le traitement s'effectue localement dans votre navigateur. Pas d'analyse, pas de télémétrie, pas de serveurs externes. Licence"
   },
   "license": {
-    "message": "License"
+    "message": "Licence"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "MIT - voir $1 pour plus de détails."
   },
   "links": {
-    "message": "Links"
+    "message": "Liens"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "Référentiel GitHub"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "Numéro de rapport"
   },
   "safe": {
     "message": "Sûr"
@@ -219,13 +219,13 @@
     "message": "Destination"
   },
   "text": {
-    "message": "Text"
+    "message": "Texte"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "Cliquez pour plus de détails"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "Lien suspect"
   },
   "continue": {
     "message": "Continuer"
@@ -234,66 +234,66 @@
     "message": "Annuler"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "Lien dangereux"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "Ce lien a été signalé comme potentiellement dangereux. Procédez avec prudence."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "Revenir en arrière (en toute sécurité)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "Continuer quand même"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "Densité de liens élevée"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "Liens $1 vers des domaines $2 détectés."
   },
   "score": {
     "message": "Score"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "a un attribut de téléchargement"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "de même origine"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "extension de fichier connue"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "a un nom de fichier"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "classe d'annonce"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "dans l'iframe"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "inter-domaine"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "domaine d'annonce"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "Vérifier la sécurité des liens"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "Copier l'URL propre"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "Signaler le lien comme spam"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "Sécurité des liens : $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "Score de risque : $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "Aucun problème détecté"
   }
 }

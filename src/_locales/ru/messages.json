@@ -3,67 +3,67 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "Защищает вас от нежелательных перенаправлений, всплывающих окон, поддельных кнопок загрузки и вредоносных уловок навигации."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "Защита активна"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "Защита выключена"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "Обнаружены проблемы"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "Включена для этого сайта"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "Отключена для этого сайта"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "Внесен в белый список"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "Перенаправления заблокированы"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "Всплывающие окна запрещены"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "Подозрительные домены"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "Скрытые ссылки"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "На этой странице проблем не обнаружено"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "Обнаружена проблема $1"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "Обнаружены проблемы $1"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "Скрытая ссылка $1"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "Скрытые ссылки $1"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "Зах��аченный элемент $1"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "Захваченные элементы $1"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "Наложение мошенничества $1"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "Мошенничество $1 наложения"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "Показать"
   },
   "settings": {
     "message": "Настройки"
@@ -84,25 +84,25 @@
     "message": "О программе"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "Общие настройки"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "Предварительный просмотр ссылки"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "Показывать значки риска на ссылках"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "Включить подсказки при наведении"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "Автоматическое отображение скрытых ссылок"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "Внешний вид"
   },
   "theme": {
-    "message": "Theme"
+    "message": "Тема"
   },
   "themeAuto": {
     "message": "Авто"
@@ -120,10 +120,10 @@
     "message": "Авто (язык браузера)"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "Навигация"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "Уровень подтверждения щелчка"
   },
   "confirmNever": {
     "message": "Никогда"
@@ -135,16 +135,16 @@
     "message": "Все внешние ссылки"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "Обеззараживать ссылки (удалять отслеживание)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "Показывать предупреждение о плотности ссылок на страницах"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "Белый список веб-сайтов"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "Защищенные сайты, на которых CleanClick не будет блокировать перенаправления или помечать ссылки."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
@@ -153,55 +153,55 @@
     "message": "Добавить"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "Экспорт JSON"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "Импорт JSON"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "Домены в белом списке пока отсутствуют."
   },
   "remove": {
     "message": "Удалить"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "Статистика"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "Помечены захваченные элементы"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "Защищенные сеансы"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "Сбросить всю статистику"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "Вы уверены? Это приведет к безвозвратному удалению всей статистики."
   },
   "version": {
-    "message": "Version $1"
+    "message": "В��рсия $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "Конфиденциальность"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick НЕ собирает, не хранит и не передает какие-либо личные данные. Вся обработка происходит локально в вашем браузере. Никакой аналитики, никакой телеметрии, никаких внешних серверов."
   },
   "license": {
-    "message": "License"
+    "message": "Лицензия"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "Лицензия MIT — подробности см. в $1."
   },
   "links": {
-    "message": "Links"
+    "message": "Ссылки"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "Репозиторий GitHub"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "Отчет о проблеме"
   },
   "safe": {
     "message": "Безопасно"
@@ -216,16 +216,16 @@
     "message": "Неизвестно"
   },
   "destination": {
-    "message": "Destination"
+    "message": "Назначение"
   },
   "text": {
-    "message": "Text"
+    "message": "Текст"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "Нажмите, чтобы узнать подробности"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "Подозрительная ссылка"
   },
   "continue": {
     "message": "Продолжить"
@@ -234,66 +234,66 @@
     "message": "Отмена"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "Опасная ссылка"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "Эта ссылка была помечена как потенциально опасн��я. Действуйте осторожно."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "Вернуться назад (безопасно)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "Продолжить в любом случае"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "Высокая плотность ссылок"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "Обнаружены ссылки $1 на домены $2."
   },
   "score": {
-    "message": "Score"
+    "message": "Оценка"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "имеет атрибут загрузки"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "того же происхождения"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "известное расширение файла"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "имеет имя файла"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "класс объявления"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "внутри iframe"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "междоменный"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "рекламный домен"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "Проверить безопасность ссылок"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "Скопировать чистый URL-адрес"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "Отчет ссылка как спам"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "Безопасность ссылок: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "Оценка риска: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "Проблем не обнаружено"
   }
 }

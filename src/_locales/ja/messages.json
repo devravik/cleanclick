@@ -3,67 +3,67 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "不要なリダイレクト、ポップアンダー広告、偽のダウンロード ボタン、悪意のあるナビゲーション トリックからユーザーを保護します。"
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "保護はアクティブです"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "保護はオフです"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "問題が見つかりました"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "このサイトでは有効です"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "このサイトでは無効です"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "ホワイトリストに登録されています"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "リダイレクトはブロックされています"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "ポップアップは阻止されています"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "不審なドメイン"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "隠しリンク"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "いいえこのページで検出された問題"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "$1 問題が見つかりました"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "$1 問題が見つかりました"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "$1 隠しリンク"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "$1 隠しリンク"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "$1 ハイジャックされた要素"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "$1 ハイジャックされた要素"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "$1 詐欺オーバーレイ"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "$1 詐欺オーバーレイ"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "明らかに"
   },
   "settings": {
     "message": "設定"
@@ -84,25 +84,25 @@
     "message": "について"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "一般設定"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "リンクプレビュー"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "リンクにリスクバッジを表示"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "ホバーツールチップを有効にする"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "隠しリンクの自動表示"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "外観"
   },
   "theme": {
-    "message": "Theme"
+    "message": "テーマ"
   },
   "themeAuto": {
     "message": "自動"
@@ -120,10 +120,10 @@
     "message": "自動（ブラウザ言語）"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "ナビゲーション"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "クリック確認レベル"
   },
   "confirmNever": {
     "message": "しない"
@@ -135,16 +135,16 @@
     "message": "すべての外部リンク"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "リンクのサニタイズ (追跡の削除)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "ページにリンク密度の警告を表示する"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "Web サイトのホワイトリスト"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "CleanClick がリダイレクトをブロックしたりリンクにフラグを立てたりしない、保護されたサイト。"
   },
   "whitelistPlaceholder": {
     "message": "example.com"
@@ -153,55 +153,55 @@
     "message": "追加"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "JSON の��クスポート"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "JSON のインポート"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "ホワイトリストに登録されたドメインはまだありません。"
   },
   "remove": {
     "message": "削除"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "統計"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "ハイジャックされた要素にフラグが立てられました"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "セッションが保護されました"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "すべての統計をリセットします"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "本当によろしいですか?これにより、すべての統計が完全に削除されます。"
   },
   "version": {
-    "message": "Version $1"
+    "message": "バージョン $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "プライバシー"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick は個人データを収集、保存、送信しません。すべての処理はブラウザ内でローカルに行われます。分析、テレメトリ、外部サーバーはありません。"
   },
   "license": {
-    "message": "License"
+    "message": "ライセンス"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "MIT ライセンス - 詳細については、「$1」を参照してください。"
   },
   "links": {
-    "message": "Links"
+    "message": "リンク"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "GitHub リポジトリ"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "問題のレポート"
   },
   "safe": {
     "message": "安全"
@@ -216,16 +216,16 @@
     "message": "不明"
   },
   "destination": {
-    "message": "Destination"
+    "message": "宛先"
   },
   "text": {
-    "message": "Text"
+    "message": "テキスト"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "詳細についてはクリックしてください"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "不審なリンク"
   },
   "continue": {
     "message": "続行"
@@ -234,66 +234,66 @@
     "message": "キャンセル"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "危険なリンク"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "このリンクには危険性があるとしてフラグが付けられました。慎重に作業を進めてください。"
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "戻る (安全)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "とにかく続行"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "リンク密度が高い"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "$2 ドメインへの $1 リンクが検出されました。"
   },
   "score": {
-    "message": "Score"
+    "message": "スコア"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "にはダウンロード属性があります"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "同一オリジン"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "既知のファイル拡張子"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "にはファイル名"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "広告クラス"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "iframe 内"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "クロスドメイン"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "広告ドメイン"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "リンクの安全性の確認"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "クリーンな URL のコピー"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "レポートスパムとしてのリンク"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "リンクの安全性: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "リスクスコア: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "問題は検出されませんでした"
   }
 }

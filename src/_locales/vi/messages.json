@@ -3,297 +3,297 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "Bảo vệ bạn khỏi các chuyển hướng không mong muốn, quảng cáo bật xuống, nút tải xuống giả mạo và các thủ thuật điều hướng độc hại."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "Bảo vệ đang hoạt động"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "Tắt bảo vệ"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "Đã tìm thấy vấn đề"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "Đã bật cho trang web này"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "Đã tắt cho trang web này"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "Được đưa vào danh sách trắng"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "Chuyển hướng bị chặn"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "Cửa sổ bật lên bị ngăn chặn"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "Tên miền đáng ngờ"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "Liên kết ẩn"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "Không phát hiện thấy vấn đề nào trên trang này đã tìm thấy"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "vấn đề $1"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "tìm thấy vấn đề $1"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "$1 liên kết ẩn"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "$1 liên kết ẩn"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "Phần tử bị tấn công $1"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "Phần tử bị tấn công $1"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "Lớp phủ lừa đảo $1"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "Lớp phủ lừa đảo $1"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "Tiết lộ"
   },
   "settings": {
-    "message": "Settings"
+    "message": "Cài đặt"
   },
   "tabGeneral": {
-    "message": "General"
+    "message": "Chung"
   },
   "tabWhitelist": {
-    "message": "Whitelist"
+    "message": "Danh sách trắng"
   },
   "tabStatistics": {
-    "message": "Statistics"
+    "message": "Thống kê"
   },
   "tabCustomRules": {
-    "message": "Custom Rules"
+    "message": "Quy tắc tùy chỉnh"
   },
   "tabAbout": {
-    "message": "About"
+    "message": "Giới thiệu về"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "Cài đặt chung"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "Xem trước liên kết"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "Hiển thị huy hiệu rủi ro trên các liên kết"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "Bật chú giải công cụ di chuột"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "Tự động hiển thị các liên kết ẩn"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "Giao diện"
   },
   "theme": {
-    "message": "Theme"
+    "message": "Chủ đề"
   },
   "themeAuto": {
-    "message": "Auto (follow system)"
+    "message": "Tự động (theo hệ thống)"
   },
   "themeLight": {
-    "message": "Light"
+    "message": "Sáng"
   },
   "themeDark": {
-    "message": "Dark"
+    "message": "Tối"
   },
   "language": {
-    "message": "Language"
+    "message": "Ngôn ngữ"
   },
   "languageAuto": {
-    "message": "Auto (browser default)"
+    "message": "Tự động (mặc định của trình duyệt)"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "Điều hướng"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "Mức xác nhận nhấp chuột"
   },
   "confirmNever": {
-    "message": "Never"
+    "message": "Không bao giờ"
   },
   "confirmSuspicious": {
-    "message": "Suspicious only"
+    "message": "Chỉ đáng ngờ"
   },
   "confirmAll": {
-    "message": "All external links"
+    "message": "Tất cả các liên kết bên ngoài"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "Vệ sinh các liên kết (xóa theo dõi)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "Hiển thị cảnh báo mật độ liên kết trên các trang"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "Danh sách trắng trang web"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "Các trang web được bảo vệ trong đó CleanClick sẽ không chặn chuyển hướng hoặc gắn cờ liên kết."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
   },
   "add": {
-    "message": "Add"
+    "message": "Thêm"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "Xuất JSON"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "Nhập JSON"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "Chưa có tên miền nào được đưa vào danh sách trắng."
   },
   "remove": {
-    "message": "Remove"
+    "message": "Xóa"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "Thống kê"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "Các phần tử bị tấn công được gắn cờ"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "Phiên được bảo vệ"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "Đặt lại tất cả thống kê"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "Bạn có chắc chắn không? Điều này sẽ xóa vĩnh viễn tất cả số liệu thống kê."
   },
   "version": {
-    "message": "Version $1"
+    "message": "Phiên bản $1"
   },
   "privacy": {
-    "message": "Privacy"
+    "message": "Quyền riêng tư"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick KHÔNG thu thập, lưu trữ hoặc truyền bất kỳ dữ liệu cá nhân nào. Tất cả quá trình xử lý diễn ra cục bộ trong trình duyệt của bạn. Không có phân tích, không đo từ xa, không có máy chủ bên ngoài. Giấy phép"
   },
   "license": {
-    "message": "License"
+    "message": "Giấy phép"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "MIT - xem $1 để biết chi tiết."
   },
   "links": {
-    "message": "Links"
+    "message": "Liên kết"
   },
   "githubRepository": {
-    "message": "GitHub Repository"
+    "message": "Kho lưu trữ GitHub"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "Vấn đề báo cáo"
   },
   "safe": {
-    "message": "Safe"
+    "message": "An toàn"
   },
   "suspicious": {
-    "message": "Suspicious"
+    "message": "Đáng ngờ"
   },
   "dangerous": {
-    "message": "Dangerous"
+    "message": "Nguy hiểm"
   },
   "unknown": {
-    "message": "Unknown"
+    "message": "Không xác định"
   },
   "destination": {
-    "message": "Destination"
+    "message": "Đích đến"
   },
   "text": {
-    "message": "Text"
+    "message": "Văn bản"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "Nhấp để biết chi tiết"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "Liên kết đáng ngờ"
   },
   "continue": {
-    "message": "Continue"
+    "message": "Tiếp tục"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Hủy"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "Liên kết nguy hiểm"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "Liên kết này đã được gắn cờ là có khả năng nguy hiểm. Tiến hành thận trọng."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "Quay lại (an toàn)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "Vẫn tiếp tục"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "Mật độ liên kết cao"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "Đã phát hiện liên kết $1 tới miền $2."
   },
   "score": {
-    "message": "Score"
+    "message": "Điểm"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "có thuộc tính tải xuống"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "cùng nguồn gốc"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "phần mở rộng tệp đã biết"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "có tên tệp"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "lớp quảng cáo"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "bên trong iframe"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "tên miền chéo"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "tên miền quảng cáo"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "Kiểm tra độ an toàn của liên kết"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "Sao chép URL sạch"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "Báo cáo liên kết dưới dạng spam"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "An toàn liên kết: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "Điểm rủi ro: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "Không phát hiện vấn đề nào"
   }
 }

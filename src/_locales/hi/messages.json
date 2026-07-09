@@ -3,7 +3,7 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "आपको अवांछित रीडायरेक्ट, पॉप-अंडर विज्ञापन, नकली डाउनलोड बटन और दुर्भावनापूर्ण नेविगेशन ट्रिक्स से बचाता है।"
   },
   "protectionActive": {
     "message": "सुरक्षा सक्रिय"
@@ -39,28 +39,28 @@
     "message": "इस पेज पर कोई समस्या नहीं मिली"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "$1 समस्या मिली"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "$1 समस्याएँ मिलीं"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "$1 छिपा हुआ लिंक"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "$1 छुपे हुए लिंक"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "$1 अपहृत तत्व"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "$1 अपहृत तत्व"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "$1 घोटाला ओवरले"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "$1 घोटाला ओवरले"
   },
   "reveal": {
     "message": "दिखाएं"
@@ -192,7 +192,7 @@
     "message": "लाइसेंस"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "एमआईटी लाइसेंस - विवरण के लिए $1 देखें।"
   },
   "links": {
     "message": "लिंक"
@@ -216,16 +216,16 @@
     "message": "अज्ञात"
   },
   "destination": {
-    "message": "Destination"
+    "message": "गंतव्य"
   },
   "text": {
-    "message": "Text"
+    "message": "मूलपाठ"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "विवरण के लिए क्लिक करें"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "संदिग्ध लिंक"
   },
   "continue": {
     "message": "जारी रखें"
@@ -234,49 +234,49 @@
     "message": "रद्द करें"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "खतरनाक लिंक"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "इस लिंक को संभावित रूप से खतरनाक के रूप में चिह्नित किया गया था। सावधानी के साथ आगे बढ़ना।"
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "वापस जाओ (सुरक्षित)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "वैसे भी आगे बढ़े"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "उच्च लिंक घनत्व"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "$2 डोमेन से $1 लिंक का पता चला।"
   },
   "score": {
-    "message": "Score"
+    "message": "अंक"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "डाउनलोड विशेषता है"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "समान मूल"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "ज्ञात फ़ाइल एक्सटेंशन"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "फ़ाइल नाम है"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "विज्ञापन वर्ग"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "आईफ्रेम के अंदर"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "क्रॉस-डोमेन"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "विज्ञापन डोमेन"
   },
   "checkLinkSafety": {
     "message": "लिंक सुरक्षा जांचें"
@@ -288,12 +288,12 @@
     "message": "लिंक को स्पैम रिपोर्ट करें"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "लिंक सुरक्षा: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "जोखिम स्कोर: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "कोई समस्या नहीं पाई गई"
   }
 }

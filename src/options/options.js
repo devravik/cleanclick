@@ -193,7 +193,15 @@ async function onSettingChange(e) {
   if (key === 'language') {
     await initI18n(value);
     // Re-render current tab with new language
-    switchTab(state.currentTab);
+    const renderers = {
+      general: renderGeneral,
+      whitelist: renderWhitelist,
+      statistics: renderStatistics,
+      about: renderAbout,
+    };
+    if (renderers[state.currentTab]) {
+      renderers[state.currentTab]();
+    }
   }
 }
 

@@ -3,196 +3,196 @@
     "message": "CleanClick"
   },
   "extensionDescription": {
-    "message": "Protects you from unwanted redirects, pop-under ads, fake download buttons, and malicious navigation tricks."
+    "message": "Beschermt u tegen ongewenste omleidingen, pop-underadvertenties, valse downloadknoppen en kwaadaardige navigatietrucs."
   },
   "protectionActive": {
-    "message": "Protection Active"
+    "message": "Bescherming actief"
   },
   "protectionOff": {
-    "message": "Protection Off"
+    "message": "Bescherming uitgeschakeld"
   },
   "issuesFound": {
-    "message": "Issues found"
+    "message": "Problemen gevonden"
   },
   "enabledForThisSite": {
-    "message": "Enabled for this site"
+    "message": "Ingeschakeld voor deze site"
   },
   "disabledForThisSite": {
-    "message": "Disabled for this site"
+    "message": "Uitgeschakeld voor deze site"
   },
   "whitelisted": {
-    "message": "Whitelisted"
+    "message": "Op de witte lijst gezet"
   },
   "redirectsBlocked": {
-    "message": "Redirects Blocked"
+    "message": "Omleidingen geblokkeerd"
   },
   "popupsPrevented": {
-    "message": "Popups Prevented"
+    "message": "Pop-ups voorkomen"
   },
   "suspiciousDomains": {
-    "message": "Suspicious Domains"
+    "message": "Verdachte domeinen"
   },
   "hiddenLinks": {
-    "message": "Hidden Links"
+    "message": "Verborgen links"
   },
   "noIssuesDetected": {
-    "message": "No issues detected on this page"
+    "message": "Geen problemen gedetecteerd op deze pagina"
   },
   "issueFound": {
-    "message": "$1 issue found"
+    "message": "$1-probleem gevonden"
   },
   "issuesFound_plural": {
-    "message": "$1 issues found"
+    "message": "$1-problemen gevonden"
   },
   "hiddenLink": {
-    "message": "$1 hidden link"
+    "message": "$1 verborgen link"
   },
   "hiddenLink_plural": {
-    "message": "$1 hidden links"
+    "message": "$1 verborgen links"
   },
   "hijackedElement": {
-    "message": "$1 hijacked element"
+    "message": "$1 gekaapt element"
   },
   "hijackedElement_plural": {
-    "message": "$1 hijacked elements"
+    "message": "$1 gekaapte elementen"
   },
   "scamOverlay": {
-    "message": "$1 scam overlay"
+    "message": "$1 scam-overlay"
   },
   "scamOverlay_plural": {
-    "message": "$1 scam overlays"
+    "message": "$1 scam-overlays"
   },
   "reveal": {
-    "message": "Reveal"
+    "message": "Onthullen"
   },
   "settings": {
-    "message": "Settings"
+    "message": "Instellingen"
   },
   "tabGeneral": {
-    "message": "General"
+    "message": "Algemeen"
   },
   "tabWhitelist": {
-    "message": "Whitelist"
+    "message": "Witte lijst"
   },
   "tabStatistics": {
-    "message": "Statistics"
+    "message": "Statistieken"
   },
   "tabCustomRules": {
-    "message": "Custom Rules"
+    "message": "Aangepaste regels"
   },
   "tabAbout": {
-    "message": "About"
+    "message": "Over"
   },
   "generalSettings": {
-    "message": "General Settings"
+    "message": "Algemene instellingen"
   },
   "linkPreview": {
-    "message": "Link Preview"
+    "message": "Linkvoorbeeld"
   },
   "showRiskBadges": {
-    "message": "Show risk badges on links"
+    "message": "Risicobadges op links weergeven"
   },
   "enableHoverTooltips": {
-    "message": "Enable hover tooltips"
+    "message": "Knopinfo voor zweven inschakelen"
   },
   "autoRevealHiddenLinks": {
-    "message": "Auto-reveal hidden links"
+    "message": "Verborgen links automatisch onthullen"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "Uiterlijk"
   },
   "theme": {
-    "message": "Theme"
+    "message": "Thema"
   },
   "themeAuto": {
-    "message": "Auto (follow system)"
+    "message": "Automatisch (volgsysteem)"
   },
   "themeLight": {
-    "message": "Light"
+    "message": "Licht"
   },
   "themeDark": {
-    "message": "Dark"
+    "message": "Donker"
   },
   "language": {
-    "message": "Language"
+    "message": "Taal"
   },
   "languageAuto": {
-    "message": "Auto (browser default)"
+    "message": "Automatisch (standaard browser)"
   },
   "navigation": {
-    "message": "Navigation"
+    "message": "Navigatie"
   },
   "clickConfirmationLevel": {
-    "message": "Click confirmation level"
+    "message": "Klikbevestigingsniveau"
   },
   "confirmNever": {
-    "message": "Never"
+    "message": "Nooit"
   },
   "confirmSuspicious": {
-    "message": "Suspicious only"
+    "message": "Alleen verdacht"
   },
   "confirmAll": {
-    "message": "All external links"
+    "message": "Alle externe links"
   },
   "sanitizeLinks": {
-    "message": "Sanitize links (remove tracking)"
+    "message": "Sanitize links (tracking verwijderen)"
   },
   "showLinkDensityWarning": {
-    "message": "Show link density warning on pages"
+    "message": "Waarschuwing voor linkdichtheid weergeven op pagina's"
   },
   "websiteWhitelist": {
-    "message": "Website Whitelist"
+    "message": "Website op witte lijst zetten"
   },
   "whitelistDescription": {
-    "message": "Protected sites where CleanClick will not block redirects or flag links."
+    "message": "Beschermde sites waar CleanClick geen omleidingen blokkeert of links markeert."
   },
   "whitelistPlaceholder": {
     "message": "example.com"
   },
   "add": {
-    "message": "Add"
+    "message": "Toevoegen"
   },
   "exportJson": {
-    "message": "Export JSON"
+    "message": "Exporteren JSON"
   },
   "importJson": {
-    "message": "Import JSON"
+    "message": "Importeren JSON"
   },
   "noWhitelistedDomains": {
-    "message": "No whitelisted domains yet."
+    "message": "Nog geen domeinen op de witte lijst."
   },
   "remove": {
-    "message": "Remove"
+    "message": "Verwijderen"
   },
   "statistics": {
-    "message": "Statistics"
+    "message": "Statistieken"
   },
   "hijackedElementsFlagged": {
-    "message": "Hijacked Elements Flagged"
+    "message": "Gekaapte elementen gemarkeerd"
   },
   "sessionsProtected": {
-    "message": "Sessions Protected"
+    "message": "Sessies beveiligd"
   },
   "resetAllStatistics": {
-    "message": "Reset All Statistics"
+    "message": "Alle statistieken resetten"
   },
   "resetConfirm": {
-    "message": "Are you sure? This will permanently delete all statistics."
+    "message": "Weet u het zeker? Hierdoor worden alle statistieken definitief verwijderd."
   },
   "version": {
-    "message": "Version $1"
+    "message": "Versie $1"
   },
   "privacy": {
     "message": "Privacy"
   },
   "privacyText": {
-    "message": "CleanClick does NOT collect, store, or transmit any personal data. All processing happens locally in your browser. No analytics, no telemetry, no external servers."
+    "message": "CleanClick verzamelt, bewaart of verzendt GEEN persoonlijke gegevens. Alle verwerking gebeurt lokaal in uw browser. Geen analyses, geen telemetrie, geen externe servers."
   },
   "license": {
-    "message": "License"
+    "message": "Licentie"
   },
   "licenseText": {
-    "message": "MIT License - see $1 for details."
+    "message": "MIT-licentie - zie $1 voor details."
   },
   "links": {
     "message": "Links"
@@ -201,99 +201,99 @@
     "message": "GitHub Repository"
   },
   "reportIssue": {
-    "message": "Report Issue"
+    "message": "Probleem melden"
   },
   "safe": {
-    "message": "Safe"
+    "message": "Veilig"
   },
   "suspicious": {
-    "message": "Suspicious"
+    "message": "Verdacht"
   },
   "dangerous": {
-    "message": "Dangerous"
+    "message": "Gevaarlijk"
   },
   "unknown": {
-    "message": "Unknown"
+    "message": "Onbekend"
   },
   "destination": {
-    "message": "Destination"
+    "message": "Bestemming"
   },
   "text": {
-    "message": "Text"
+    "message": "Tekst"
   },
   "clickForDetails": {
-    "message": "Click for details"
+    "message": "Klik voor details"
   },
   "suspiciousLink": {
-    "message": "Suspicious link"
+    "message": "Verdachte link"
   },
   "continue": {
-    "message": "Continue"
+    "message": "Doorgaan"
   },
   "cancel": {
-    "message": "Cancel"
+    "message": "Annuleren"
   },
   "dangerousLink": {
-    "message": "Dangerous Link"
+    "message": "Gevaarlijke link"
   },
   "proceedWithCaution": {
-    "message": "This link was flagged as potentially dangerous. Proceed with caution."
+    "message": "Deze link is gemarkeerd als potentieel gevaarlijk. Ga voorzichtig te werk."
   },
   "goBackSafe": {
-    "message": "Go back (safe)"
+    "message": "Ga terug (veilig)"
   },
   "proceedAnyway": {
-    "message": "Proceed anyway"
+    "message": "Ga toch verder"
   },
   "highLinkDensity": {
-    "message": "High link density"
+    "message": "Hoge linkdichtheid"
   },
   "linksToDomains": {
-    "message": "$1 links to $2 domains detected."
+    "message": "$1-links naar $2-domeinen gedetecteerd."
   },
   "score": {
     "message": "Score"
   },
   "hasDownloadAttribute": {
-    "message": "has download attribute"
+    "message": "heeft downloadkenmerk"
   },
   "sameOrigin": {
-    "message": "same-origin"
+    "message": "dezelfde oorsprong"
   },
   "knownFileExtension": {
-    "message": "known file extension"
+    "message": "bekende bestandsextensie"
   },
   "hasFilename": {
-    "message": "has filename"
+    "message": "heeft bestandsnaam"
   },
   "adClass": {
-    "message": "ad class"
+    "message": "advertentieklasse"
   },
   "insideIframe": {
-    "message": "inside iframe"
+    "message": "binnen iframe"
   },
   "crossDomain": {
-    "message": "cross-domain"
+    "message": "cross-domein"
   },
   "adDomain": {
-    "message": "ad domain"
+    "message": "advertentiedomein"
   },
   "checkLinkSafety": {
-    "message": "Check link safety"
+    "message": "Controleer linkveiligheid"
   },
   "copyCleanUrl": {
-    "message": "Copy clean URL"
+    "message": "Kopieer schone URL"
   },
   "reportLink": {
-    "message": "Report link as spam"
+    "message": "Rapporteer link als spam"
   },
   "linkSafetyResult": {
-    "message": "Link Safety: $1"
+    "message": "Linkveiligheid: $1"
   },
   "riskScore": {
-    "message": "Risk score: $1/100"
+    "message": "Risicoscore: $1/100"
   },
   "noIssuesDetectedShort": {
-    "message": "No issues detected"
+    "message": "Geen problemen gedetecteerd"
   }
 }
