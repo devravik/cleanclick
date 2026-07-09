@@ -1,5 +1,5 @@
 /**
- * CleanClick — Popup Controller
+ * CleanClick - Popup Controller
  *
  * Main controller for the browser action popup.
  * Communicates with the background script to fetch
@@ -8,7 +8,7 @@
 
 import {
   sendMessage, getStats, getProtectionStatus, getLinkScan,
-  requestRevealHidden,
+  requestRevealHidden, getSettings,
 } from '../shared/messaging.js';
 import { MSG } from '../shared/constants.js';
 
@@ -34,16 +34,19 @@ async function init() {
   state.tabId = tabs[0].id;
 
   // Load all data in parallel
-  const [protection, stats, scanResults] = await Promise.all([
+  const [protection, stats, scanResults, settings] = await Promise.all([
     getProtectionStatus(state.tabId),
     getStats(),
     getLinkScan(state.tabId),
+    getSettings(),
   ]);
 
   state.protection = protection;
   state.stats = stats;
   state.scanResults = scanResults;
+  state.settings = settings;
 
+  applyTheme(settings?.theme);
   render();
 }
 

@@ -1,7 +1,7 @@
 /**
- * CleanClick — URL Shortener Bypass (Content Script)
+ * CleanClick - URL Shortener Bypass (Content Script)
  *
- * 🟡 MODULE — Phase 3 (standalone)
+ * 🟡 MODULE - Phase 3 (standalone)
  *
  * Detects and expands shortened URLs to reveal their true destination
  * before the user clicks. Integrates with link-sanitizer for
@@ -75,7 +75,7 @@ async function scanAndAnnotate() {
 
   if (shortLinks.length === 0) return;
 
-  // Batch expand — limit concurrent requests
+  // Batch expand - limit concurrent requests
   const concurrency = 3;
   for (let i = 0; i < shortLinks.length; i += concurrency) {
     const batch = shortLinks.slice(i, i + concurrency);
@@ -140,7 +140,7 @@ function reportStats(shortCount) {
   sendMessage('shortener:scan-results', {
     shortenedURLs: shortCount,
     timestamp: Date.now(),
-  }).catch(() => {});
+  }).catch(() => { });
 }
 
 // ─── Init ─────────────────────────────────────────────────────────

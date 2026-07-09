@@ -1,5 +1,5 @@
 /**
- * CleanClick — Statistics (Background Script)
+ * CleanClick - Statistics (Background Script)
  *
  * Tracks all protection metrics:
  * - Redirects blocked
@@ -18,7 +18,7 @@ import storage from '../shared/storage.js';
 
 export function init() {
   // Increment session counter on startup
-  storage.incrementStat('sessionsProtected').catch(() => {});
+  storage.incrementStat('sessionsProtected').catch(() => { });
 
   // Handle stats requests from popup
   onMessage(MSG.GET_STATS, async () => {

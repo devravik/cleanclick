@@ -1,5 +1,5 @@
 #!/bin/bash
-# CleanClick — Development Helper
+# CleanClick - Development Helper
 # Usage: ./scripts/dev.sh [command]
 #
 # Commands:

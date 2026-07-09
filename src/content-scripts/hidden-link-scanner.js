@@ -1,5 +1,5 @@
 /**
- * CleanClick — Hidden Link Scanner (Content Script)
+ * CleanClick - Hidden Link Scanner (Content Script)
  *
  * 🔴 CRITICAL MODULE
  *
@@ -62,7 +62,7 @@ export async function scanHiddenLinks() {
       hiddenLinks: reports.map(r => ({ ...r, selector: undefined })), // don't send selectors to background
       count: reports.length,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 
   return reports;
@@ -101,9 +101,9 @@ function analyzeElement(el) {
 
   // 3. Off-screen
   if (rect.left < -100 || rect.top < -100 ||
-      rect.right < 0 || rect.bottom < 0 ||
-      rect.left > window.innerWidth + 100 ||
-      rect.top > window.innerHeight + 100) {
+    rect.right < 0 || rect.bottom < 0 ||
+    rect.left > window.innerWidth + 100 ||
+    rect.top > window.innerHeight + 100) {
     methods.push('off-screen');
   }
 
@@ -263,10 +263,12 @@ function detectTransparentOverlays() {
 
       reports.push({
         tagName: el.tagName,
-        href: clickTarget || '(overlay — intercepts all clicks)',
+        href: clickTarget || '(overlay - intercepts all clicks)',
         hidingMethod: 'transparent-overlay',
-        rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom,
-                width: rect.width, height: rect.height },
+        rect: {
+          left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom,
+          width: rect.width, height: rect.height
+        },
         selector: buildSelector(el),
         isOverlay: true,
         details: `Z-index: ${zIndex}, covers ${Math.round(area / viewportArea * 100)}% of viewport`,
@@ -367,7 +369,7 @@ export function revealHiddenLinks() {
   const style = document.createElement('style');
   style.id = 'cleanclick-reveal';
   style.textContent = `
-    /* Reveal hidden links — injected by CleanClick */
+    /* Reveal hidden links - injected by CleanClick */
     a[style*="opacity: 0"], a[style*="opacity:0"],
     [style*="opacity: 0"] a, [style*="opacity:0"] a {
       opacity: 1 !important;

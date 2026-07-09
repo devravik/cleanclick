@@ -1,7 +1,7 @@
 /**
- * CleanClick — Link Health Checker (Background Script)
+ * CleanClick - Link Health Checker (Background Script)
  *
- * 🟢 MODULE — Phase 3 (standalone)
+ * 🟢 MODULE - Phase 3 (standalone)
  *
  * Proactively checks if outbound links are still safe by doing
  * lightweight HEAD requests. Privacy-first:
@@ -9,7 +9,7 @@
  * - Never sends full URLs externally (SHA-256 hashes only)
  * - Results cached for 24 hours
  *
- * Disabled by default — user must opt in.
+ * Disabled by default - user must opt in.
  */
 
 import { onMessage, onConnectFromContent } from '../shared/messaging.js';
@@ -104,7 +104,7 @@ async function processQueue() {
 
 function analyzeHealth(result) {
   if (result.statusCode === null) {
-    return { isHealthy: false, label: 'Unreachable', reason: 'Could not connect — link may be dead' };
+    return { isHealthy: false, label: 'Unreachable', reason: 'Could not connect - link may be dead' };
   }
 
   if (result.statusCode >= 200 && result.statusCode < 400) {
@@ -112,11 +112,11 @@ function analyzeHealth(result) {
   }
 
   if (result.statusCode >= 400 && result.statusCode < 500) {
-    return { isHealthy: false, label: 'Broken', reason: 'HTTP ' + result.statusCode + ' — page not found' };
+    return { isHealthy: false, label: 'Broken', reason: 'HTTP ' + result.statusCode + ' - page not found' };
   }
 
   if (result.statusCode >= 500) {
-    return { isHealthy: false, label: 'Server Error', reason: 'HTTP ' + result.statusCode + ' — server-side issue' };
+    return { isHealthy: false, label: 'Server Error', reason: 'HTTP ' + result.statusCode + ' - server-side issue' };
   }
 
   if (result.statusText === 'timeout') {

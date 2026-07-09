@@ -1,5 +1,5 @@
 /**
- * CleanClick — Event Coordinator (Background Script)
+ * CleanClick - Event Coordinator (Background Script)
  *
  * Receives event analysis reports from content scripts (event-inspector),
  * maintains per-tab state of flagged elements, aggregates statistics,
@@ -70,7 +70,7 @@ function setupMessageHandlers() {
 
     // Update stats
     state.stats.hijackedCount = state.flaggedElements.size;
-    storage.incrementStat('hijackedElementsFlagged').catch(() => {});
+    storage.incrementStat('hijackedElementsFlagged').catch(() => { });
 
     // Update toolbar badge
     updateBadge(tabId);
@@ -113,14 +113,14 @@ function setupMessageHandlers() {
     const state = getTabState(tabId);
     state.scamOverlays.push(payload);
     state.stats.scamCount = state.scamOverlays.length;
-    storage.incrementStat('suspiciousDomainsDetected').catch(() => {});
+    storage.incrementStat('suspiciousDomainsDetected').catch(() => { });
 
     return { ok: true };
   });
 
   // Popup blocked
   onMessage(MSG.POPUP_BLOCKED, (payload, sender) => {
-    storage.incrementStat('popupsPrevented').catch(() => {});
+    storage.incrementStat('popupsPrevented').catch(() => { });
     return { ok: true };
   });
 
@@ -226,7 +226,7 @@ function setupTabLifecycle() {
   // On tab update, reset state for fresh navigation
   browser.tabs.onUpdated.addListener((tabId, changeInfo) => {
     if (changeInfo.url) {
-      // Tab navigated to new page — clear old state after a brief delay
+      // Tab navigated to new page - clear old state after a brief delay
       // (content scripts will re-initialize and send fresh data)
       setTimeout(() => {
         tabState.delete(tabId);

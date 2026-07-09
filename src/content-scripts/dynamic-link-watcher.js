@@ -1,5 +1,5 @@
 /**
- * CleanClick — Dynamic Content Monitor (Content Script)
+ * CleanClick - Dynamic Content Monitor (Content Script)
  *
  * 🟠 NEW MODULE
  *
@@ -22,7 +22,7 @@ import { checkElementHijack } from './event-inspector.js';
 // ─── State ─────────────────────────────────────────────────────────
 
 const state = {
-  /** Map of seen element identifiers — used to detect changes */
+  /** Map of seen element identifiers - used to detect changes */
   knownLinks: new Map(),
   /** Counter for total dynamic links detected */
   dynamicCount: 0,
@@ -151,7 +151,7 @@ function processMutations(mutations) {
       mutations: mutatedLinks,
       totalCount: state.dynamicCount,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -171,7 +171,7 @@ function analyzeNewLink(el) {
   const id = getElementId(el);
   // Check if already known
   if (state.knownLinks.has(id)) {
-    // Already seen — skip unless new href
+    // Already seen - skip unless new href
     if (state.knownLinks.get(id) === href) return null;
   }
   state.knownLinks.set(id, href);
@@ -215,7 +215,7 @@ function scanShadowRoot(root, results) {
       }
     }
   } catch {
-    // Closed shadow root or cross-origin — skip
+    // Closed shadow root or cross-origin - skip
   }
 }
 
@@ -269,7 +269,7 @@ function startPeriodicRescan() {
         totalCount: state.dynamicCount,
         timestamp: Date.now(),
         fromPeriodicScan: true,
-      }).catch(() => {});
+      }).catch(() => { });
     }
   }, 3000); // Every 3 seconds for first 30 seconds
 }

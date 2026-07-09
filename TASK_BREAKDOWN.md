@@ -1,4 +1,4 @@
-# CleanClick — Task Breakdown
+# CleanClick - Task Breakdown
 
 > Generated from DEVELOPMENT_PLAN.md | 2026-07-09
 
@@ -6,7 +6,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ---
 
-## Phase 0 — Project Scaffolding
+## Phase 0 - Project Scaffolding
 
 ### T0.1 Initialize npm Project
 - [ ] Create `package.json` with:
@@ -48,7 +48,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ---
 
-## Phase 1a — Core Engine + Event Inspector (v1.0)
+## Phase 1a - Core Engine + Event Inspector (v1.0)
 
 ### T1a.1 Shared Infrastructure (`shared/`)
 - [ ] **`constants.js`**:
@@ -70,28 +70,28 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Error handling: timeout after 5s, retry on disconnect
 - [ ] **`utils.js`**:
   - `parseURL(url)` → `{ protocol, domain, path, query, hash }`
-  - `normalizeURL(url)` — decode, lowercase domain, remove fragment
+  - `normalizeURL(url)` - decode, lowercase domain, remove fragment
   - `getDomainParts(url)` → `{ subdomain, domain, tld }`
-  - `isSameDomain(url1, url2)` — handles www vs non-www
-  - `getRedirectChain(url)` — fetch HEAD requests to follow redirects
+  - `isSameDomain(url1, url2)` - handles www vs non-www
+  - `getRedirectChain(url)` - fetch HEAD requests to follow redirects
   - `debounce(fn, ms)` and `throttle(fn, ms)` utilities
-- [ ] **`link-classifier.js`** — 🔴 NEW:
+- [ ] **`link-classifier.js`** - 🔴 NEW:
   - Implement risk scoring pipeline: normalize → check homographs → compare text vs href → check domain reputation → output score
   - Implement `classifyLink(element)` → `{ riskScore, riskLevel, reasons[] }`
   - Implement `classifyURL(url)` for out-of-DOM classification
   - Maintain local cache of classified URLs to avoid re-scanning
-- [ ] **`event-analyzer.js`** — 🔴 NEW:
+- [ ] **`event-analyzer.js`** - 🔴 NEW:
   - Implement function body inspection logic to detect navigation patterns in listener callbacks
   - Detect patterns: `window.location.href =`, `location.assign()`, `window.open()`, `setTimeout(() => location=...)`
   - Implement `analyzeListener(fn)` → `{ isHijack: boolean, targets: string[], confidence: number }`
   - Handle minified/obfuscated function detection (basic heuristic)
 
-### T1a.2 Event Layer Inspector (`content-scripts/event-inspector.js`) — 🔴 NEW
+### T1a.2 Event Layer Inspector (`content-scripts/event-inspector.js`) - 🔴 NEW
 - [ ] **Monkey-patch `EventTarget.prototype.addEventListener`**:
   - Wrap native addEventListener to track all registrations in a `WeakMap<Element, Map<EventType, Listener[]>>`
   - Preserve original behavior: wrapped function calls original after tracking
   - Handle `options` parameter (capture, once, passive)
-  - Handle `removeEventListener` — remove from shadow registry
+  - Handle `removeEventListener` - remove from shadow registry
 - [ ] **Implement per-element listener query**:
   - `getListenersForElement(element)` → `{ type, fn, options }[]`
   - Filter by relevant event types (`click`, `mousedown`, `auxclick`, etc.)
@@ -104,8 +104,8 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - On new listener added: analyze immediately
   - Send `{ tabId, elementSelector, href, listenerType, hijackTarget, confidence }` to background
 - [ ] **Edge cases**:
-  - Cross-origin iframes: can't inspect listeners in cross-origin frames — skip silently
-  - Native functions: `.toString()` returns `function () { [native code] }` — skip
+  - Cross-origin iframes: can't inspect listeners in cross-origin frames - skip silently
+  - Native functions: `.toString()` returns `function () { [native code] }` - skip
   - Minified code: try to match patterns on minified source; lower confidence score
   - Memory: limit shadow registry to 1000 entries per page; evict oldest
 
@@ -121,9 +121,9 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ### T1a.4 Redirect Detector (`background/redirect-detector.js`)
 - [ ] **Navigation monitoring setup**:
-  - Listen to `webNavigation.onCommitted` — captures all navigations
-  - Listen to `webNavigation.onCreatedNavigationTarget` — captures new tabs/windows
-  - Listen to `webNavigation.onErrorOccurred` — captures blocked/failed navigations
+  - Listen to `webNavigation.onCommitted` - captures all navigations
+  - Listen to `webNavigation.onCreatedNavigationTarget` - captures new tabs/windows
+  - Listen to `webNavigation.onErrorOccurred` - captures blocked/failed navigations
 - [ ] **Click-to-navigation correlation**:
   - Maintain a map: `tabId → { clickContext, timestamp }` (expire after 30s)
   - On navigation event, match against recent click context in same tab
@@ -159,7 +159,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Check if tab was opened without user gesture
   - Close unwanted popup tabs within 500ms
 
-### T1a.6 Event Coordinator (`background/event-coordinator.js`) — 🔴 NEW
+### T1a.6 Event Coordinator (`background/event-coordinator.js`) - 🔴 NEW
 - [ ] Receive event analysis reports from content scripts
 - [ ] Maintain per-tab state: `Map<tabId, { flaggedElements[], hijackedCount }>`
 - [ ] Aggregate statistics: total hijacked elements detected across all tabs
@@ -168,9 +168,9 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ---
 
-## Phase 1b — Hidden Links, Link Verification & UI (v1.0)
+## Phase 1b - Hidden Links, Link Verification & UI (v1.0)
 
-### T1b.1 Hidden Link Scanner (`content-scripts/hidden-link-scanner.js`) — 🔴 NEW
+### T1b.1 Hidden Link Scanner (`content-scripts/hidden-link-scanner.js`) - 🔴 NEW
 - [ ] **Core scan function**:
   - Query all `<a>`, `<area>`, `<button>` elements in document
   - For each element, compute: `getComputedStyle(el)`, `el.offsetWidth/Height`, `el.getBoundingClientRect()`
@@ -196,7 +196,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
     - Add `z-index: 2147483647 !important` to make clickable
   - Toggle mode: reveal / hide
 
-### T1b.2 Link Verifier (`content-scripts/link-verifier.js`) — 🔴 NEW
+### T1b.2 Link Verifier (`content-scripts/link-verifier.js`) - 🔴 NEW
 - [ ] **A. Hover Spoofing Detection**:
   - On `mouseenter`/`mouseover` on `<a>`: record `element.href` at that moment
   - On `click`: record `element.href` again; compare
@@ -233,10 +233,10 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ### T1b.3 Website Whitelist (`background/whitelist-manager.js`)
 - [ ] **CRUD operations**:
-  - `addDomain(domain)` — validate format, prevent duplicates
+  - `addDomain(domain)` - validate format, prevent duplicates
   - `removeDomain(domain)`
-  - `isWhitelisted(url)` — check exact match + pattern match
-  - `getAll()` — return sorted list
+  - `isWhitelisted(url)` - check exact match + pattern match
+  - `getAll()` - return sorted list
 - [ ] **Storage**: use `browser.storage.sync` for cross-device sync
 - [ ] **Pattern matching**:
   - Exact: `example.com`
@@ -249,12 +249,12 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ### T1b.4 Statistics (`background/statistics.js`)
 - [ ] **Counters** (persist to `browser.storage.local`):
-  - `redirectsBlocked` — total blocked redirects
-  - `popupsPrevented` — total blocked popups
-  - `suspiciousDomainsDetected` — unique suspicious domains encountered
-  - `hiddenLinksFound` — total hidden links detected
-  - `hijackedElementsFlagged` — total event-hijacked elements
-  - `sessionsProtected` — increment on each new tab open
+  - `redirectsBlocked` - total blocked redirects
+  - `popupsPrevented` - total blocked popups
+  - `suspiciousDomainsDetected` - unique suspicious domains encountered
+  - `hiddenLinksFound` - total hidden links detected
+  - `hijackedElementsFlagged` - total event-hijacked elements
+  - `sessionsProtected` - increment on each new tab open
 - [ ] **Daily rollups**:
   - Store daily stats: `{ date: '2026-07-09', counts: {...} }`
   - Keep 90 days of history; auto-purge older entries
@@ -262,8 +262,8 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Track `sessionStart` timestamp on background worker start
   - Calculate session duration, pages visited, per-page stats
 - [ ] **Reset functionality**:
-  - `resetAll()` — clear all counters
-  - `resetDaily()` — clear today's stats only
+  - `resetAll()` - clear all counters
+  - `resetDaily()` - clear today's stats only
 
 ### T1b.5 Popup UI (`popup/`)
 - [ ] **`index.html`**:
@@ -292,8 +292,8 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Toggle switch component
   - States: enabled (green), disabled (gray), error (red)
   - Shows "Protecting this site" / "Protection off for this site"
-- [ ] **`components/link-scanner-report.js`** — 🟠 NEW:
-  - Summary: "Scanned 42 links — 3 hidden, 1 suspicious, 0 dangerous"
+- [ ] **`components/link-scanner-report.js`** - 🟠 NEW:
+  - Summary: "Scanned 42 links - 3 hidden, 1 suspicious, 0 dangerous"
   - Expandable list of hidden/suspicious links with href and reason
   - "Reveal hidden links" toggle button
   - "Scan page now" manual trigger button
@@ -320,7 +320,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
 - [ ] **`components/custom-rules-editor.js`** (placeholder for v1.5):
   - UI for rule table when rules module is implemented
   - Placeholder message: "Custom rules coming in v1.5"
-- [ ] **`components/link-preview-settings.js`** — 🟠 NEW:
+- [ ] **`components/link-preview-settings.js`** - 🟠 NEW:
   - "Show risk badges on links" checkbox
   - "Enable hover tooltips" checkbox
   - "Click confirmation for suspicious links" dropdown (never/suspicious only/all)
@@ -328,21 +328,21 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ---
 
-## Phase 1c — Polish & Test (v1.0)
+## Phase 1c - Polish & Test (v1.0)
 
 ### T1c.1 Unit Tests
-- [ ] `shared/constants.js` — test threshold values, domain list integrity
-- [ ] `shared/storage.js` — test get/set/remove, schema migration
-- [ ] `shared/messaging.js` — test message routing, timeout, error handling
-- [ ] `shared/utils.js` — test URL parsing, normalization, domain extraction, debounce
-- [ ] `shared/link-classifier.js` — test risk scoring with various URL types
-- [ ] `shared/event-analyzer.js` — test listener pattern detection with known hijack code
-- [ ] `background/redirect-detector.js` — test heuristic logic in isolation (mock browser APIs)
-- [ ] `background/whitelist-manager.js` — test CRUD, pattern matching, sync
-- [ ] `background/statistics.js` — test counter increment, daily rollup, reset
-- [ ] `content-scripts/event-inspector.js` — test monkey-patch, listener tracking, analysis
-- [ ] `content-scripts/hidden-link-scanner.js` — test all 9 detection vectors with DOM mock
-- [ ] `content-scripts/link-verifier.js` — test homograph detection, text mismatch, base tag
+- [ ] `shared/constants.js` - test threshold values, domain list integrity
+- [ ] `shared/storage.js` - test get/set/remove, schema migration
+- [ ] `shared/messaging.js` - test message routing, timeout, error handling
+- [ ] `shared/utils.js` - test URL parsing, normalization, domain extraction, debounce
+- [ ] `shared/link-classifier.js` - test risk scoring with various URL types
+- [ ] `shared/event-analyzer.js` - test listener pattern detection with known hijack code
+- [ ] `background/redirect-detector.js` - test heuristic logic in isolation (mock browser APIs)
+- [ ] `background/whitelist-manager.js` - test CRUD, pattern matching, sync
+- [ ] `background/statistics.js` - test counter increment, daily rollup, reset
+- [ ] `content-scripts/event-inspector.js` - test monkey-patch, listener tracking, analysis
+- [ ] `content-scripts/hidden-link-scanner.js` - test all 9 detection vectors with DOM mock
+- [ ] `content-scripts/link-verifier.js` - test homograph detection, text mismatch, base tag
 
 ### T1c.2 Integration Tests
 - [ ] **Navigation flow test**: simulated click → event recorded → redirect detected → blocked
@@ -354,32 +354,32 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ### T1c.3 Manual QA Checklist
 - [ ] **Install**: Load as temporary extension in Firefox `about:debugging`
-- [ ] **Basic navigation**: Visit 5 normal sites — no false positives
-- [ ] **Hidden links test**: Open `tests/fixtures/hidden-links.html` — all 9 vectors detected
-- [ ] **Spoofed links test**: Open `tests/fixtures/spoofed-links.html` — all spoof types flagged
-- [ ] **Event hijack test**: Open `tests/fixtures/event-hijack.html` — hijacked listeners detected
-- [ ] **Popup**: Open popup on each test page — correct stats, toggle works
-- [ ] **Whitelist**: Add current domain to whitelist — protection disabled
-- [ ] **Options**: Open options page — whitelist CRUD works, export/import works
-- [ ] **Performance**: Open a page with 1000+ links — scan completes within 2s
-- [ ] **Memory**: Load 10 tabs simultaneously — extension doesn't crash
+- [ ] **Basic navigation**: Visit 5 normal sites - no false positives
+- [ ] **Hidden links test**: Open `tests/fixtures/hidden-links.html` - all 9 vectors detected
+- [ ] **Spoofed links test**: Open `tests/fixtures/spoofed-links.html` - all spoof types flagged
+- [ ] **Event hijack test**: Open `tests/fixtures/event-hijack.html` - hijacked listeners detected
+- [ ] **Popup**: Open popup on each test page - correct stats, toggle works
+- [ ] **Whitelist**: Add current domain to whitelist - protection disabled
+- [ ] **Options**: Open options page - whitelist CRUD works, export/import works
+- [ ] **Performance**: Open a page with 1000+ links - scan completes within 2s
+- [ ] **Memory**: Load 10 tabs simultaneously - extension doesn't crash
 
 ### T1c.4 Edge Case Handling
-- [ ] **Cross-origin iframes**: Links inside iframes from different origins — handled gracefully
-- [ ] **data: URIs**: Links with `data:text/html` content — flagged
-- [ ] **blob: URIs**: Dynamically created blob URLs — detected
-- [ ] **javascript: URIs**: `javascript:void(0)` with onclick — detected
-- [ ] **Empty href**: `<a href="">` (self-link) — not flagged
-- [ ] **Hash links**: `<a href="#section">` — not flagged
-- [ ] **Download links**: `<a download>` — special handling (not spam)
-- [ ] **Mailto links**: `<a href="mailto:...">` — not flagged by redirect detector
-- [ ] **Extension pages**: `moz-extension://` links — skipped
-- [ ] **About pages**: `about:blank`, `about:config` — skipped
-- [ ] **No href**: `<a>` without href attribute — skipped
+- [ ] **Cross-origin iframes**: Links inside iframes from different origins - handled gracefully
+- [ ] **data: URIs**: Links with `data:text/html` content - flagged
+- [ ] **blob: URIs**: Dynamically created blob URLs - detected
+- [ ] **javascript: URIs**: `javascript:void(0)` with onclick - detected
+- [ ] **Empty href**: `<a href="">` (self-link) - not flagged
+- [ ] **Hash links**: `<a href="#section">` - not flagged
+- [ ] **Download links**: `<a download>` - special handling (not spam)
+- [ ] **Mailto links**: `<a href="mailto:...">` - not flagged by redirect detector
+- [ ] **Extension pages**: `moz-extension://` links - skipped
+- [ ] **About pages**: `about:blank`, `about:config` - skipped
+- [ ] **No href**: `<a>` without href attribute - skipped
 
 ---
 
-## Phase 1.5 — Enhanced Protection (v1.5 Milestone)
+## Phase 1.5 - Enhanced Protection (v1.5 Milestone)
 
 ### T1.5.1 Expanded Navigation Guard (`content-scripts/navigation-guard.js`)
 - [ ] **Form submission hijacking detection**:
@@ -406,7 +406,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - If `location.href` changes within a `message` handler from untrusted origin → flag
   - Maintain allowed origins list (current page origin only by default)
 
-### T1.5.2 Dynamic Content Monitor (`content-scripts/dynamic-link-watcher.js`) — 🟠 NEW
+### T1.5.2 Dynamic Content Monitor (`content-scripts/dynamic-link-watcher.js`) - 🟠 NEW
 - [ ] **MutationObserver setup**:
   - Observe `document.body` with `{ childList: true, subtree: true, attributes: true }`
   - Filter mutations to relevant node additions and attribute changes
@@ -429,7 +429,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Limit: disconnect observer after 60s of tab inactivity
   - Cap: maximum 2000 tracked elements per page
 
-### T1.5.3 Scam Overlay Detector (`content-scripts/scam-overlay-detector.js`) — 🟠 NEW
+### T1.5.3 Scam Overlay Detector (`content-scripts/scam-overlay-detector.js`) - 🟠 NEW
 - [ ] **Overlay detection**:
   - MutationObserver watching for new `fixed` or `absolute` positioned elements
   - Check if element covers >60% of viewport
@@ -478,9 +478,9 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - +30 if community-reported as malicious (local-only)
   - Max score: 100 (malicious), Min: 0 (trusted)
 - [ ] **Domain classification**:
-  - Green (0-30): Trusted — no intervention
-  - Yellow (31-69): Suspicious — warn user
-  - Red (70-100): Malicious — block automatically
+  - Green (0-30): Trusted - no intervention
+  - Yellow (31-69): Suspicious - warn user
+  - Red (70-100): Malicious - block automatically
 - [ ] **User feedback integration**:
   - After blocked redirect, ask: "Was this redirect malicious?" (Yes / No / Not sure)
   - Feedback updates the score immediately
@@ -516,9 +516,9 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ---
 
-## Phase 2 — Link Transparency (v2.0)
+## Phase 2 - Link Transparency (v2.0)
 
-### T2.1 Protocol Link Validator (`content-scripts/protocol-link-validator.js`) — 🟡 NEW
+### T2.1 Protocol Link Validator (`content-scripts/protocol-link-validator.js`) - 🟡 NEW
 - [ ] **Protocol categorization**:
   - Scan all links and categorize by protocol scheme
   - Categories: `http/https` (standard), `tel:`, `sms:`, `mailto:`, `intent://`, `facetime:`, `skype:`, `whatsapp:`, `tg:`, `viber:`, other
@@ -540,7 +540,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Store trusted protocol+domain pairs: `{ protocol: 'tel', domain: 'example.com' }`
   - Skip confirmation for allowlisted pairs
 
-### T2.2 Link Transparency UI (`content-scripts/link-transparency-ui.js`) — 🟠 NEW
+### T2.2 Link Transparency UI (`content-scripts/link-transparency-ui.js`) - 🟠 NEW
 - [ ] **A. Risk Badge Overlay**:
   - After classification scan, inject small colored dots on links
   - Positioning: top-right corner of each `<a>` element
@@ -566,14 +566,14 @@ This document breaks down the entire project into actionable tasks and subtasks 
 - [ ] **D. Right-Click Link Inspector**:
   - Register context menu via `browser.menus.create()`
   - Menu items:
-    - "Check link safety" — runs full scan, shows result in popup
-    - "Copy clean URL" — strips tracking params, copies to clipboard
-    - "Open in container tab" — opens in separate Firefox container
-    - "Report link as spam" — sends to community service
+    - "Check link safety" - runs full scan, shows result in popup
+    - "Copy clean URL" - strips tracking params, copies to clipboard
+    - "Open in container tab" - opens in separate Firefox container
+    - "Report link as spam" - sends to community service
   - Context: `link` only
   - Handle menu item clicks in background script
 
-### T2.3 Link Sanitizer (`content-scripts/link-sanitizer.js`) — 🟡 NEW
+### T2.3 Link Sanitizer (`content-scripts/link-sanitizer.js`) - 🟡 NEW
 - [ ] **Tracking parameter stripping**:
   - Maintain blocklist of tracking params (50+ entries)
   - Before navigation: parse query string, remove known tracking params
@@ -594,7 +594,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - No URL sent to third-party servers
   - User can disable pre-fetch in options
 
-### T2.4 Edge Case Handler (`content-scripts/edge-case-handler.js`) — 🟡 NEW
+### T2.4 Edge Case Handler (`content-scripts/edge-case-handler.js`) - 🟡 NEW
 - [ ] **Cross-origin frame escape detection**:
   - Check if `window !== window.top` (inside iframe)
   - For links with `target="_top"` or `target="_parent"`: check if href origin differs from top origin
@@ -617,7 +617,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Flag with "Invisible characters detected in domain"
 - [ ] **Same-domain UGC detection**:
   - If link points to same domain but path contains: `/user/`, `/profile/`, `/comment/`, `/forum/`
-  - Flag as "User-generated content link — may contain spam"
+  - Flag as "User-generated content link - may contain spam"
   - Lower severity than cross-domain spam but still highlighted
 - [ ] **Iframe srcdoc scanning**:
   - For `<iframe srcdoc="...">`, parse the srcdoc HTML content
@@ -632,7 +632,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ---
 
-## Phase 3 — Advanced Features (v2.0+)
+## Phase 3 - Advanced Features (v2.0+)
 
 
 ### T3.1 Community Reporting (skipped - needs backend)
@@ -702,7 +702,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Custom rules (if small enough)
   - Local reputation scores (if sync space allows)
 
-### T3.7 Link Density Analyzer (`content-scripts/link-density-analyzer.js`) — 🟢 NEW
+### T3.7 Link Density Analyzer (`content-scripts/link-density-analyzer.js`) - 🟢 NEW
 - [ ] **Metrics collection**:
   - Count total `<a>` elements in page
   - Count unique external domains linked
@@ -718,7 +718,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Warning if density exceeds thresholds
   - "Simplify page" option: hide non-essential links (CSS `display: none`)
 
-### T3.8 Link Health Checker (`background/link-health-pinger.js`) — 🟢 NEW
+### T3.8 Link Health Checker (`background/link-health-pinger.js`) - 🟢 NEW
 - [ ] **Queue management**:
   - After page load, collect outbound link URLs
   - Add to processing queue with priority (visible links first)
@@ -777,11 +777,11 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 | Phase | Tasks | Subtasks | Est. Effort |
 |-------|-------|----------|-------------|
-| P0 — Scaffolding | 4 | 18 | 1-2 days |
-| P1a — Core + Event Inspector | 6 | 42 | 7-9 days |
-| P1b — Hidden Links & UI | 6 | 45 | 5-7 days |
-| P1c — Polish & Test | 4 | 32 | 4-6 days |
-| P1.5 — Enhanced Protection | 6 | 38 | 10-14 days |
-| P2 — Link Transparency | 4 | 26 | 8-12 days |
-| P3 — Advanced Features | 9 | 34 | 12-18 days |
+| P0 - Scaffolding | 4 | 18 | 1-2 days |
+| P1a - Core + Event Inspector | 6 | 42 | 7-9 days |
+| P1b - Hidden Links & UI | 6 | 45 | 5-7 days |
+| P1c - Polish & Test | 4 | 32 | 4-6 days |
+| P1.5 - Enhanced Protection | 6 | 38 | 10-14 days |
+| P2 - Link Transparency | 4 | 26 | 8-12 days |
+| P3 - Advanced Features | 9 | 34 | 12-18 days |
 | **TOTAL** | **39** | **235** | **~47-68 days** |

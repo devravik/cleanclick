@@ -1,5 +1,5 @@
 /**
- * CleanClick — Shared Constants & Configuration
+ * CleanClick - Shared Constants & Configuration
  *
  * Central config for all modules. Tweak thresholds here.
  */

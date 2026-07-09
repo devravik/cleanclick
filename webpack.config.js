@@ -7,7 +7,7 @@ module.exports = {
     background: './src/background/index.js',
     popup: './src/popup/popup.js',
     options: './src/options/options.js',
-    // Content scripts (bundled individually — each has its own scope)
+    // Content scripts (bundled individually - each has its own scope)
     'content-scripts/event-inspector': './src/content-scripts/event-inspector.js',
     'content-scripts/click-monitor': './src/content-scripts/click-monitor.js',
     'content-scripts/popup-blocker': './src/content-scripts/popup-blocker.js',

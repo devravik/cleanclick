@@ -1,5 +1,5 @@
 /**
- * CleanClick — Shared Utilities
+ * CleanClick - Shared Utilities
  *
  * Pure functions with no browser API dependencies.
  * All are testable without mocks.
@@ -9,7 +9,7 @@
 
 /**
  * Parse a URL into components.
- * Safe — returns null instead of throwing on invalid URLs.
+ * Safe - returns null instead of throwing on invalid URLs.
  * @param {string} url
  * @returns {{ protocol: string, hostname: string, port: string, pathname: string, search: string, hash: string, origin: string } | null}
  */
@@ -222,7 +222,7 @@ export function detectBidiOverrides(str) {
 // ─── Performance Utilities ────────────────────────────────────────
 
 /**
- * Debounce a function — waits `ms` after last call before executing.
+ * Debounce a function - waits `ms` after last call before executing.
  * @param {Function} fn
  * @param {number} ms
  * @returns {Function}
@@ -244,7 +244,7 @@ export function debounce(fn, ms) {
 }
 
 /**
- * Throttle a function — at most once per `ms` interval.
+ * Throttle a function - at most once per `ms` interval.
  * @param {Function} fn
  * @param {number} ms
  * @returns {Function}

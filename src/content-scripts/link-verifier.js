@@ -1,17 +1,17 @@
 /**
- * CleanClick — Link Verifier (Content Script)
+ * CleanClick - Link Verifier (Content Script)
  *
  * 🔴 CRITICAL MODULE
  *
- * Detects link spoofing — when the visible representation of a link
+ * Detects link spoofing - when the visible representation of a link
  * differs from its actual destination. Six detection modules:
  *
- * A. Hover Spoofing Detection — href mutation between hover and click
- * B. Link Text vs Href Discrepancy — displayed text domain ≠ href domain
- * C. Punycode/IDN Homograph Detection — mixed-script lookalike domains
- * D. Base Tag Hijacking Detection — <base> pointing to external domain
- * E. JavaScript / Data / Blob URI Detection — non-navigation protocols
- * F. Subdomain Confusion Detection — brand names in subdomain position
+ * A. Hover Spoofing Detection - href mutation between hover and click
+ * B. Link Text vs Href Discrepancy - displayed text domain ≠ href domain
+ * C. Punycode/IDN Homograph Detection - mixed-script lookalike domains
+ * D. Base Tag Hijacking Detection - <base> pointing to external domain
+ * E. JavaScript / Data / Blob URI Detection - non-navigation protocols
+ * F. Subdomain Confusion Detection - brand names in subdomain position
  *
  * Integrates with link-classifier.js for unified risk scoring.
  */
@@ -119,7 +119,7 @@ function checkTextHrefDiscrepancy(el) {
 
   const hrefDomain = parsed.hostname;
 
-  // Compare — handle www vs non-www
+  // Compare - handle www vs non-www
   const normalizedText = textDomain.replace(/^www\./, '');
   const normalizedHref = hrefDomain.replace(/^www\./, '');
 
@@ -130,7 +130,7 @@ function checkTextHrefDiscrepancy(el) {
   // Check if any part of the href domain appears in the text
   const hrefDomainLower = normalizedHref.toLowerCase();
   if (displayText.toLowerCase().includes(hrefDomainLower)) {
-    // Text contains the actual domain — could be supplementary info
+    // Text contains the actual domain - could be supplementary info
     return { hasDiscrepancy: false, textDomain, hrefDomain, severity: 'low' };
   }
 
@@ -425,7 +425,7 @@ export async function verifyAllLinks() {
     timestamp: Date.now(),
   };
 
-  sendMessage('link:verification-summary', summary).catch(() => {});
+  sendMessage('link:verification-summary', summary).catch(() => { });
 
   const duration = performance.now() - startTime;
 

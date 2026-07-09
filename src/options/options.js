@@ -1,5 +1,5 @@
 /**
- * CleanClick — Options Page Controller
+ * CleanClick - Options Page Controller
  *
  * Full settings page with tabs:
  * - General: link preview settings, protection defaults
@@ -316,7 +316,7 @@ function renderAbout() {
     <h3>Privacy</h3>
 
     <h3>License</h3>
-    <p>MIT License — see <a href="https://github.com/devravik/cleanclick/blob/main/LICENSE" target="_blank">LICENSE</a> for details.</p>
+    <p>MIT License - see <a href="https://github.com/devravik/cleanclick/blob/main/LICENSE" target="_blank">LICENSE</a> for details.</p>
 
     <h3>Links</h3>
     <ul class="links">

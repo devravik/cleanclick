@@ -1,4 +1,4 @@
-# CleanClick — Development Plan
+# CleanClick - Development Plan
 
 > Based on README.md analysis | Generated: 2026-07-09
 
@@ -21,13 +21,13 @@ CleanClick is a Firefox extension that protects users from unwanted redirects, p
 > A full gap analysis is available in `SPAM_LINK_GAP_ANALYSIS.md`. Key finding: the original plan covers only **~5% of 96 identified spam link attack vectors**. Below is the revised plan that raises coverage to ~40% in Phase 1 and ~85% by Phase 2.
 
 **Three Critical Additions (must be in Phase 1):**
-1. **Hidden Link Scanner** — Transparent overlays, zero-opacity, off-screen, and size-0 links (rampant on download/streaming sites).
-2. **Link Verifier** — Hover spoofing, homograph domains (Punycode/IDN), Base tag hijacking, and href mutation.
-3. **Event Layer Inspector** — Click/mouseup/touch event listener hijacking detection before the user interacts.
+1. **Hidden Link Scanner** - Transparent overlays, zero-opacity, off-screen, and size-0 links (rampant on download/streaming sites).
+2. **Link Verifier** - Hover spoofing, homograph domains (Punycode/IDN), Base tag hijacking, and href mutation.
+3. **Event Layer Inspector** - Click/mouseup/touch event listener hijacking detection before the user interacts.
 
 ---
 
-## 2. Phase 0 — Project Scaffolding
+## 2. Phase 0 - Project Scaffolding
 
 ### 2.1 Initialize npm project
 - `package.json` with name, version, scripts, dependencies
@@ -58,23 +58,23 @@ cleanclick/
 │   │   ├── whitelist-manager.js   # User whitelist CRUD
 │   │   ├── statistics.js          # Stats collection & aggregation
 │   │   ├── reputation.js          # (v1.5) Redirect reputation scoring
-│   │   ├── event-coordinator.js   # 🔴 NEW — Coordinates event analysis across tabs
-│   │   └── link-health-pinger.js  # 🟢 NEW — Optional reputation pings (v2.0)
+│   │   ├── event-coordinator.js   # 🔴 NEW - Coordinates event analysis across tabs
+│   │   └── link-health-pinger.js  # 🟢 NEW - Optional reputation pings (v2.0)
 │   │
 │   ├── content-scripts/
 │   │   ├── click-monitor.js       # Click event recording
-│   │   ├── event-inspector.js     # 🔴 NEW — Event listener stack analysis (Phase 1a)
-│   │   ├── hidden-link-scanner.js # 🔴 NEW — Invisible/obscured link detection (Phase 1b)
-│   │   ├── link-verifier.js       # 🔴 NEW — Hover/href comparison, homograph (Phase 1b)
-│   │   ├── dynamic-link-watcher.js # 🟠 NEW — MutationObserver for post-load links (Phase 1.5)
-│   │   ├── scam-overlay-detector.js # 🟠 NEW — Social eng. overlay detection (Phase 1.5)
-│   │   ├── protocol-link-validator.js # 🟡 NEW — tel:/sms:/intent: validation (Phase 2)
-│   │   ├── link-transparency-ui.js # 🟠 NEW — Risk badges, tooltips, dialogs (Phase 2)
-│   │   ├── link-density-analyzer.js # 🟢 NEW — Page link count & keyword analysis (Phase 3)
-│   │   ├── link-sanitizer.js      # 🟡 NEW — Tracking param stripping (Phase 2)
-│   │   ├── edge-case-handler.js   # 🟡 NEW — SVG, custom elements, unicode (Phase 2)
+│   │   ├── event-inspector.js     # 🔴 NEW - Event listener stack analysis (Phase 1a)
+│   │   ├── hidden-link-scanner.js # 🔴 NEW - Invisible/obscured link detection (Phase 1b)
+│   │   ├── link-verifier.js       # 🔴 NEW - Hover/href comparison, homograph (Phase 1b)
+│   │   ├── dynamic-link-watcher.js # 🟠 NEW - MutationObserver for post-load links (Phase 1.5)
+│   │   ├── scam-overlay-detector.js # 🟠 NEW - Social eng. overlay detection (Phase 1.5)
+│   │   ├── protocol-link-validator.js # 🟡 NEW - tel:/sms:/intent: validation (Phase 2)
+│   │   ├── link-transparency-ui.js # 🟠 NEW - Risk badges, tooltips, dialogs (Phase 2)
+│   │   ├── link-density-analyzer.js # 🟢 NEW - Page link count & keyword analysis (Phase 3)
+│   │   ├── link-sanitizer.js      # 🟡 NEW - Tracking param stripping (Phase 2)
+│   │   ├── edge-case-handler.js   # 🟡 NEW - SVG, custom elements, unicode (Phase 2)
 │   │   ├── fake-button-detector.js # (v1.5) Fake download button detection
-│   │   └── navigation-guard.js    # ⬆️ EXPANDED — Forms, meta-refresh, SW, history API
+│   │   └── navigation-guard.js    # ⬆️ EXPANDED - Forms, meta-refresh, SW, history API
 │   │
 │   ├── popup/
 │   │   ├── index.html
@@ -84,8 +84,8 @@ cleanclick/
 │   │       ├── stats-panel.js     # Statistics display
 │   │       ├── whitelist-panel.js # Whitelist management
 │   │       ├── protection-toggle.js # Per-site enable/disable
-│   │       ├── link-scanner-report.js # 🟠 NEW — Scan results for current page
-│   │       └── link-risk-dashboard.js # 🟡 NEW — All-links risk overview
+│   │       ├── link-scanner-report.js # 🟠 NEW - Scan results for current page
+│   │       └── link-risk-dashboard.js # 🟡 NEW - All-links risk overview
 │   │
 │   ├── options/
 │   │   ├── index.html
@@ -94,15 +94,15 @@ cleanclick/
 │   │   └── components/
 │   │       ├── whitelist-manager.js
 │   │       ├── custom-rules-editor.js
-│   │       └── link-preview-settings.js # 🟠 NEW — Hover/tooltip preferences
+│   │       └── link-preview-settings.js # 🟠 NEW - Hover/tooltip preferences
 │   │
 │   ├── shared/
 │   │   ├── constants.js           # Config, thresholds, domain lists
 │   │   ├── messaging.js           # Port/Message protocol helpers
 │   │   ├── storage.js             # Storage abstraction layer
 │   │   ├── utils.js               # URL parsing, domain extraction, etc.
-│   │   ├── link-classifier.js     # 🟠 NEW — Link risk scoring engine
-│   │   └── event-analyzer.js      # 🟠 NEW — Event listener pattern matcher
+│   │   ├── link-classifier.js     # 🟠 NEW - Link risk scoring engine
+│   │   └── event-analyzer.js      # 🟠 NEW - Event listener pattern matcher
 │   │
 │   ├── assets/
 │   │   ├── icons/                 # Extension icons (16, 32, 48, 96, 128)
@@ -129,7 +129,7 @@ cleanclick/
 
 ---
 
-## 3. Phase 1 — Foundation & Core Features (v1.0 Milestone)
+## 3. Phase 1 - Foundation & Core Features (v1.0 Milestone)
 
 ### 3.1 Manifest & Extension Shell
 - **manifest.json** (Manifest V3):
@@ -141,11 +141,11 @@ cleanclick/
   - Default locale `en`
 
 ### 3.2 Shared Infrastructure
-- **`constants.js`** — Suspicious domain lists, timing thresholds, config keys, link risk thresholds, hidden link CSS patterns
-- **`storage.js`** — Wrapper around `browser.storage.local` with defaults and migration support
-- **`messaging.js`** — Typed message passing between background ↔ content ↔ popup; includes new message types for link scans, event analysis, and overlay detection
-- **`link-classifier.js`** — 🔴 NEW Link risk scoring engine: normalizes URLs, checks homographs, compares displayed text vs href, assigns risk scores
-- **`event-analyzer.js`** — 🔴 NEW Event listener pattern matcher: analyzes registered listeners for hijacking patterns (redirect override, different-domain navigation)
+- **`constants.js`** - Suspicious domain lists, timing thresholds, config keys, link risk thresholds, hidden link CSS patterns
+- **`storage.js`** - Wrapper around `browser.storage.local` with defaults and migration support
+- **`messaging.js`** - Typed message passing between background ↔ content ↔ popup; includes new message types for link scans, event analysis, and overlay detection
+- **`link-classifier.js`** - 🔴 NEW Link risk scoring engine: normalizes URLs, checks homographs, compares displayed text vs href, assigns risk scores
+- **`event-analyzer.js`** - 🔴 NEW Event listener pattern matcher: analyzes registered listeners for hijacking patterns (redirect override, different-domain navigation)
 
 ### 3.3 Smart Redirect Protection (`redirect-detector.js`)
 
@@ -154,7 +154,7 @@ cleanclick/
 - Captures: `href`, `linkText`, `timestamp`, `tabId`, `frameId`
 - Sends context to background via messaging
 
-**Event Layer Inspector** (`event-inspector.js`) — 🔴 NEW — Critical gap fix
+**Event Layer Inspector** (`event-inspector.js`) - 🔴 NEW - Critical gap fix
 - Before a user interacts, analyzes the event listener stack on every link/button
 - Detects listeners (`click`, `mousedown`, `mouseup`, `auxclick`, `touchstart`, `touchend`) that:
   - Call `window.location` / `location.href` / `location.assign()` to a different domain than the element's href
@@ -162,7 +162,7 @@ cleanclick/
   - Set `window.location` after a timeout (deferred hijack)
   - Intercept middle-click (auxclick) for "open in new tab" hijacking
 - Flags elements with hijacking-capable listeners and sends to background
-- **Defensive action:** Approximate solution — since Firefox doesn't expose `getEventListeners()`, use a wrapper approach:
+- **Defensive action:** Approximate solution - since Firefox doesn't expose `getEventListeners()`, use a wrapper approach:
   - Monkey-patch `EventTarget.prototype.addEventListener` in the content script to track registrations
   - Build a shadow registry of all listeners per element
   - Check the registry before user interaction
@@ -196,7 +196,7 @@ cleanclick/
   - Return `null` from intercepted `window.open`
   - If popup already opened, close via background script
 
-### 3.5 Hidden Link Scanner (`hidden-link-scanner.js`) — 🔴 NEW — Critical gap
+### 3.5 Hidden Link Scanner (`hidden-link-scanner.js`) - 🔴 NEW - Critical gap
 
 **Purpose:** Detect invisible/obscured links that users cannot see but can accidentally click.
 
@@ -226,9 +226,9 @@ cleanclick/
 - Links with `aria-hidden="true"` but still in tab order (some screen readers still navigate)
 - Hidden links inside Shadow DOM (use `shadowRoot` traversal)
 
-### 3.6 Link Verifier (`link-verifier.js`) — 🔴 NEW — Critical gap
+### 3.6 Link Verifier (`link-verifier.js`) - 🔴 NEW - Critical gap
 
-**Purpose:** Detect link spoofing — when the visible representation of a link differs from its actual destination.
+**Purpose:** Detect link spoofing - when the visible representation of a link differs from its actual destination.
 
 **Detection Modules:**
 
@@ -254,7 +254,7 @@ cleanclick/
 **D. Base Tag Hijacking Detection**
 - Check `<base>` element on page load
 - If `<base href>` points to an external domain (different from page origin) → warn user
-- All relative links are potentially hijacked via base tag — scan all resolved URLs
+- All relative links are potentially hijacked via base tag - scan all resolved URLs
 
 **E. JavaScript Protocol & Data URI Detection**
 - Flag `<a href="javascript:...">` links that execute code instead of navigating
@@ -264,7 +264,7 @@ cleanclick/
 **F. Subdomain Confusion Detection**
 - Parse domain into `[subdomain].[domain].[tld]` parts
 - Flag when a subdomain contains a well-known brand name
-- Example: `paypal.security-alert.suspicious-site.com` — "paypal" appears as subdomain but is not the actual domain
+- Example: `paypal.security-alert.suspicious-site.com` - "paypal" appears as subdomain but is not the actual domain
 
 **User-facing:**
 - Color-code links on hover: 🟢 safe, 🟡 suspected different domain, 🔴 homograph/hijack detected
@@ -306,9 +306,9 @@ cleanclick/
 
 ---
 
-## 4. Phase 2 — Enhanced Protection (v1.5 Milestone)
+## 4. Phase 2 - Enhanced Protection (v1.5 Milestone)
 
-### 4.1 Expanded Navigation Guard (`navigation-guard.js`) — ⬆️ EXPANDED
+### 4.1 Expanded Navigation Guard (`navigation-guard.js`) - ⬆️ EXPANDED
 
 The original `navigation-guard.js` is expanded from simple link monitoring to cover all non-`<a>` navigation vectors:
 
@@ -342,7 +342,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 - Monitor `window.postMessage` and `message` event listeners
 - Flag `location.href` changes triggered by postMessage from untrusted origins
 
-### 4.2 Dynamic Content Monitor (`dynamic-link-watcher.js`) — 🟠 NEW
+### 4.2 Dynamic Content Monitor (`dynamic-link-watcher.js`) - 🟠 NEW
 
 **Purpose:** Detect spam links injected after the initial page load.
 
@@ -362,9 +362,9 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 - Popup lists dynamically added links with timestamps
 - Option to auto-scan injected links and flag suspicious ones
 
-### 4.3 Scam Overlay Detector (`scam-overlay-detector.js`) — 🟠 NEW
+### 4.3 Scam Overlay Detector (`scam-overlay-detector.js`) - 🟠 NEW
 
-**Purpose:** Detect social engineering overlays — fake virus warnings, prize scams, fake CAPTCHAs.
+**Purpose:** Detect social engineering overlays - fake virus warnings, prize scams, fake CAPTCHAs.
 
 **Detection:**
 - Monitor for elements that:
@@ -424,9 +424,9 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 
 ---
 
-## 5. Phase 3 — Advanced Features (v2.0 — Standalone Only)
+## 5. Phase 3 - Advanced Features (v2.0 - Standalone Only)
 
-> **Note:** Cloud-dependent features (Cloud Reputation, Community Reporting, AI-powered detection, Cross-Device Sync) were intentionally excluded — CleanClick is a fully standalone extension with zero external dependencies. The following features were implemented client-side only.
+> **Note:** Cloud-dependent features (Cloud Reputation, Community Reporting, AI-powered detection, Cross-Device Sync) were intentionally excluded - CleanClick is a fully standalone extension with zero external dependencies. The following features were implemented client-side only.
 
 ### 5.1 Clipboard Hijacking Protection
 - **Content Script (\`clipboard-guard.js\`):**
@@ -440,7 +440,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 - **Detection:** 50+ shortener domains (bit.ly, t.co, tinyurl.com, etc.)
 - **Behavior:** Intercepts clicks, expands via HEAD request, shows destination
 - **Caching:** 24h TTL, local only
-- **Privacy:** Direct HTTP HEAD requests — no third-party API calls
+- **Privacy:** Direct HTTP HEAD requests - no third-party API calls
 
 ### 5.3 Link Density Analyzer
 - **Content Script (\`link-density-analyzer.js\`):**
@@ -453,9 +453,9 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
   - Proactive HEAD requests to check reachability
   - Queue-based (3 concurrent, 5s timeout), 24h cache
   - Privacy-first, disabled by default
-## 6. Phase 3 — Link Transparency & Advanced Protections (v2.0 +)
+## 6. Phase 3 - Link Transparency & Advanced Protections (v2.0 +)
 
-### 6.1 Protocol Link Validator (`protocol-link-validator.js`) — 🟡 NEW
+### 6.1 Protocol Link Validator (`protocol-link-validator.js`) - 🟡 NEW
 
 **Purpose:** Protect users from abuse of non-HTTP protocols (tel:, sms:, mailto:, intent:, facetime:, etc.).
 
@@ -471,7 +471,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 - Display destination phone number/email with risk rating
 - Allowlist trusted protocols for specific domains
 
-### 6.2 Link Transparency UI (`link-transparency-ui.js`) — 🟠 NEW
+### 6.2 Link Transparency UI (`link-transparency-ui.js`) - 🟠 NEW
 
 **Purpose:** Give users visual feedback about every link on the page, building trust and awareness.
 
@@ -501,14 +501,14 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 
 **D. Right-Click Link Inspector (via `menus` API)**
 - Enhanced context menu with:
-  - "Check link safety" — runs full scan on this specific link
-  - "Copy clean URL" — strips tracking params
-  - "Open in sandbox" — opens in isolated container tab
-  - "Report link" — sends to community reputation service
+  - "Check link safety" - runs full scan on this specific link
+  - "Copy clean URL" - strips tracking params
+  - "Open in sandbox" - opens in isolated container tab
+  - "Report link" - sends to community reputation service
 
-### 6.3 Link Sanitizer (`link-sanitizer.js`) — 🟡 NEW
+### 6.3 Link Sanitizer (`link-sanitizer.js`) - 🟡 NEW
 
-**Purpose:** Clean links before the user clicks them — remove tracking, affiliate injections, and redirect wrappers.
+**Purpose:** Clean links before the user clicks them - remove tracking, affiliate injections, and redirect wrappers.
 
 **Tracking Parameter Stripping:**
 - Maintain a list of known tracking query parameters:
@@ -529,7 +529,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 - Toggle in popup/options to enable/disable sanitization
 - Badge showing "Sanitized X links on this page"
 
-### 6.4 Edge Case Handler (`edge-case-handler.js`) — 🟡 NEW
+### 6.4 Edge Case Handler (`edge-case-handler.js`) - 🟡 NEW
 
 **Purpose:** Handle advanced and edge-case attack surfaces that don't fit other modules.
 
@@ -542,13 +542,13 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 | Custom element links | Use `customElements.get()` to check if registered elements have link-like behaviors or navigate on click |
 | Unicode bidirectional override | Scan URL strings for U+202E (RIGHT-TO-LEFT OVERRIDE) and other bidi control characters that reorder text |
 | Zero-width character injection | Check for U+200B, U+200C, U+200D in URL/domain strings |
-| Same-domain user-generated content | If link points to same domain but path contains `/user/`, `/profile/`, `/comment/` — flag as potential UGC spam |
-| Iframe with `srcdoc` attribute | `<iframe srcdoc="...">` can contain full HTML including links — scan srcdoc content |
-| `<object>` / `<embed>` with `data` URL | These elements can navigate or load external content — flag if data attribute is an external URL |
+| Same-domain user-generated content | If link points to same domain but path contains `/user/`, `/profile/`, `/comment/` - flag as potential UGC spam |
+| Iframe with `srcdoc` attribute | `<iframe srcdoc="...">` can contain full HTML including links - scan srcdoc content |
+| `<object>` / `<embed>` with `data` URL | These elements can navigate or load external content - flag if data attribute is an external URL |
 | `window.open` from service worker | Monitor service worker messages that call `clients.openWindow()` to a suspicious URL |
 | Navigation via `document.execCommand` | Legacy API that can trigger navigation in some browsers |
 
-### 6.5 Link Density Analyzer (`link-density-analyzer.js`) — 🟢 NEW (Future)
+### 6.5 Link Density Analyzer (`link-density-analyzer.js`) - 🟢 NEW (Future)
 
 **Purpose:** Detect SEO spam pages, link farms, and keyword-stuffed link sections.
 
@@ -568,7 +568,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 - Popup reports: "This page has 150 links to 35 different external domains"
 - Optional: "Simplify page" mode that hides non-essential links
 
-### 6.6 Link Health Checker (`link-health-pinger.js`) — 🟢 NEW (Future)
+### 6.6 Link Health Checker (`link-health-pinger.js`) - 🟢 NEW (Future)
 
 **Purpose:** Proactively check if known links are still safe (server-side validation with privacy).
 
@@ -581,7 +581,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 **Privacy:**
 - Only checks links the user is about to click (on hover or pre-navigation)
 - Or: batch check all page links with randomized delays (to prevent timing correlation)
-- Never send full URLs — only SHA-256 hashes of domain + path
+- Never send full URLs - only SHA-256 hashes of domain + path
 
 ---
 
@@ -594,7 +594,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 | **P1b** | Hidden links + Link Verifier + UI | Hidden link scanner, link verifier, whitelist, statistics, popup, options | 3-5 days | 5-7 days |
 | **P1c** | Polish & Test | Edge cases, unit tests, manual QA | 3-5 days | 4-6 days |
 | **P1.5** | Enhanced protection | Expanded nav-guard, dynamic monitor, scam overlays, fake buttons, reputation, custom rules | 7-10 days | 10-14 days |
-| **P2** | Link transparency | Protocol validator, transparency UI, link sanitizer, edge case handler | — | 8-12 days |
+| **P2** | Link transparency | Protocol validator, transparency UI, link sanitizer, edge case handler | - | 8-12 days |
 | **P3** | Advanced | Clipboard guard, shortener bypass, density analyzer, health checker (all standalone) | 10-15 days | 12-18 days |
 
 ---
@@ -610,9 +610,9 @@ Required:
 ├── "storage"                        # ✅ Existing
 ├── "scripting"                      # ✅ Existing
 ├── "declarativeNetRequest"          # ✅ Existing
-├── "menus"                          # 🔴 NEW — Right-click link inspector
-├── "notifications"                  # 🟠 NEW — Scam overlay/redirect warnings
-└── "contextualIdentities"          # 🟡 NEW — Container-based sandboxed browsing (v2.0)
+├── "menus"                          # 🔴 NEW - Right-click link inspector
+├── "notifications"                  # 🟠 NEW - Scam overlay/redirect warnings
+└── "contextualIdentities"          # 🟡 NEW - Container-based sandboxed browsing (v2.0)
 
 Host permissions:
 ├── "<all_urls>"                     # ✅ Existing
@@ -631,25 +631,25 @@ Host permissions:
 | E2E | Selenium + geckodriver | Full extension lifecycle with test pages containing hidden links, event hijacks, homographs |
 
 **New test pages to create in `tests/fixtures/`:**
-- `hidden-links.html` — links with opacity:0, size:0, off-screen, color-match, z-index stacking
-- `spoofed-links.html` — links with hover spoofing, href mutation, homograph domains
-- `event-hijack.html` — links with click/mousedown listeners that redirect to different domains
-- `scam-overlay.html` — fake virus warnings, fake CAPTCHA, fake close buttons
-- `dynamic-injection.html` — links injected via JS after 1s, 5s, 10s delays
+- `hidden-links.html` - links with opacity:0, size:0, off-screen, color-match, z-index stacking
+- `spoofed-links.html` - links with hover spoofing, href mutation, homograph domains
+- `event-hijack.html` - links with click/mousedown listeners that redirect to different domains
+- `scam-overlay.html` - fake virus warnings, fake CAPTCHA, fake close buttons
+- `dynamic-injection.html` - links injected via JS after 1s, 5s, 10s delays
 
 ---
 
 ## 10. Engineering Principles (Expanded)
 
-1. **Privacy by design** — No data collection without explicit opt-in. All processing local by default.
-2. **Minimal permissions** — Only request host permissions for sites where protection is enabled.
-3. **Defense in depth** — Content script + background worker + declarativeNetRequest layers.
-4. **Edge case focus** — Handle iframes, data URIs, blob URLs, `javascript:` links, extension pages, Shadow DOM, SVGs.
-5. **Performance first** — Avoid blocking the main thread; use `requestIdleCallback` for scans; debounce MutationObserver; use IndexedDB for large datasets; batch analytics writes.
-6. **Testability** — Pure functions for core logic; dependency injection for browser APIs.
-7. **Accessibility** — Popup and options pages follow WCAG 2.1 AA guidelines. Link risk badges have text alternatives.
-8. **Graceful degradation** — If an API is not available (e.g., Firefox doesn't support `getEventListeners`), fall back to wrapper/hijack method rather than failing silently.
-9. **User transparency** — Always show WHY a link was flagged, not just THAT it was flagged. Educate users about spam link tactics.
+1. **Privacy by design** - No data collection without explicit opt-in. All processing local by default.
+2. **Minimal permissions** - Only request host permissions for sites where protection is enabled.
+3. **Defense in depth** - Content script + background worker + declarativeNetRequest layers.
+4. **Edge case focus** - Handle iframes, data URIs, blob URLs, `javascript:` links, extension pages, Shadow DOM, SVGs.
+5. **Performance first** - Avoid blocking the main thread; use `requestIdleCallback` for scans; debounce MutationObserver; use IndexedDB for large datasets; batch analytics writes.
+6. **Testability** - Pure functions for core logic; dependency injection for browser APIs.
+7. **Accessibility** - Popup and options pages follow WCAG 2.1 AA guidelines. Link risk badges have text alternatives.
+8. **Graceful degradation** - If an API is not available (e.g., Firefox doesn't support `getEventListeners`), fall back to wrapper/hijack method rather than failing silently.
+9. **User transparency** - Always show WHY a link was flagged, not just THAT it was flagged. Educate users about spam link tactics.
 
 ---
 
@@ -673,10 +673,10 @@ Host permissions:
 1. Initialize npm project and install dependencies
 2. Create `manifest.json` with all required permissions (including `menus`)
 3. Build shared infrastructure: `constants.js`, `storage.js`, `messaging.js`, `link-classifier.js`, `event-analyzer.js`
-4. Implement **Event Layer Inspector** (Phase 1a priority) — monkey-patch `addEventListener` in content script
+4. Implement **Event Layer Inspector** (Phase 1a priority) - monkey-patch `addEventListener` in content script
 5. Implement core click monitor + redirect detector (as originally planned)
-6. Implement **Hidden Link Scanner** (Phase 1b priority) — DOM scan + computed styles analysis
-7. Implement **Link Verifier** (Phase 1b priority) — hover spoofing, homograph, base tag detection
+6. Implement **Hidden Link Scanner** (Phase 1b priority) - DOM scan + computed styles analysis
+7. Implement **Link Verifier** (Phase 1b priority) - hover spoofing, homograph, base tag detection
 8. Wire up popup with basic stats + hidden link count + link risk summary
 9. Run first manual test in Firefox `about:debugging`
 - Use `browser.storage.sync` quotas (100KB) for whitelist + settings

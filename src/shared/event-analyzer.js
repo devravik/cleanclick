@@ -1,5 +1,5 @@
 /**
- * CleanClick — Event Listener Pattern Matcher
+ * CleanClick - Event Listener Pattern Matcher
  *
  * Analyzes registered event listener functions to detect
  * navigation hijacking patterns.
@@ -11,7 +11,7 @@
  * - Cannot inspect native functions (they show as [native code])
  * - Minified/obfuscated code reduces detection confidence
  *
- * Pure functions — no browser API dependencies.
+ * Pure functions - no browser API dependencies.
  */
 
 import { HIJACK_EVENTS } from './constants.js';

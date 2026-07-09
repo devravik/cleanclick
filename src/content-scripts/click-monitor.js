@@ -1,5 +1,5 @@
 /**
- * CleanClick — Click Monitor (Content Script)
+ * CleanClick - Click Monitor (Content Script)
  *
  * Records every click on <a>, <area>, and <button> elements.
  * Captures context (intended href, link text, timestamp, position)
@@ -64,7 +64,7 @@ function handleClick(event) {
     context,
     hijackInfo,
   }).catch(() => {
-    // Background may not respond — click proceeds regardless
+    // Background may not respond - click proceeds regardless
   });
 
   // If hijacked with high confidence, show warning
@@ -93,7 +93,7 @@ function findClosestLink(target) {
 
   // Is the target a <button> or <input type="submit">?
   if (target.tagName === 'BUTTON' ||
-      (target.tagName === 'INPUT' && target.type === 'submit')) {
+    (target.tagName === 'INPUT' && target.type === 'submit')) {
     // Buttons navigate via form action; store the form action if available
     const form = target.closest('form');
     if (form && form.action) {
@@ -112,11 +112,11 @@ function findClosestLink(target) {
 function getFrameId() {
   try {
     if (window.self !== window.top) {
-      // We're in an iframe — best-effort detection
+      // We're in an iframe - best-effort detection
       return 1; // Simplified; real frameId requires browser API
     }
   } catch (e) {
-    // Cross-origin iframe — can't access
+    // Cross-origin iframe - can't access
     return -1;
   }
   return 0;
@@ -199,7 +199,7 @@ export function init() {
   // Get tab ID from background via messaging
   browser.runtime.sendMessage({ type: 'get:tab-info' }).then(response => {
     if (response && response.tabId) tabId = response.tabId;
-  }).catch(() => {});
+  }).catch(() => { });
 
   // Register click handlers (capture phase to catch events before page scripts)
   document.addEventListener('click', handleClick, true);

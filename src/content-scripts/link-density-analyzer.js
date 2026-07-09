@@ -1,7 +1,7 @@
 /**
- * CleanClick — Link Density Analyzer (Content Script)
+ * CleanClick - Link Density Analyzer (Content Script)
  *
- * 🟢 MODULE — Phase 3 (standalone)
+ * 🟢 MODULE - Phase 3 (standalone)
  *
  * Detects SEO spam pages, link farms, and keyword-stuffed link sections
  * by analyzing link density metrics:
@@ -33,7 +33,7 @@ export function analyzeDensity() {
         externalDomains.add(u.hostname);
         externalLinks.push({ href: link.href, domain: u.hostname, text: (link.textContent || '').trim() });
       }
-    } catch {}
+    } catch { }
   }
 
   // Calculate link-to-text ratio
@@ -92,7 +92,7 @@ export function analyzeDensity() {
   };
 
   // Send to background for popup display
-  sendMessage('density:scan-results', result).catch(() => {});
+  sendMessage('density:scan-results', result).catch(() => { });
 
   return result;
 }

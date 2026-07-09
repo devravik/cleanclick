@@ -11,8 +11,8 @@ This document performs an exhaustive analysis of every way spam links appear on 
 | Icon | Meaning |
 |------|---------|
 | ✅ | Adequately covered in current plan |
-| ⚠️ | Partially covered — needs expansion |
-| ❌ | **Not covered** — gap to fill |
+| ⚠️ | Partially covered - needs expansion |
+| ❌ | **Not covered** - gap to fill |
 
 ---
 
@@ -38,10 +38,10 @@ Analyzes the event listener stack on links/buttons before the user interacts, fl
 
 | # | Attack Vector | Description | Status | Gap Analysis |
 |---|--------------|-------------|--------|--------------|
-| 9 | **Zero-Size Links** | `<a>` with `width:0; height:0;` or `1x1px` — clickable but invisible | ❌ | Not mentioned. |
-| 10 | **Zero-Opacity Links** | `<a style="opacity:0">` — invisible but clickable | ❌ | Not mentioned. |
-| 11 | **Off-Screen Links** | `<a style="position:absolute; left:-9999px">` — off-screen but clickable via tab navigation | ❌ | Not mentioned. |
-| 12 | **Font-Size-0 Links** | `<a style="font-size:0">` — invisible text with links | ❌ | Not mentioned. |
+| 9 | **Zero-Size Links** | `<a>` with `width:0; height:0;` or `1x1px` - clickable but invisible | ❌ | Not mentioned. |
+| 10 | **Zero-Opacity Links** | `<a style="opacity:0">` - invisible but clickable | ❌ | Not mentioned. |
+| 11 | **Off-Screen Links** | `<a style="position:absolute; left:-9999px">` - off-screen but clickable via tab navigation | ❌ | Not mentioned. |
+| 12 | **Font-Size-0 Links** | `<a style="font-size:0">` - invisible text with links | ❌ | Not mentioned. |
 | 13 | **Color-Matched Links** | Link color = background color (e.g., `#fff` on `#fff`) | ❌ | Not mentioned. |
 | 14 | **Overflow-Hidden Links** | Links hidden inside `overflow:hidden` containers but still in tab order | ❌ | Not mentioned. |
 | 15 | **Z-Index Buried Links** | Multiple links stacked at same coordinates; top one is spam | ❌ | Not mentioned. |
@@ -65,7 +65,7 @@ Analyzes the event listener stack on links/buttons before the user interacts, fl
 | 20 | **Href Mutation on Interaction** | `href` is dynamically changed on `click`/`mousedown` to a spam URL just before navigation | ❌ | Not mentioned. Needs comparing href at hover time vs click time. |
 | 21 | **Punycode/IDN Homograph** | Internationalized domain names that visually resemble legitimate domains (e.g., `gοοgle.com` with Greek omicrons) | ❌ | Not mentioned. |
 | 22 | **URL Encoding Obfuscation** | Excessively encoded URLs hiding the true destination | ❌ | Not mentioned. |
-| 23 | **Subdomain Confusion** | `paypal.security-alert.com.example.com` — legitimate-looking subdomain chains | ❌ | Not mentioned. |
+| 23 | **Subdomain Confusion** | `paypal.security-alert.com.example.com` - legitimate-looking subdomain chains | ❌ | Not mentioned. |
 | 24 | **Base Tag Hijacking** | `<base href="https://spam.com">` changes all relative URLs to point to spam | ❌ | Not mentioned. Critical for relative link attacks. |
 | 25 | **Link Text vs Href Discrepancy** | Display text says "example.com" but href points to "spam.com" | ❌ | Not mentioned. |
 | 26 | **Visual Clone Links** | Fake download/play buttons that visually match real UI but link to ads/malware | ❌ | Partially covered by fake-button-detector (downloads only), not for generic UI clones. |
@@ -90,17 +90,17 @@ Analyzes the event listener stack on links/buttons before the user interacts, fl
 | 31 | **Form Onsubmit Hijacking** | `onsubmit` handler redirects to spam instead of submitting to action | ❌ | Not mentioned. |
 | 32 | **Button Onclick Hijacking** | `<button onclick="window.location='spam'">` disguised as a harmless button | ❌ | Not mentioned. |
 | 33 | **Image Map Abuse** | `<map><area>` tags with hidden spam coordinates over legitimate content | ❌ | Not mentioned. |
-| 34 | **Meta Refresh Redirect** | `<meta http-equiv="refresh" content="0;url=spam">` — automatic redirect | ❌ | Not mentioned in content-script layer. |
-| 35 | **JavaScript Protocol** | `<a href="javascript:window.location='spam'">` — code-execution links | ⚠️ | Partially covered by navigation-guard but not explicitly listed. |
+| 34 | **Meta Refresh Redirect** | `<meta http-equiv="refresh" content="0;url=spam">` - automatic redirect | ❌ | Not mentioned in content-script layer. |
+| 35 | **JavaScript Protocol** | `<a href="javascript:window.location='spam'">` - code-execution links | ⚠️ | Partially covered by navigation-guard but not explicitly listed. |
 | 36 | **Data URI Links** | `<a href="data:text/html,...">` renders a full spam page | ❌ | Not mentioned. |
 | 37 | **Blob URL Links** | Dynamically created blob: URLs containing spam content | ❌ | Not mentioned. |
 | 38 | **History API Manipulation** | `history.pushState`/`replaceState` changes URL bar without navigation, used for phishing | ❌ | Not mentioned. |
-| 39 | **Service Worker Interception** | Service worker intercepts navigation requests and redirects to spam | ❌ | Not mentioned. Critical gap — SW operates outside extension's content scripts. |
+| 39 | **Service Worker Interception** | Service worker intercepts navigation requests and redirects to spam | ❌ | Not mentioned. Critical gap - SW operates outside extension's content scripts. |
 | 40 | **Fetch/JS Redirect** | `fetch()` + `document.write()` or `innerHTML` injection of spam page | ❌ | Not mentioned. |
 | 41 | **WebSocket Link Injection** | Live-updating content via WebSocket injects spam links after detection scan | ❌ | Not mentioned. |
 | 42 | **PostMessage Navigation** | `window.postMessage` triggers `location.href` change from parent/child frames | ❌ | Not mentioned. |
 
-### ➤ New Module Needed: Multi-Surface Navigation Guard (`navigation-guard.js` — expand)
+### ➤ New Module Needed: Multi-Surface Navigation Guard (`navigation-guard.js` - expand)
 Expands from simple link monitoring to cover:
 - Form submission interception (compare action URL to trusted domains)
 - Meta refresh detection and optional blocking
@@ -285,7 +285,7 @@ The current plan covers **~5%** of all identified spam link attack vectors. The 
 
 These should be integrated into the development plan's phased roadmap:
 
-### Phase 1.5 — Immediate Critical Gaps (do alongside v1.0)
+### Phase 1.5 - Immediate Critical Gaps (do alongside v1.0)
 
 | Module | Priority | Why Now |
 |--------|----------|---------|
@@ -295,7 +295,7 @@ These should be integrated into the development plan's phased roadmap:
 | **Multi-Surface Navigation Guard** | 🟠 High | Forms, meta refresh, service workers, and data URIs are active attack surfaces not covered. |
 | **Dynamic Content Monitor** | 🟠 High | Links injected after page load bypass all initial scans. MutationObserver is essential. |
 
-### Phase 2.0 — Enhancements for v1.5
+### Phase 2.0 - Enhancements for v1.5
 
 | Module | Priority | Why |
 |--------|----------|-----|
@@ -305,7 +305,7 @@ These should be integrated into the development plan's phased roadmap:
 | **Link Sanitizer** | 🟡 Medium | Tracking param stripping and affiliate link detection add clear user value. |
 | **Edge Case Handler** | 🟡 Medium | Cross-origin frames, SVGs, and Unicode spoofing are harder to exploit but worth covering. |
 
-### Phase 3.0 — Future / v2.0
+### Phase 3.0 - Future / v2.0
 
 | Module | Priority | Why |
 |--------|----------|-----|
@@ -320,18 +320,18 @@ These should be integrated into the development plan's phased roadmap:
 src/
 ├── content-scripts/
 │   ├── click-monitor.js              # ✅ Existing
-│   ├── event-inspector.js            # 🔴 NEW — Event listener stack analysis
-│   ├── hidden-link-scanner.js        # 🔴 NEW — Invisible/obscured link detection
-│   ├── link-verifier.js              # 🔴 NEW — Hover vs href comparison, homograph detection
-│   ├── dynamic-link-watcher.js       # 🟠 NEW — MutationObserver for injected links
-│   ├── scam-overlay-detector.js      # 🟠 NEW — Social engineering overlay detection
-│   ├── protocol-link-validator.js    # 🟡 NEW — tel:, sms:, intent: validation
-│   ├── link-transparency-ui.js       # 🟠 NEW — Badges, tooltips, confirmation dialogs
-│   ├── link-density-analyzer.js      # 🟢 NEW — Page link count & keyword analysis
-│   ├── link-sanitizer.js             # 🟡 NEW — Tracking param stripping
-│   ├── edge-case-handler.js          # 🟡 NEW — SVG, custom elements, unicode spoofing
+│   ├── event-inspector.js            # 🔴 NEW - Event listener stack analysis
+│   ├── hidden-link-scanner.js        # 🔴 NEW - Invisible/obscured link detection
+│   ├── link-verifier.js              # 🔴 NEW - Hover vs href comparison, homograph detection
+│   ├── dynamic-link-watcher.js       # 🟠 NEW - MutationObserver for injected links
+│   ├── scam-overlay-detector.js      # 🟠 NEW - Social engineering overlay detection
+│   ├── protocol-link-validator.js    # 🟡 NEW - tel:, sms:, intent: validation
+│   ├── link-transparency-ui.js       # 🟠 NEW - Badges, tooltips, confirmation dialogs
+│   ├── link-density-analyzer.js      # 🟢 NEW - Page link count & keyword analysis
+│   ├── link-sanitizer.js             # 🟡 NEW - Tracking param stripping
+│   ├── edge-case-handler.js          # 🟡 NEW - SVG, custom elements, unicode spoofing
 │   ├── fake-button-detector.js       # ✅ Existing (v1.5)
-│   └── navigation-guard.js           # ⬆️ EXPANDED — Forms, meta refresh, SW, history API
+│   └── navigation-guard.js           # ⬆️ EXPANDED - Forms, meta refresh, SW, history API
 │
 ├── background/
 │   ├── index.js                      # ✅ Existing
@@ -340,8 +340,8 @@ src/
 │   ├── whitelist-manager.js          # ✅ Existing
 │   ├── statistics.js                 # ✅ Existing
 │   ├── reputation.js                 # ✅ Existing
-│   ├── event-inspector-background.js # 🔴 NEW — Coordinates event analysis across tabs
-│   └── link-health-pinger.js         # 🟢 NEW — Optional reputation pings
+│   ├── event-inspector-background.js # 🔴 NEW - Coordinates event analysis across tabs
+│   └── link-health-pinger.js         # 🟢 NEW - Optional reputation pings
 │
 ├── popup/
 │   ├── index.html / popup.js / popup.css  # ✅ Existing
@@ -349,23 +349,23 @@ src/
 │       ├── stats-panel.js            # ✅ Existing
 │       ├── whitelist-panel.js        # ✅ Existing
 │       ├── protection-toggle.js      # ✅ Existing
-│       ├── link-scanner-report.js    # 🟠 NEW — Scan results for current page
-│       └── link-risk-dashboard.js    # 🟡 NEW — All-links risk overview
+│       ├── link-scanner-report.js    # 🟠 NEW - Scan results for current page
+│       └── link-risk-dashboard.js    # 🟡 NEW - All-links risk overview
 │
 ├── options/
 │   ├── index.html / options.js / options.css  # ✅ Existing
 │   └── components/
 │       ├── whitelist-manager.js      # ✅ Existing
 │       ├── custom-rules-editor.js    # ✅ Existing (v1.5)
-│       └── link-preview-settings.js  # 🟠 NEW — Hover/tooltip preferences
+│       └── link-preview-settings.js  # 🟠 NEW - Hover/tooltip preferences
 │
 └── shared/
-    ├── constants.js                  # ✅ Existing — Add link risk thresholds
-    ├── messaging.js                  # ✅ Existing — Add new message types
-    ├── storage.js                    # ✅ Existing — Add new store sections
-    ├── utils.js                      # ✅ Existing — Add URL normalizer, homograph detector
-    ├── link-classifier.js            # 🟠 NEW — Link risk scoring engine
-    └── event-analyzer.js             # 🟠 NEW — Event listener pattern matcher
+    ├── constants.js                  # ✅ Existing - Add link risk thresholds
+    ├── messaging.js                  # ✅ Existing - Add new message types
+    ├── storage.js                    # ✅ Existing - Add new store sections
+    ├── utils.js                      # ✅ Existing - Add URL normalizer, homograph detector
+    ├── link-classifier.js            # 🟠 NEW - Link risk scoring engine
+    └── event-analyzer.js             # 🟠 NEW - Event listener pattern matcher
 ```
 
 ---
@@ -379,9 +379,9 @@ Phase 1.0 ─── Core Protection ──────────────�
     ├── Whitelist Manager (existing plan)
     ├── Statistics (existing plan)
     └── Popup/Options UI (existing plan)
-    ┌── Hidden Link Scanner          ← NEW — Critical gap
-    ├── Link Verifier                ← NEW — Critical gap
-    └── Event Layer Inspector        ← NEW — Critical gap
+    ┌── Hidden Link Scanner          ← NEW - Critical gap
+    ├── Link Verifier                ← NEW - Critical gap
+    └── Event Layer Inspector        ← NEW - Critical gap
 
 Phase 1.5 ─── Immediate Enhancements ───────────────────────────────
     ├── Multi-Surface Navigation Guard ← EXPANDED
@@ -422,9 +422,9 @@ Required:
 ├── "storage"                        # ✅ Existing
 ├── "scripting"                      # ✅ Existing
 ├── "declarativeNetRequest"          # ✅ Existing
-├── "menus"                          # 🔴 NEW — Right-click link inspector
-├── "notifications"                  # 🟠 NEW — Scam overlay warnings
-└── "contextualIdentities"          # 🟡 NEW — Container-based isolation (v2.0)
+├── "menus"                          # 🔴 NEW - Right-click link inspector
+├── "notifications"                  # 🟠 NEW - Scam overlay warnings
+└── "contextualIdentities"          # 🟡 NEW - Container-based isolation (v2.0)
 
 Host permissions:
 ├── "<all_urls>"                     # ✅ Existing
@@ -437,8 +437,8 @@ Host permissions:
 
 The current development plan covers only **~5% of spam link attack vectors**. The three most critical additions are:
 
-1. **Hidden Link Scanner** — Transparent overlays, zero-opacity, off-screen, and size-0 links are the #1 unaddressed vector for download/streaming sites.
-2. **Link Verifier** — Hover spoofing, homograph domains, and href mutation are trivial attacks that the current plan doesn't prevent.
-3. **Event Layer Inspector** — Click hijacking via event listeners is the #1 redirect mechanism; the current click-monitor only records but doesn't prevent.
+1. **Hidden Link Scanner** - Transparent overlays, zero-opacity, off-screen, and size-0 links are the #1 unaddressed vector for download/streaming sites.
+2. **Link Verifier** - Hover spoofing, homograph domains, and href mutation are trivial attacks that the current plan doesn't prevent.
+3. **Event Layer Inspector** - Click hijacking via event listeners is the #1 redirect mechanism; the current click-monitor only records but doesn't prevent.
 
 Adding these modules would raise coverage from **5% to ~40%** in Phase 1, with the remaining vectors addressed in subsequent phases.

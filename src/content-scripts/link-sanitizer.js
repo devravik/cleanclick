@@ -1,7 +1,7 @@
 /**
- * CleanClick — Link Sanitizer (Content Script)
+ * CleanClick - Link Sanitizer (Content Script)
  *
- * 🟡 NEW MODULE — Phase 2
+ * 🟡 NEW MODULE - Phase 2
  *
  * Cleans links before the user clicks them:
  * - Strips tracking parameters (utm_, fbclid, gclid, etc.)
@@ -168,7 +168,7 @@ function showExpandedIndicator(link, finalUrl) {
     original: link.href,
     finalUrl,
     timestamp: Date.now(),
-  }).catch(() => {});
+  }).catch(() => { });
 }
 
 // ─── Auto-scan on Load ───────────────────────────────────────────
@@ -186,7 +186,7 @@ function scanAllLinks() {
     const result = sanitizeURL(href);
     if (result.wasCleaned) {
       totalCleaned++;
-      // We don't modify hrefs on page load — only on click
+      // We don't modify hrefs on page load - only on click
     }
 
     if (detectAffiliate(href).isAffiliate) {
@@ -204,7 +204,7 @@ function scanAllLinks() {
       totalAffiliate,
       totalShortened,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 

@@ -1,5 +1,5 @@
 /**
- * CleanClick — Expanded Navigation Guard (Content Script)
+ * CleanClick - Expanded Navigation Guard (Content Script)
  *
  * ⬆️ EXPANDED from original plan
  *
@@ -63,7 +63,7 @@ class FormGuard {
       const actionURL = new URL(action, window.location.href);
       if (actionURL.origin === currentOrigin) return false;
 
-      // Different origin — warn user
+      // Different origin - warn user
       const reason = `Form submits to ${actionURL.origin} (different from ${currentOrigin})`;
       this._showWarning(reason, actionURL.href, form);
 
@@ -73,7 +73,7 @@ class FormGuard {
         origin: currentOrigin,
         formId: form.id || form.name || '(unnamed)',
         timestamp: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
 
       return true; // Block
     } catch {
@@ -157,7 +157,7 @@ class MetaRefreshDetector {
     try {
       const targetOrigin = new URL(targetURL).origin;
       if (targetOrigin !== currentOrigin) {
-        // Cross-origin meta refresh — intercept
+        // Cross-origin meta refresh - intercept
         this._interceptRefresh(targetURL, meta);
       }
     } catch {
@@ -203,7 +203,7 @@ class MetaRefreshDetector {
       targetURL,
       origin: window.location.origin,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -229,14 +229,14 @@ class ServiceWorkerGuard {
           // Still allow, but warn
         }
       } catch {
-        // invalid URL — let it through
+        // invalid URL - let it through
       }
 
       sendMessage('navigation:sw-register', {
         scriptURL: typeof scriptURL === 'string' ? scriptURL : scriptURL.toString(),
         options,
         timestamp: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
 
       return originalRegister(scriptURL, options);
     };
@@ -284,7 +284,7 @@ class HistoryGuard {
               url,
               newOrigin,
               timestamp: Date.now(),
-            }).catch(() => {});
+            }).catch(() => { });
           }
         } catch {
           // ignore
@@ -303,7 +303,7 @@ class HistoryGuard {
               url,
               newOrigin,
               timestamp: Date.now(),
-            }).catch(() => {});
+            }).catch(() => { });
           }
         } catch {
           // ignore
@@ -339,7 +339,7 @@ class PostMessageGuard {
     window.addEventListener = function patchedAddEventListener(type, listener, options) {
       if (type === 'message') {
         // Wrap the listener to check if it triggers navigation
-        const wrappedListener = function(event) {
+        const wrappedListener = function (event) {
           const origin = event.origin;
           guard._checkOriginNavigation(event, origin);
           return listener.apply(this, arguments);
@@ -352,14 +352,14 @@ class PostMessageGuard {
 
   _checkOriginNavigation(event, origin) {
     // Check if event.data triggers a location change
-    // This is best-effort — we can't intercept synchronous location changes
+    // This is best-effort - we can't intercept synchronous location changes
     // but we can log and warn
     if (typeof event.data === 'string' && event.data.includes('location')) {
       sendMessage('navigation:postmessage', {
         origin,
         dataPreview: event.data.slice(0, 200),
         timestamp: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
     }
   }
 
@@ -369,7 +369,7 @@ class PostMessageGuard {
       sendMessage('navigation:postmessage-outgoing', {
         targetOrigin,
         timestamp: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
     }
   }
 }

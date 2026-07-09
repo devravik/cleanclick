@@ -1,9 +1,9 @@
 /**
- * CleanClick — Link Transparency UI (Content Script)
+ * CleanClick - Link Transparency UI (Content Script)
  *
  * Visual feedback for links:
- * A. Risk badges (colored dots) — controlled by showRiskBadges setting
- * B. Custom hover tooltip — controlled by showTooltips setting
+ * A. Risk badges (colored dots) - controlled by showRiskBadges setting
+ * B. Custom hover tooltip - controlled by showTooltips setting
  * C. Click confirmation dialogs
  *
  * Runs at document_idle.
@@ -28,7 +28,7 @@ async function loadSettings() {
   try {
     const s = await sendMessage(MSG.GET_SETTINGS);
     if (s) state.settings = s;
-  } catch {}
+  } catch { }
 }
 
 function addRiskBadges() {
@@ -74,9 +74,9 @@ function assessQuickRisk(url) {
   try {
     const u = new URL(url);
     if (u.protocol === 'javascript:' || u.protocol === 'data:') return 'dangerous';
-    const suspiciousTLDs = ['.tk','.ml','.ga','.cf','.gq','.xyz','.top','.work','.click','.download','.review','.trade','.bid','.date','.webcam','.men','.loan','.win','.mom','.party'];
+    const suspiciousTLDs = ['.tk', '.ml', '.ga', '.cf', '.gq', '.xyz', '.top', '.work', '.click', '.download', '.review', '.trade', '.bid', '.date', '.webcam', '.men', '.loan', '.win', '.mom', '.party'];
     for (const tld of suspiciousTLDs) { if (u.hostname.endsWith(tld)) return 'suspicious'; }
-    const shorteners = ['bit.ly','tinyurl.com','ow.ly','is.gd','t.co','goo.gl','rebrand.ly','shorturl.at','cutt.ly','rb.gy'];
+    const shorteners = ['bit.ly', 'tinyurl.com', 'ow.ly', 'is.gd', 't.co', 'goo.gl', 'rebrand.ly', 'shorturl.at', 'cutt.ly', 'rb.gy'];
     for (const s of shorteners) { if (u.hostname.includes(s)) return 'suspicious'; }
     return 'safe';
   } catch { return 'unknown'; }
@@ -116,11 +116,11 @@ function showTooltip(e, link) {
 
   content.innerHTML =
     '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
-      '<span style="width:10px;height:10px;border-radius:50%;background:' + (riskColors[riskLevel] || '#9e9e9e') + '"></span>' +
-      '<strong style="font-size:13px">' + (riskLabels[riskLevel] || 'Unknown') + '</strong>' +
+    '<span style="width:10px;height:10px;border-radius:50%;background:' + (riskColors[riskLevel] || '#9e9e9e') + '"></span>' +
+    '<strong style="font-size:13px">' + (riskLabels[riskLevel] || 'Unknown') + '</strong>' +
     '</div>' +
     '<div style="font-size:11px;color:#aaa;word-break:break-all;margin-bottom:4px">' +
-      '<span style="color:#666">Destination: </span>' + escapeHtml(href) +
+    '<span style="color:#666">Destination: </span>' + escapeHtml(href) +
     '</div>' +
     (text ? '<div style="font-size:11px;color:#aaa"><span style="color:#666">Text: </span>' + escapeHtml(text) + '</div>' : '') +
     '<div style="font-size:10px;color:#888;margin-top:4px;font-style:italic">Click for details</div>';
@@ -219,8 +219,8 @@ function showConfirmationModal(url) {
     '<p style="margin:0 0 4px;font-size:13px;color:#5b5b66;word-break:break-all"><code>' + escapeHtml(url) + '</code></p>' +
     '<p style="margin:0 0 16px;font-size:13px;color:#5b5b66">This link was flagged as potentially dangerous. Proceed with caution.</p>' +
     '<div style="display:flex;gap:8px;justify-content:flex-end">' +
-      '<button id="cleanclick-modal-no" style="padding:10px 20px;background:#f5f5f7;border:1px solid #cfcfd8;border-radius:6px;cursor:pointer;font-size:13px">Go back (safe)</button>' +
-      '<button id="cleanclick-modal-yes" style="padding:10px 20px;background:#d32f2f;color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600">Proceed anyway</button>' +
+    '<button id="cleanclick-modal-no" style="padding:10px 20px;background:#f5f5f7;border:1px solid #cfcfd8;border-radius:6px;cursor:pointer;font-size:13px">Go back (safe)</button>' +
+    '<button id="cleanclick-modal-yes" style="padding:10px 20px;background:#d32f2f;color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600">Proceed anyway</button>' +
     '</div></div>';
   document.body.appendChild(overlay);
   return new Promise((resolve) => {

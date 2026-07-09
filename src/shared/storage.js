@@ -1,5 +1,5 @@
 /**
- * CleanClick — Storage Abstraction Layer
+ * CleanClick - Storage Abstraction Layer
  *
  * Wraps browser.storage.local + browser.storage.sync with:
  * - Schema versioning & auto-migration
@@ -165,8 +165,10 @@ class Storage {
     const today = new Date().toISOString().slice(0, 10);
     let dailyEntry = stats.daily.find(d => d.date === today);
     if (!dailyEntry) {
-      dailyEntry = { date: today, redirectsBlocked: 0, popupsPrevented: 0,
-        suspiciousDomainsDetected: 0, hiddenLinksFound: 0, hijackedElementsFlagged: 0 };
+      dailyEntry = {
+        date: today, redirectsBlocked: 0, popupsPrevented: 0,
+        suspiciousDomainsDetected: 0, hiddenLinksFound: 0, hijackedElementsFlagged: 0
+      };
       stats.daily.push(dailyEntry);
       // Keep only 90 days
       if (stats.daily.length > 90) stats.daily = stats.daily.slice(-90);

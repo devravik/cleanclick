@@ -1,5 +1,5 @@
 /**
- * CleanClick — Redirect Reputation Scoring (Background Script)
+ * CleanClick - Redirect Reputation Scoring (Background Script)
  *
  * Local IndexedDB database of domain reputations.
  * Scoring: 0 (trusted) → 100 (malicious).
@@ -50,7 +50,7 @@ async function putEntry(entry) {
       tx.oncomplete = () => resolve();
       tx.onerror = () => reject(tx.error);
     });
-  } catch {}
+  } catch { }
 }
 
 export async function updateReputation(domain, hopCount, patterns = []) {
@@ -118,5 +118,5 @@ function setupMessageHandlers() {
 
 export function init() {
   setupMessageHandlers();
-  openDB().then(() => console.log('CleanClick: Reputation DB ready')).catch(() => {});
+  openDB().then(() => console.log('CleanClick: Reputation DB ready')).catch(() => { });
 }

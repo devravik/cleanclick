@@ -1,5 +1,5 @@
 /**
- * CleanClick — Scam Overlay Detector (Content Script)
+ * CleanClick - Scam Overlay Detector (Content Script)
  *
  * 🟠 NEW MODULE
  *
@@ -96,7 +96,7 @@ function analyzeButtons(overlay) {
     const href = btn.getAttribute('href') || '';
 
     if (onclick.includes('location') || onclick.includes('window.open') ||
-        (href && href !== '#' && !href.startsWith('javascript:void'))) {
+      (href && href !== '#' && !href.startsWith('javascript:void'))) {
       issues.push({
         buttonText: text.slice(0, 50),
         action: onclick || href,
@@ -195,7 +195,7 @@ function handleDetectedOverlay(result) {
   sendMessage(MSG.SCAM_OVERLAY, {
     ...result,
     pageUrl: window.location.href,
-  }).catch(() => {});
+  }).catch(() => { });
 }
 
 // ─── User Warning UI ──────────────────────────────────────────────

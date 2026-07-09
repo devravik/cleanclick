@@ -1,7 +1,7 @@
 /**
- * CleanClick — Edge Case Handler (Content Script)
+ * CleanClick - Edge Case Handler (Content Script)
  *
- * 🟡 NEW MODULE — Phase 2
+ * 🟡 NEW MODULE - Phase 2
  *
  * Handles advanced attack surfaces that don't fit other modules:
  * - Cross-origin frame escape (target="_top" from iframe)
@@ -25,7 +25,7 @@ function checkFrameEscape() {
   try {
     if (window.self === window.top) return; // Not in iframe
 
-    // We're in an iframe — check all links with target="_top" or "_parent"
+    // We're in an iframe - check all links with target="_top" or "_parent"
     const links = document.querySelectorAll('a[target="_top"], a[target="_parent"], area[target="_top"], area[target="_parent"]');
     const issues = [];
 
@@ -44,7 +44,7 @@ function checkFrameEscape() {
           });
         }
       } catch {
-        // Cross-origin access to top.location is blocked — that's expected
+        // Cross-origin access to top.location is blocked - that's expected
       }
     }
 
@@ -53,10 +53,10 @@ function checkFrameEscape() {
         issues,
         frameOrigin: window.location.origin,
         timestamp: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
     }
   } catch {
-    // Cross-origin iframe — can't access top
+    // Cross-origin iframe - can't access top
   }
 }
 
@@ -70,7 +70,7 @@ function scanSVGLinks() {
     const href = el.getAttribute('href') || el.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || '';
     if (!href) continue;
 
-    // SVG links can navigate — flag if suspicious
+    // SVG links can navigate - flag if suspicious
     try {
       const u = new URL(href, window.location.href);
       if (u.origin !== window.location.origin) {
@@ -81,7 +81,7 @@ function scanSVGLinks() {
           tag: el.tagName,
         });
       }
-    } catch {}
+    } catch { }
   }
 
   if (issues.length > 0) {
@@ -89,7 +89,7 @@ function scanSVGLinks() {
       issues,
       count: issues.length,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -130,7 +130,7 @@ function checkCustomElements() {
     sendMessage('edge:custom-elements', {
       issues,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -185,7 +185,7 @@ function checkUnicodeAnomalies() {
       issues,
       count: issues.length,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -221,7 +221,7 @@ function detectUGC() {
           break;
         }
       }
-    } catch {}
+    } catch { }
   }
 
   if (issues.length > 0) {
@@ -229,7 +229,7 @@ function detectUGC() {
       issues,
       count: issues.length,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -257,7 +257,7 @@ function scanIframeSrcdoc() {
             type: 'iframe-srcdoc-external',
           });
         }
-      } catch {}
+      } catch { }
     }
   }
 
@@ -265,7 +265,7 @@ function scanIframeSrcdoc() {
     sendMessage('edge:iframe-srcdoc', {
       issues,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -284,7 +284,7 @@ function checkObjectEmbed() {
       if (u.origin !== window.location.origin) {
         // Check if it's a media file (likely safe) or something else
         const path = u.pathname.toLowerCase();
-        const mediaExts = ['.jpg','.jpeg','.png','.gif','.svg','.webp','.mp4','.mp3','.pdf','.swf'];
+        const mediaExts = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp', '.mp4', '.mp3', '.pdf', '.swf'];
         if (!mediaExts.some(ext => path.endsWith(ext))) {
           issues.push({
             url: u.href,
@@ -293,14 +293,14 @@ function checkObjectEmbed() {
           });
         }
       }
-    } catch {}
+    } catch { }
   }
 
   if (issues.length > 0) {
     sendMessage('edge:object-embed', {
       issues,
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -317,7 +317,7 @@ function monitorServiceWorkerWindows() {
           url: data.url || data.target,
           origin: event.origin,
           timestamp: Date.now(),
-        }).catch(() => {});
+        }).catch(() => { });
       }
     }
   });

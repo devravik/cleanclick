@@ -1,5 +1,5 @@
 /**
- * CleanClick — Popup Blocker (Content Script)
+ * CleanClick - Popup Blocker (Content Script)
  *
  * Prevents unwanted popup windows by intercepting window.open()
  * and monitoring for suspicious popup patterns.
@@ -27,7 +27,7 @@ function checkPopupURL(url, currentOrigin) {
     const targetUrl = new URL(url, window.location.href);
     const currentUrl = new URL(currentOrigin);
 
-    // 1. No user gesture check — we're in the intercept so we can check
+    // 1. No user gesture check - we're in the intercept so we can check
     //    if we're inside a trusted event handler (see below)
 
     // 2. Cross-origin with more than 2 TLD difference
@@ -50,7 +50,7 @@ function checkPopupURL(url, currentOrigin) {
       }
     }
 
-    // 4. URL shortener in popup — suspicious
+    // 4. URL shortener in popup - suspicious
     const shorteners = ['bit.ly', 'tinyurl.com', 'ow.ly', 'is.gd', 't.co', 'goo.gl'];
     if (shorteners.some(s => targetUrl.hostname.includes(s))) {
       return { isSuspicious: true, reason: 'Popup uses URL shortener' };
@@ -105,10 +105,10 @@ window.open = function interceptedOpen(url, name, features) {
         hadUserGesture: isUserInitiated,
         timestamp: Date.now(),
       },
-    }).catch(() => {});
+    }).catch(() => { });
 
     // Return a reference to a dummy window
-    const dummy = { closed: true, location: null, focus: () => {}, close: () => {} };
+    const dummy = { closed: true, location: null, focus: () => { }, close: () => { } };
     return dummy;
   }
 
@@ -116,7 +116,7 @@ window.open = function interceptedOpen(url, name, features) {
   browser.runtime.sendMessage({
     type: 'popup:allowed',
     payload: { url, name, features, hadUserGesture: isUserInitiated },
-  }).catch(() => {});
+  }).catch(() => { });
 
   return originalWindowOpen.call(window, url, name, features);
 };
@@ -144,7 +144,7 @@ export class PopupBlockerBackground {
         browser.tabs.get(tab.id).then(updatedTab => {
           if (!updatedTab || updatedTab.url === 'about:blank') return;
           this.evaluateNewTab(updatedTab);
-        }).catch(() => {});
+        }).catch(() => { });
       }, 300);
     }
   }

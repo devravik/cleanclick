@@ -1,5 +1,5 @@
 /**
- * CleanClick — Smart Redirect Detector (Background Script)
+ * CleanClick - Smart Redirect Detector (Background Script)
  *
  * Monitors all navigation events via webNavigation API,
  * correlates them with recorded click contexts, detects
@@ -102,7 +102,7 @@ function analyzeNavigation(tabId, url, timeStamp, clickRecord, timeSinceClick, c
       return { shouldBlock: true, reason: 'Auto-redirect with prior hijack flags', confidence: 70 };
     }
     // Popup/new tab with no user gesture
-    return { shouldBlock: false, reason: 'No click context — monitoring', confidence: 10 };
+    return { shouldBlock: false, reason: 'No click context - monitoring', confidence: 10 };
   }
 
   const { context, hijackInfo } = clickRecord;
@@ -110,13 +110,13 @@ function analyzeNavigation(tabId, url, timeStamp, clickRecord, timeSinceClick, c
 
   // 2. Timing check
   if (timeSinceClick < TIMING.CLICK_TO_NAV_MIN) {
-    // Too fast — likely auto-redirect not user-initiated
+    // Too fast - likely auto-redirect not user-initiated
     return { shouldBlock: true, reason: 'Navigation too fast after click (<100ms)', confidence: 60 };
   }
 
   if (timeSinceClick > TIMING.CLICK_TO_NAV_MAX) {
-    // Too slow — click is stale, but could be a delayed redirect
-    return { shouldBlock: false, reason: 'Click too old — possibly unrelated', confidence: 5 };
+    // Too slow - click is stale, but could be a delayed redirect
+    return { shouldBlock: false, reason: 'Click too old - possibly unrelated', confidence: 5 };
   }
 
   // 3. Destination matches intended URL → safe
@@ -137,7 +137,7 @@ function analyzeNavigation(tabId, url, timeStamp, clickRecord, timeSinceClick, c
   }
 
   // 5. Check if destination is in whitelist
-  // (async — called separately with the result)
+  // (async - called separately with the result)
 
   // 6. Redirect chain check
   if (chain.length >= TIMING.RAPID_REDIRECT_HOPS) {
@@ -147,7 +147,7 @@ function analyzeNavigation(tabId, url, timeStamp, clickRecord, timeSinceClick, c
     }
   }
 
-  // 7. Same domain navigation — likely safe
+  // 7. Same domain navigation - likely safe
   try {
     const intendedDomain = new URL(intendedUrl).hostname;
     const actualDomain = new URL(url).hostname;
@@ -155,7 +155,7 @@ function analyzeNavigation(tabId, url, timeStamp, clickRecord, timeSinceClick, c
       return { shouldBlock: false, reason: 'Same-domain navigation', confidence: 0 };
     }
   } catch {
-    // URL parsing failed — could be suspicious
+    // URL parsing failed - could be suspicious
   }
 
   return { shouldBlock: false, reason: 'No strong indicators', confidence: 10 };

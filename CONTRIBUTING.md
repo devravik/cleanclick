@@ -11,7 +11,7 @@ Issues, feature requests, and pull requests are welcome. Please open an issue be
 
 ## Code Style
 
-- ESLint config is provided — run `npm run lint`
+- ESLint config is provided - run `npm run lint`
 - ES modules throughout
 - Use `browser.*` API (not `chrome.*`)
 - Pure functions for testable logic

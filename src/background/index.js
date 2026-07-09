@@ -1,5 +1,5 @@
 /**
- * CleanClick — Background Script Entry Point
+ * CleanClick - Background Script Entry Point
  *
  * Initializes all background modules on extension startup.
  * Wires up message routing between content scripts ↔ background ↔ popup.
@@ -23,7 +23,7 @@ import { init as initLinkHealth } from './link-health-pinger.js';
  */
 async function onInstalled(details) {
   if (details.reason === 'install') {
-    // First install — set up defaults
+    // First install - set up defaults
     await storage.init();
 
     // Open the welcome/options page
@@ -60,7 +60,7 @@ async function initBackground() {
 
   // 5. Handle incoming connections from content scripts
   onConnectFromContent((port, sender) => {
-    // Content script connected — tab info is available
+    // Content script connected - tab info is available
     // We don't need per-connection state; messages handle routing
   });
 
@@ -127,7 +127,7 @@ function setupContextMenus() {
           browser.tabs.sendMessage(tab.id, {
             type: 'copy-to-clipboard',
             payload: { text: cleanUrl },
-          }).catch(() => {});
+          }).catch(() => { });
         }
         break;
       }

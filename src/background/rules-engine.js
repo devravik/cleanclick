@@ -1,5 +1,5 @@
 /**
- * CleanClick — Custom Blocking Rules (Background Script)
+ * CleanClick - Custom Blocking Rules (Background Script)
  *
  * User-defined rules engine: if URL matches pattern → action.
  * Supports glob, regex, or exact domain patterns.

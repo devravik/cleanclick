@@ -1,7 +1,7 @@
 /**
- * CleanClick — Clipboard Hijacking Protection (Content Script)
+ * CleanClick - Clipboard Hijacking Protection (Content Script)
  *
- * 🟡 MODULE — Phase 3 (standalone)
+ * 🟡 MODULE - Phase 3 (standalone)
  *
  * Detects unauthorized clipboard writes by scripts:
  * - Intercept copy/cut events
@@ -132,7 +132,7 @@ async function analyzeWrittenContent(text, source) {
       reasons,
       textPreview: text.slice(0, 200),
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 
@@ -150,7 +150,7 @@ async function checkClipboardAfterCopy() {
       // Clipboard was modified!
       const reasons = [{
         type: 'clipboard-modified',
-        detail: 'Clipboard content differs from selection — possible hijack',
+        detail: 'Clipboard content differs from selection - possible hijack',
         severity: 'critical',
       }];
 
@@ -159,10 +159,10 @@ async function checkClipboardAfterCopy() {
         selectionPreview: selection.slice(0, 200),
         clipboardPreview: text.slice(0, 200),
         timestamp: Date.now(),
-      }).catch(() => {});
+      }).catch(() => { });
     }
   } catch {
-    // Clipboard access may be blocked — that's normal
+    // Clipboard access may be blocked - that's normal
   }
 }
 
@@ -186,9 +186,9 @@ function showClipboardWarning(reasons, text) {
   banner.innerHTML =
     '<span style="font-size:24px">\uD83D\uDCCB</span>' +
     '<div style="flex:1">' +
-      '<strong>Clipboard Warning</strong>' +
-      reasonsHtml +
-      '<div style="font-size:11px;color:#888;margin-top:4px;word-break:break-all">Content: ' + escapeHtml(text.slice(0, 100)) + '</div>' +
+    '<strong>Clipboard Warning</strong>' +
+    reasonsHtml +
+    '<div style="font-size:11px;color:#888;margin-top:4px;word-break:break-all">Content: ' + escapeHtml(text.slice(0, 100)) + '</div>' +
     '</div>' +
     '<button onclick="this.parentElement.remove()" style="padding:6px 12px;background:#b71c1c;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>';
 
@@ -203,7 +203,7 @@ function showClipboardWarning(reasons, text) {
 
 // ─── ExecCommand Monitoring ───────────────────────────────────────
 
-// Some sites use document.execCommand('copy') — we patch it too
+// Some sites use document.execCommand('copy') - we patch it too
 function patchExecCommand() {
   const originalExec = document.execCommand.bind(document);
   document.execCommand = function patchedExecCommand(command, showUI, value) {

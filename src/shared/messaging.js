@@ -1,5 +1,5 @@
 /**
- * CleanClick — Typed Message Passing
+ * CleanClick - Typed Message Passing
  *
  * Provides a type-safe messaging layer between:
  *   Content Scripts  ↔  Background Script  ↔  Popup/Options
@@ -67,7 +67,7 @@ export function onMessage(type, handler) {
         return { error: err.message };
       });
     }
-    return undefined; // Not handled — passes to next listener
+    return undefined; // Not handled - passes to next listener
   });
 }
 
@@ -162,6 +162,10 @@ function createPortWrapper(port) {
 
 export async function getStats() {
   return sendMessage(MSG.GET_STATS);
+}
+
+export async function getSettings() {
+  return sendMessage(MSG.GET_SETTINGS);
 }
 
 export async function getProtectionStatus(tabId) {

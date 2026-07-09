@@ -1,5 +1,5 @@
 /**
- * CleanClick — Event Layer Inspector (Content Script)
+ * CleanClick - Event Layer Inspector (Content Script)
  *
  * 🔴 CRITICAL MODULE
  *

@@ -1,13 +1,13 @@
 /**
- * CleanClick — Protocol Link Validator (Content Script)
+ * CleanClick - Protocol Link Validator (Content Script)
  *
- * 🟡 NEW MODULE — Phase 2
+ * 🟡 NEW MODULE - Phase 2
  *
  * Protects users from abuse of non-HTTP protocols:
- * - tel: — premium-rate number detection
- * - sms: — premium subscription detection
- * - intent:/facetime:/skype: — external app launch warnings
- * - mailto: — hidden email harvesting detection
+ * - tel: - premium-rate number detection
+ * - sms: - premium subscription detection
+ * - intent:/facetime:/skype: - external app launch warnings
+ * - mailto: - hidden email harvesting detection
  *
  * Runs at document_idle.
  */
@@ -100,7 +100,7 @@ function validateMailtoLink(el, urlObj) {
     parseFloat(styles.opacity) < 0.1 || el.offsetWidth < 5;
 
   if (isHidden) {
-    issues.push({ type: 'hidden-mailto', detail: 'Hidden email link — possible harvesting' });
+    issues.push({ type: 'hidden-mailto', detail: 'Hidden email link - possible harvesting' });
   }
 
   return {
@@ -144,7 +144,7 @@ function validateLink(el) {
   const { protocol, url: urlObj } = categorizeProtocol(href);
   if (!urlObj) return null;
 
-  // HTTP/HTTPS — handled by other modules
+  // HTTP/HTTPS - handled by other modules
   if (protocol === 'http' || protocol === 'https') return null;
 
   let result;
@@ -197,8 +197,8 @@ function showConfirmation(result) {
     appWarning +
     '<ul style="margin:8px 0;padding-left:20px;font-size:13px">' + (result.issues.length > 0 ? reasons : '<li>No issues detected, but this protocol opens external software.</li>') + '</ul>' +
     '<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px">' +
-      '<button id="cleanclick-protocol-cancel" style="padding:8px 16px;background:#f5f5f7;border:1px solid #cfcfd8;border-radius:4px;cursor:pointer">Cancel</button>' +
-      '<button id="cleanclick-protocol-allow" style="padding:8px 16px;background:#0060df;color:white;border:none;border-radius:4px;cursor:pointer">Proceed</button>' +
+    '<button id="cleanclick-protocol-cancel" style="padding:8px 16px;background:#f5f5f7;border:1px solid #cfcfd8;border-radius:4px;cursor:pointer">Cancel</button>' +
+    '<button id="cleanclick-protocol-allow" style="padding:8px 16px;background:#0060df;color:white;border:none;border-radius:4px;cursor:pointer">Proceed</button>' +
     '</div></div>';
 
   document.body.appendChild(overlay);
@@ -228,7 +228,7 @@ document.addEventListener('click', async (e) => {
       window.location.href = result.href;
     }
   } else if (result.issues.length > 0) {
-    // Informational — still warn but less intrusive
+    // Informational - still warn but less intrusive
     e.preventDefault();
     const allowed = await showConfirmation(result);
     if (allowed) {
@@ -242,7 +242,7 @@ document.addEventListener('click', async (e) => {
     protocol: result.protocol,
     issues: result.issues,
     timestamp: Date.now(),
-  }).catch(() => {});
+  }).catch(() => { });
 }, true);
 
 // ─── Scan on Load ─────────────────────────────────────────────────
@@ -264,7 +264,7 @@ function scanNonHTTPLinks() {
       risky: results.filter(r => r.isRisky).length,
       results: results.map(r => ({ href: r.href, protocol: r.protocol, isRisky: r.isRisky, issues: r.issues })),
       timestamp: Date.now(),
-    }).catch(() => {});
+    }).catch(() => { });
   }
 }
 

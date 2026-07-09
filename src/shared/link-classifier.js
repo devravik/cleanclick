@@ -1,10 +1,10 @@
 /**
- * CleanClick — Link Risk Classifier
+ * CleanClick - Link Risk Classifier
  *
  * Assigns a risk score (0–100) to any URL or link element.
  * Used by hidden-link-scanner, link-verifier, and link-transparency-ui.
  *
- * Pure functions — no browser API dependencies.
+ * Pure functions - no browser API dependencies.
  */
 
 import { RISK, LINK_CLASS } from './constants.js';
@@ -72,7 +72,7 @@ export function classifyURL(url, options = {}) {
   if (options.shortenerDomains) {
     if (isShortenedURL(url, options.shortenerDomains)) {
       score += 15;
-      reasons.push('URL shortened — destination hidden');
+      reasons.push('URL shortened - destination hidden');
     }
   }
 

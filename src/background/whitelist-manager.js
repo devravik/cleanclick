@@ -1,5 +1,5 @@
 /**
- * CleanClick — Whitelist Manager (Background Script)
+ * CleanClick - Whitelist Manager (Background Script)
  *
  * Manages the user's website whitelist.
  * Provides CRUD operations and fast lookup.
