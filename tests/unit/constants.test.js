@@ -61,11 +61,12 @@ describe('constants.js', () => {
 
   test('DEFAULT_SETTINGS has all required keys', () => {
     expect(DEFAULT_SETTINGS.protectionEnabled).toBe(true);
-    expect(DEFAULT_SETTINGS.showRiskBadges).toBe(true);
-    expect(DEFAULT_SETTINGS.showTooltips).toBe(true);
+    expect(DEFAULT_SETTINGS.showRiskBadges).toBe(false);
+    expect(DEFAULT_SETTINGS.showTooltips).toBe(false);
     expect(DEFAULT_SETTINGS.confirmLevel).toBe('suspicious');
+    expect(DEFAULT_SETTINGS.autoRevealHidden).toBe(false);
     expect(DEFAULT_SETTINGS.sanitizeLinks).toBe(true);
     expect(DEFAULT_SETTINGS.healthCheckEnabled).toBe(false);
-    expect(DEFAULT_SETTINGS.cloudReputationEnabled).toBe(false);
+    expect(DEFAULT_SETTINGS.theme).toBe('auto');
   });
 });

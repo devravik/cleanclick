@@ -63,7 +63,7 @@
 
   #status-bar {
     background: #232738;
-    border: 1px solid var(--card-border);
+    /* border: 1px solid var(--card-border); */
     box-shadow: none;
   }
 
@@ -95,7 +95,7 @@ html[data-theme="dark"] {
 
 html[data-theme="dark"] #status-bar {
   background: #232738;
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   box-shadow: none;
 }
 
@@ -275,7 +275,7 @@ section {
   padding: 11px 14px;
   border-radius: var(--radius-md);
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -359,7 +359,7 @@ section {
 /* ─── Stats Panel ───────────────────────────────────────────────── */
 
 #stats-panel {
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-md);
   background: var(--card-bg);
   width: 100%;
@@ -388,7 +388,7 @@ section {
 }
 
 .stat-item+.stat-item {
-  border-top: 1px solid var(--card-border);
+  /* border-top: 1px solid var(--card-border); */
 }
 
 .stat-value {
@@ -417,7 +417,7 @@ section {
 /* ─── Link Scan Summary ─────────────────────────────────────────── */
 
 #link-scan-summary {
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-md);
   background: var(--card-bg);
   width: 100%;
@@ -434,7 +434,7 @@ section {
   font-weight: 500;
   overflow: hidden;
   width: 100%;
-  border-bottom: 1px solid var(--card-border);
+  /* border-bottom: 1px solid var(--card-border); */
 }
 
 .scan-summary.safe {
@@ -482,7 +482,7 @@ section {
 }
 
 .scan-details li+li {
-  border-top: 1px solid var(--card-border);
+  /* border-top: 1px solid var(--card-border); */
 }
 
 .scan-details li span {
@@ -495,7 +495,7 @@ section {
 
 .btn-link {
   background: transparent;
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   color: var(--text-secondary);
   cursor: pointer;
   font-size: 11px;

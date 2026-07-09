@@ -142,7 +142,7 @@ h1 {
   padding: 3px;
   margin-bottom: 28px;
   overflow-x: auto;
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
 }
 
 #tabs button {
@@ -217,7 +217,7 @@ p.description {
 
 .setting-group {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-lg);
   padding: 20px 24px;
   margin-bottom: 16px;
@@ -232,7 +232,7 @@ p.description {
 }
 
 .setting-row+.setting-row {
-  border-top: 1px solid var(--card-border);
+  /* border-top: 1px solid var(--card-border); */
 }
 
 .setting-row span:first-child {
@@ -265,7 +265,7 @@ input[type="checkbox"] {
 select,
 .input {
   padding: 6px 12px;
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-sm);
   background: var(--card-bg);
   color: var(--text-primary);
@@ -324,7 +324,7 @@ select:focus,
 .btn.secondary {
   background: var(--card-bg);
   color: var(--text-secondary);
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
 }
 
 .btn.secondary:hover {
@@ -335,7 +335,7 @@ select:focus,
 .btn.danger {
   background: transparent;
   color: var(--danger);
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
 }
 
 .btn.danger:hover {
@@ -375,7 +375,7 @@ select:focus,
 
 .whitelist-list {
   list-style: none;
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
@@ -385,7 +385,7 @@ select:focus,
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--card-border);
+  /* border-bottom: 1px solid var(--card-border); */
   font-family: var(--font-mono);
   font-size: 12px;
   transition: background 0.15s;
@@ -410,7 +410,7 @@ select:focus,
 
 .stats-table {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
@@ -420,7 +420,7 @@ select:focus,
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
-  border-bottom: 1px solid var(--card-border);
+  /* border-bottom: 1px solid var(--card-border); */
   font-size: 13px;
   transition: background 0.15s;
 }
@@ -445,7 +445,7 @@ select:focus,
 
 .about-card {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  /* border: 1px solid var(--card-border); */
   border-radius: var(--radius-lg);
   padding: 32px;
   text-align: center;
@@ -476,7 +476,7 @@ select:focus,
   text-align: left;
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--card-border);
+  /* border-top: 1px solid var(--card-border); */
 }
 
 .about-section h3 {

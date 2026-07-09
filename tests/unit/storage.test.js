@@ -36,8 +36,9 @@ describe('storage.js', () => {
     test('getSettings returns defaults on first call', async () => {
       const settings = await storage.getSettings();
       expect(settings.protectionEnabled).toBe(true);
-      expect(settings.showRiskBadges).toBe(true);
+      expect(settings.showRiskBadges).toBe(false);
       expect(settings.confirmLevel).toBe('suspicious');
+      expect(settings.theme).toBe('auto');
     });
 
     test('updateSettings merges with existing', async () => {
