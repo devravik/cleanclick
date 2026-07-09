@@ -102,7 +102,7 @@ body {
 /* ─── App Container — STRICT width containment ──────────────────── */
 
 #app {
-  width: 70%;
+  width: 75%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -321,7 +321,7 @@ section {
 .stats-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   width: 100%;
 }
 

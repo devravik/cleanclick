@@ -400,7 +400,7 @@ Phase 2.0 ─── User Transparency & Mobile ───────────
 Phase 3.0 ─── Advanced & Future ────────────────────────────────────
     ├── Link Density Analyzer         ← NEW
     ├── Link Health Check             ← NEW
-    ├── Cloud Reputation Service (existing plan)
+    ├── Cloud Reputation Service (skipped - standalone)
     ├── Community Reporting (existing plan)
     ├── AI Fake Button Detection (existing plan)
     ├── Scam Website Detection (existing plan)

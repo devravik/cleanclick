@@ -424,59 +424,35 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 
 ---
 
-## 5. Phase 3 — Advanced Features (v2.0 Milestone)
+## 5. Phase 3 — Advanced Features (v2.0 — Standalone Only)
 
-### 5.1 Cloud Reputation Service
-- **Backend Service (separate repo):**
-  - REST API (Node.js/Express or FastAPI)
-  - Accept anonymous redirect fingerprints (URL hash + redirect chain hash)
-  - Return reputation score + known classification
-  - Rate-limited, no PII collected
-- **Extension Integration:**
-  - Optional opt-in setting
-  - Periodic reputation queries (batched)
-  - Cache responses locally
+> **Note:** Cloud-dependent features (Cloud Reputation, Community Reporting, AI-powered detection, Cross-Device Sync) were intentionally excluded — CleanClick is a fully standalone extension with zero external dependencies. The following features were implemented client-side only.
 
-### 5.2 Community Reporting
-- **Reporting Mechanism:**
-  - User can report a redirect as malicious or safe
-  - Reports sent anonymously to cloud service
-  - Includes: hashed URL, redirect chain, timestamp (no IP, no user ID)
-- **Feedback Loop:**
-  - Reported data improves cloud reputation scores
-  - Extension fetches updated reputation periodically
+### 5.1 Clipboard Hijacking Protection
+- **Content Script (\`clipboard-guard.js\`):**
+  - Monkey-patches \`navigator.clipboard.writeText()\` and \`navigator.clipboard.write()\`
+  - Detects crypto address patterns placed in clipboard by scripts
+  - Detects silent clipboard modification after user copy events
+  - Monitors \`document.execCommand('copy')\` as fallback
+  - Shows in-page warning and logs to background
 
-### 5.3 AI-Powered Fake Button Detection
-- **On-device ML (tensorflow.js or ONNX runtime for Firefox):**
-  - Lightweight model to classify download button legitimacy
-  - Training data: screenshots + DOM structure of real vs fake buttons
-  - Falls back to heuristic detection if model not available
+### 5.2 URL Shortener Bypass
+- **Detection:** 50+ shortener domains (bit.ly, t.co, tinyurl.com, etc.)
+- **Behavior:** Intercepts clicks, expands via HEAD request, shows destination
+- **Caching:** 24h TTL, local only
+- **Privacy:** Direct HTTP HEAD requests — no third-party API calls
 
-### 5.4 Scam Website Detection
-- **URL Analysis:**
-  - Detect typosquatting (Levenshtein distance to known domains)
-  - Detect suspicious TLDs
-  - Detect cloned login pages (DOM similarity analysis)
-- **Content Analysis:**
-  - Check for known scam patterns in page content
-  - Match against community-reported scam signatures
+### 5.3 Link Density Analyzer
+- **Content Script (\`link-density-analyzer.js\`):**
+  - Analyzes link count, external domains, link-to-text ratio
+  - Detects keyword stuffing and link farms
+  - Shows warning on high-density pages
 
-### 5.5 Clipboard Hijacking Protection
-- **Content Script:**
-  - Intercept `copy`/`cut` events
-  - Monitor for unauthorized clipboard writes (crypto wallet addresses, etc.)
-  - Warn user when clipboard content is silently modified
-
-### 5.6 URL Shortener Bypass
-- **Detection:**
-  - Identify known URL shorteners (bit.ly, t.co, etc.)
-  - Optionally expand shortened URLs automatically
-  - Fetch destination URL head request to preview before navigation
-
-### 5.7 Cross-Device Synchronization
-
----
-
+### 5.4 Link Health Checker
+- **Background Script (\`link-health-pinger.js\`):**
+  - Proactive HEAD requests to check reachability
+  - Queue-based (3 concurrent, 5s timeout), 24h cache
+  - Privacy-first, disabled by default
 ## 6. Phase 3 — Link Transparency & Advanced Protections (v2.0 +)
 
 ### 6.1 Protocol Link Validator (`protocol-link-validator.js`) — 🟡 NEW
@@ -619,7 +595,7 @@ The original `navigation-guard.js` is expanded from simple link monitoring to co
 | **P1c** | Polish & Test | Edge cases, unit tests, manual QA | 3-5 days | 4-6 days |
 | **P1.5** | Enhanced protection | Expanded nav-guard, dynamic monitor, scam overlays, fake buttons, reputation, custom rules | 7-10 days | 10-14 days |
 | **P2** | Link transparency | Protocol validator, transparency UI, link sanitizer, edge case handler | — | 8-12 days |
-| **P3** | Advanced | Cloud service, community, AI features, density analyzer, health checker | 10-15 days | 12-18 days |
+| **P3** | Advanced | Clipboard guard, shortener bypass, density analyzer, health checker (all standalone) | 10-15 days | 12-18 days |
 
 ---
 

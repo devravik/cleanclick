@@ -475,7 +475,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - +10 per intermediary redirect in chain
   - +20 if redirect matches known malicious pattern (e.g., `adserver → tracker → malware`)
   - -10 if user marked as safe
-  - +30 if community-reported as malicious (from cloud service in v2.0)
+  - +30 if community-reported as malicious (local-only)
   - Max score: 100 (malicious), Min: 0 (trusted)
 - [ ] **Domain classification**:
   - Green (0-30): Trusted — no intervention
@@ -634,33 +634,19 @@ This document breaks down the entire project into actionable tasks and subtasks 
 
 ## Phase 3 — Advanced Features (v2.0+)
 
-### T3.1 Cloud Reputation Service (Backend)
-- [ ] **Backend setup** (separate repo `cleanclick-cloud`):
-  - Node.js/Express or FastAPI server
-  - Database: PostgreSQL or SQLite for simple deployment
-  - API endpoints:
-    - `POST /api/v1/reputation` — submit URL hash, get reputation score
-    - `POST /api/v1/report` — submit user report (anonymous)
-    - `GET /api/v1/blacklist` — download recent blacklist hashes (periodic sync)
-  - Rate limiting: 100 req/min per IP
-- [ ] **Extension integration**:
-  - `POST` URL hashes (SHA-256) to reputation endpoint
-  - Cache responses locally for 24h
-  - Only active when user opts in (settings toggle)
-  - No PII sent — only hashed URL components
 
-### T3.2 Community Reporting
+### T3.1 Community Reporting (skipped - needs backend)
 - [ ] **Report flow**:
   - User clicks "Report link as spam" (from context menu or tooltip)
   - Collect: hashed URL, redirect chain hash, timestamp, user label (spam/safe)
   - Send to `POST /api/v1/report`
   - Show confirmation: "Thank you. This report is anonymous."
 - [ ] **Feedback loop**:
-  - Periodically fetch updated reputation scores from cloud
+  - Periodically fetch updated reputation scores (local cache refresh)
   - Merge with local reputation database
   - Frequency: every 6 hours (configurable)
 
-### T3.3 AI-Powered Fake Button Detection
+### T3.2 AI-Powered Fake Button Detection (skipped - needs on-device ML)
 - [ ] **Model preparation**:
   - Collect training data: screenshots + DOM structure of real vs fake download buttons
   - Train lightweight classification model (TensorFlow.js or ONNX)
@@ -671,7 +657,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Pass button screenshot + DOM features to model
   - Fall back to heuristic detection if model not loaded or slow
 
-### T3.4 Scam Website Detection
+### T3.3 Scam Website Detection (existing heuristics cover most)
 - [ ] **URL analysis**:
   - Typosquatting: Levenshtein distance to top 1000 domains
   - Suspicious TLDs: flag uncommon TLDs (`.xyz`, `.top`, `.work`, `.gq`, etc.)
@@ -681,7 +667,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Check for hidden text / keyword stuffing
   - Compare page content against community-reported scam signatures
 
-### T3.5 Clipboard Hijacking Protection
+### T3.4 Clipboard Hijacking Protection
 - [ ] **Clipboard event monitoring**:
   - Listen for `copy` / `cut` events on `document`
   - Also monitor for `clipboard.write()` and `clipboard.writeText()` calls
@@ -694,7 +680,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Show notification: "A script modified your clipboard"
   - Offer "Restore previous clipboard" action
 
-### T3.6 URL Shortener Bypass
+### T3.5 URL Shortener Bypass
 - [ ] **Shortener detection**:
   - Maintain list of 50+ known URL shorteners
   - Detect shortened URLs in links, text, and clipboard
@@ -705,7 +691,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
 - [ ] **Integration with link-verifier**:
   - If final destination is suspicious, flag the short URL as risky
 
-### T3.7 Cross-Device Synchronization
+### T3.6 Cross-Device Synchronization (skipped - Firefox storage.sync available)
 - [ ] **Sync strategy**:
   - Use `browser.storage.sync` for small data (whitelist, settings): ~100KB quota
   - Use Firefox Sync API for larger data (custom rules, reputation): separate quota
@@ -716,7 +702,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Custom rules (if small enough)
   - Local reputation scores (if sync space allows)
 
-### T3.8 Link Density Analyzer (`content-scripts/link-density-analyzer.js`) — 🟢 NEW
+### T3.7 Link Density Analyzer (`content-scripts/link-density-analyzer.js`) — 🟢 NEW
 - [ ] **Metrics collection**:
   - Count total `<a>` elements in page
   - Count unique external domains linked
@@ -732,7 +718,7 @@ This document breaks down the entire project into actionable tasks and subtasks 
   - Warning if density exceeds thresholds
   - "Simplify page" option: hide non-essential links (CSS `display: none`)
 
-### T3.9 Link Health Checker (`background/link-health-pinger.js`) — 🟢 NEW
+### T3.8 Link Health Checker (`background/link-health-pinger.js`) — 🟢 NEW
 - [ ] **Queue management**:
   - After page load, collect outbound link URLs
   - Add to processing queue with priority (visible links first)

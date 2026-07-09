@@ -1,160 +1,97 @@
 # CleanClick
 
-CleanClick is a browser extension that protects users from unwanted redirects, pop-under advertisements, fake download buttons, and malicious navigation tricks commonly found on download, streaming, and file-sharing websites.
+**A standalone browser extension** that protects you from unwanted redirects, pop-under ads, hidden links, fake download buttons, and malicious navigation tricks — with **zero external dependencies, no cloud services, and no data collection.**
 
-Instead of simply blocking advertisements, CleanClick ensures that every click takes you where you intended to go.
+Everything runs locally in your browser. Your browsing stays yours.
 
 ## Features
 
-### Smart Redirect Protection
+### Click Protection
+- **Redirect Detector** — Monitors navigation after clicks; blocks unexpected redirects, pop-unders, and interstitial ads
+- **Popup Blocker** — Intercepts `window.open()` calls; closes unwanted tabs before they steal focus
+- **Event Layer Inspector** — Monkey-patches `addEventListener` to detect navigation hijacking in real time
+- **Click Monitor** — Records click context (target, coordinates, modifiers); compares against registered listeners
 
-* Detects unexpected redirects after user clicks.
-* Blocks known pop-under and interstitial advertising pages.
-* Prevents unwanted tabs from stealing focus.
+### Link Transparency
+- **Hidden Link Scanner** — Detects invisible links (zero opacity, zero size, off-screen, color-matched, z-index stacked, transparent overlays)
+- **Link Verifier** — Checks for hover spoofing, href mutation, homograph domains (Punycode/Unicode), Base tag hijacking, subdomain confusion, protocol abuse
+- **Protocol Link Validator** — Validates `tel:`, `sms:`, `mailto:`, and external app launch links; blocks premium-rate numbers; warns before launching external apps
+- **Link Sanitizer** — Strips tracking parameters (UTM, fbclid, gclid, etc.); detects affiliate links; pre-expands shortened URLs
 
-### Popup Prevention
+### Scam & Malware Protection
+- **Scam Overlay Detector** — Detects fake virus warnings, prize scams, fake CAPTCHA overlays, and fake close buttons that redirect
+- **Fake Download Button Detection** — Scores download buttons using 10+ heuristics; places Safe/Suspicious badges on each
+- **Clipboard Hijacking Protection** — Monitors `clipboard.writeText()` for crypto address tampering; detects silent clipboard modification after copy events
+- **Density Analyzer** — Flags link farms and keyword-stuffed pages by analyzing link-to-text ratio, external domain uniqueness, and keyword frequency
 
-* Stops suspicious `window.open()` calls.
-* Automatically closes unwanted popup tabs.
-* Keeps browsing uninterrupted.
+### Navigation Guard
+- **Form Hijacking Detection** — Checks if form actions point to a different origin; shows warning and blocks submission
+- **Meta Refresh Interception** — Catches cross-origin `meta refresh` redirects; asks user before following
+- **History API Abuse** — Monitors `pushState`/`replaceState` for cross-origin navigation
+- **PostMessage Guard** — Validates `postMessage` origins; detects navigation triggered by incoming messages
+- **Service Worker Monitor** — Warns when cross-origin service workers are registered
 
-### Fake Download Button Detection
+### Edge Case Coverage
+- Frame escape detection, SVG `<a>` links, custom element link detection, unicode bidi overrides, zero-width characters, same-domain UGC paths, iframe `srcdoc` scanning, `<object>`/`<embed>` data URL checks, service worker `clients.openWindow` monitoring
 
-* Highlights the most likely legitimate download button.
-* Reduces accidental clicks on advertisements.
+### Customization
+- **Website Whitelist** — Per-domain enable/disable with manual add, bulk import/export
+- **Custom Blocking Rules** — Glob, regex, or domain patterns; actions: block, warn, allow
+- **Per-Site Toggle** — Disable protection on trusted sites from the popup
 
-### Safe Navigation
+### User Interface
+- **Modern Popup** (340px) — Protection toggle, live stats, link scan summary, settings link
+- **Full Options Page** — 5-tab layout: General settings, Whitelist management, Statistics, Custom Rules, About
+- **Dark Mode** — Automatic, follows system preference
+- **Link Transparency** — Optional risk badge overlays and hover tooltips (disabled by default)
 
-* Detects suspicious destination domains.
-* Warns users before visiting potentially malicious websites.
-* Displays the actual destination whenever possible.
+### Privacy & Permissions
+- **Zero data collection.** No telemetry, no analytics, no external servers.
+- **Minimal permissions.** Uses `webNavigation`, `storage`, `scripting`, `menus`, `notifications` — all standard extension APIs.
+- **Link health checks are opt-in.** HEAD requests are sent only to the URLs you interact with; results cached locally for 24 hours.
+- **No cloud.** No accounts, no backend, no AI models.
 
-### Website Whitelist
+## Installation
 
-* Disable protection on trusted websites.
-* Create custom allowlists for sites that legitimately use redirects.
-
-### Statistics
-
-* Redirects blocked
-* Popups prevented
-* Suspicious domains detected
-* Protected browsing sessions
-
-## Planned Features
-
-* Cloud-powered redirect reputation database
-* Community reported malicious redirects
-* AI-powered fake button detection
-* Scam website detection
-* Clipboard hijacking protection
-* URL shortener bypass (where technically possible)
-* Cookie banner cleanup
-* Tracker detection
-* Phishing protection
-* Custom redirect rules
-* Import/Export settings
-* Browser synchronization
-
-## How It Works
-
-When you click a link, CleanClick records the browsing context and monitors the resulting navigation.
-
-If a newly opened tab or redirect appears unrelated to your intended destination and matches suspicious behavior patterns, the extension can:
-
-* Block the redirect
-* Close the unwanted tab
-* Return focus to your original page
-* Allow legitimate navigation to continue
-
-The goal is to make unwanted redirects effectively invisible to the user.
-
-## Privacy
-
-CleanClick is designed with privacy as a priority.
-
-The extension:
-
-* Does not collect browsing history.
-* Does not collect personal information.
-* Does not track users.
-* Does not sell data.
-* Processes navigation locally whenever possible.
-
-Future optional cloud reputation features will only transmit anonymous redirect fingerprints and never personal browsing history.
-
-## Permissions
-
-The extension requires only the permissions necessary to detect and prevent unwanted navigation, such as:
-
-* `tabs`
-* `webNavigation`
-* `storage`
-* `scripting`
-* `declarativeNetRequest`
-* Host permissions for websites where protection is enabled
-
-## Supported Browsers
-
-* Mozilla Firefox (primary target)
-* Firefox Developer Edition
-* Firefox ESR (where compatible)
-
-Chromium-based browser support is planned for a future release.
+### From Source (Firefox)
+```bash
+git clone https://github.com/devravik/cleanclick.git
+cd cleanclick
+npm install
+npm run build
+# Open about:debugging → This Firefox → Load Temporary Add-on
+# Select dist/manifest.json
+```
 
 ## Development
-
-Clone the repository:
-
 ```bash
-git clone https://github.com/yourusername/cleanclick.git
+./scripts/dev.sh build    # Production build
+./scripts/dev.sh dev      # Watch mode
+./scripts/dev.sh test     # Run 76 unit tests
+./scripts/dev.sh package  # Create distributable .zip
 ```
 
-Install dependencies:
+## Architecture
 
-```bash
-npm install
+```
+POPUP / OPTIONS    ← user controls, stats display
+BACKGROUND SCRIPT  ← redirect-detector, reputation, rules-engine, ...
+CONTENT SCRIPTS    ← event-inspector, hidden-link-scanner, navigation-guard, ...
+SHARED INFRA       ← constants, utils, link-classifier, event-analyzer, ...
 ```
 
-Build:
+See [docs/architecture.md](docs/architecture.md) for the full diagram and data flow.
 
-```bash
-npm run build
-```
+## Project Status
 
-Run in Firefox:
+| Phase | What | Status |
+|-------|------|--------|
+| P0 | Project scaffolding | ✅ |
+| P1a | Core engine + event inspector | ✅ |
+| P1b | Hidden links, verification, UI | ✅ |
+| P1c | Unit tests (76/76 passing) | ✅ |
+| P1.5 | Enhanced protection | ✅ |
+| P2 | Link transparency | ✅ |
+| P3 | Standalone advanced features | ✅ |
 
-1. Open `about:debugging`
-2. Select **This Firefox**
-3. Click **Load Temporary Add-on**
-4. Choose the generated `manifest.json`
-
-## Roadmap
-
-### Version 1.0
-
-* Smart redirect blocking
-* Popup prevention
-* Website whitelist
-* Statistics dashboard
-
-### Version 1.5
-
-* Fake download button detection
-* Redirect reputation scoring
-* Custom blocking rules
-
-### Version 2.0
-
-* Cloud reputation service
-* Community reporting
-* AI-based scam detection
-* Cross-device synchronization
-
-## Contributing
-
-Issues, feature requests, and pull requests are welcome. Please open an issue before submitting large feature changes to discuss the proposed implementation.
-
-## License
-
-MIT License
+**~8,000+ lines across 40+ source files. Zero external dependencies.**
