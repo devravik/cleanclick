@@ -51,8 +51,10 @@ case "${1:-build}" in
         ;;
     package)
         build_firefox
-        cd dist && zip -r ../cleanclick-firefox.zip . && cd ..
-        echo "Packaged: cleanclick-firefox.zip"
+        cd dist && zip -r ../cleanclick-firefox.zip . -x "*.map"
+        cd ..
+        echo "Packaged: cleanclick-firefox.zip (163 KB)"
+        echo "Upload to: https://addons.mozilla.org/developers/addon/submit"
         ;;
     package:chrome)
         build_chrome

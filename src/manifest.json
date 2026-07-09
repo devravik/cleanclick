@@ -89,5 +89,11 @@
         "<all_urls>"
       ]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cleanclick@devravik.github.io",
+      "strict_min_version": "109.0"
+    }
+  }
 }
