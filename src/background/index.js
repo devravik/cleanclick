@@ -6,7 +6,7 @@
  */
 
 import storage from '../shared/storage.js';
-import { onMessages, onConnectFromContent } from '../shared/messaging.js';
+import { onMessages, onMessage, onConnectFromContent } from '../shared/messaging.js';
 import { MSG } from '../shared/constants.js';
 import { init as initRedirectDetector } from './redirect-detector.js';
 import { init as initEventCoordinator } from './event-coordinator.js';
@@ -53,7 +53,12 @@ async function initBackground() {
   // 3. Set up context menu items (right-click link inspector)
   setupContextMenus();
 
-  // 4. Handle incoming connections from content scripts
+  // 4. Register settings message handler for content scripts
+  onMessage(MSG.GET_SETTINGS, async () => {
+    return await storage.getSettings();
+  });
+
+  // 5. Handle incoming connections from content scripts
   onConnectFromContent((port, sender) => {
     // Content script connected — tab info is available
     // We don't need per-connection state; messages handle routing

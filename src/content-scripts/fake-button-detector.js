@@ -1,10 +1,11 @@
 /**
  * CleanClick — Fake Download Button Detection (Content Script)
  *
- * Scans the page for download buttons and uses heuristics
- * to distinguish legitimate download links from fake ones.
+ * Scans the page for download buttons and scores them.
+ * Badges only shown when user enables showTooltips in settings.
  */
 
+import { MSG } from '../shared/constants.js';
 import { sendMessage } from '../shared/messaging.js';
 import { isSameDomain } from '../shared/utils.js';
 
@@ -72,7 +73,7 @@ function addBadges() {
       'font-family:-apple-system,system-ui,sans-serif;padding:2px 6px;border-radius:4px;' +
       'margin-left:4px;font-weight:600;cursor:default;' +
       (isLegitimate ? 'background:#e8f5e9;color:#2e7d32;' : 'background:#ffebee;color:#c62828;');
-    badge.textContent = isLegitimate ? '\u2713 Safe' : '\u26A0 Suspicious';
+    badge.textContent = isLegitimate ? 'Safe' : 'Suspicious';
     badge.title = 'score: ' + score + '\n' + reasons.join('\n');
     if (btn.tagName === 'A') { btn.parentNode?.insertBefore(badge, btn.nextSibling); }
     else { btn.appendChild(badge); }
@@ -88,14 +89,24 @@ function reportStats(buttons, results) {
   }).catch(() => {});
 }
 
-export function init() {
-  const fn = () => {
-    const buttons = findDownloadButtons();
-    const results = buttons.map(el => scoreDownloadButton(el));
+export async function init() {
+  // Check settings before showing badges
+  let showBadges = false;
+  try {
+    const settings = await sendMessage(MSG.GET_SETTINGS);
+    showBadges = settings?.showTooltips === true;
+  } catch {
+    // Fallback: don't show badges if settings unavailable
+  }
+
+  const buttons = findDownloadButtons();
+  const results = buttons.map(el => scoreDownloadButton(el));
+  reportStats(buttons, results);
+
+  if (showBadges) {
     addBadges();
-    reportStats(buttons, results);
-  };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
-  else fn();
+  }
 }
+
+// Auto-init
 init();

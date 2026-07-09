@@ -172,6 +172,7 @@ export const MSG = {
   GET_LINK_SCAN: 'get:link-scan',
   TRIGGER_SCAN: 'trigger:scan',
   REVEAL_HIDDEN_REQUEST: 'reveal:hidden-request',
+  GET_SETTINGS: 'get:settings',
 };
 
 // ─── Default Settings ──────────────────────────────────────────────
