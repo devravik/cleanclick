@@ -353,7 +353,7 @@ function renderAbout() {
 
   container.innerHTML = '' +
     '<h2>' + t('extensionName') + '</h2>' +
-    '<p class="version">' + t('version', '0.1.0') + '</p>' +
+    '<p class="version">' + t('version', '1.0.0') + '</p>' +
     '<p class="description">' + t('extensionDescription') + '</p>' +
 
     '<h3>' + t('privacy') + '</h3>' +
