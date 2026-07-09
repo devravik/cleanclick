@@ -43,11 +43,8 @@
     {
       "matches": ["<all_urls>"],
       "js": [
-        "content-scripts/click-monitor.js",
         "content-scripts/event-inspector.js",
-        "content-scripts/hidden-link-scanner.js",
-        "content-scripts/link-verifier.js",
-        "content-scripts/navigation-guard.js",
+        "content-scripts/click-monitor.js",
         "content-scripts/popup-blocker.js"
       ],
       "run_at": "document_start",
@@ -56,6 +53,9 @@
     {
       "matches": ["<all_urls>"],
       "js": [
+        "content-scripts/hidden-link-scanner.js",
+        "content-scripts/link-verifier.js",
+        "content-scripts/navigation-guard.js",
         "content-scripts/dynamic-link-watcher.js",
         "content-scripts/scam-overlay-detector.js",
         "content-scripts/fake-button-detector.js",
