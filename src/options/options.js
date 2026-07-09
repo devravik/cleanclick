@@ -34,6 +34,7 @@ async function init() {
   renderWhitelist();
   renderStatistics();
   renderAbout();
+  applyTheme(state.settings.theme);
 }
 
 async function loadData() {
@@ -108,6 +109,19 @@ function renderGeneral() {
     </div>
 
     <div class="setting-group">
+      <h3>Appearance</h3>
+
+      <label class="setting-row">
+        <span>Theme</span>
+        <select id="setting-theme">
+          <option value="auto" ${state.settings.theme === 'auto' ? 'selected' : ''}>Auto (follow system)</option>
+          <option value="light" ${state.settings.theme === 'light' ? 'selected' : ''}>Light</option>
+          <option value="dark" ${state.settings.theme === 'dark' ? 'selected' : ''}>Dark</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="setting-group">
       <h3>Navigation</h3>
 
       <label class="setting-row">
@@ -142,6 +156,8 @@ async function onSettingChange(e) {
   state.settings[key] = value;
 
   await browser.storage.local.set({ [STORAGE_KEYS.SETTINGS]: state.settings });
+
+  if (key === 'theme') applyTheme(value);
 }
 
 // ─── Whitelist Tab ────────────────────────────────────────────────
@@ -316,6 +332,18 @@ function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
+}
+
+// ─── Init ─────────────────────────────────────────────────────────
+
+// ─── Theme ──────────────────────────────────────────────────────────
+
+function applyTheme(theme) {
+  if (theme === 'auto') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
 }
 
 // ─── Init ─────────────────────────────────────────────────────────

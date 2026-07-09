@@ -185,6 +185,16 @@ $('settings-link')?.addEventListener('click', (e) => {
   browser.runtime.openOptionsPage();
 });
 
+// ─── Theme ──────────────────────────────────────────────────────────
+
+function applyTheme(theme) {
+  if (!theme || theme === 'auto') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+}
+
 // ─── Init ─────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', init);
