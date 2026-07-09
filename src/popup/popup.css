@@ -381,11 +381,12 @@ section {
 }
 
 .scan-icon {
-  font-size: 13px;
+  font-size: 12px;
   flex-shrink: 0;
   display: inline-block;
-  width: 20px;
+  min-width: 30px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .scan-summary span:last-child {
