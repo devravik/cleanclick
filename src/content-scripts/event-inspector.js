@@ -30,12 +30,21 @@ let registrySize = 0;
 const REGISTRY_LIMIT = HIDDEN_LINK.SHADOW_REGISTRY_LIMIT;
 
 // ─── Monkey-patch addEventListener ─────────────────────────────────
+// In some contexts (MAIN world, newer Firefox), EventTarget.prototype
+// addEventListener is read-only. We try/catch to handle that gracefully.
 
-const originalAddEventListener = EventTarget.prototype.addEventListener;
-const originalRemoveEventListener = EventTarget.prototype.removeEventListener;
+let patchingFailed = false;
+const originalAddEventListener = (() => {
+  try { return EventTarget.prototype.addEventListener; } catch { patchingFailed = true; return null; }
+})();
+const originalRemoveEventListener = (() => {
+  try { return EventTarget.prototype.removeEventListener; } catch { patchingFailed = true; return null; }
+})();
 
 function patchAddEventListener() {
-  EventTarget.prototype.addEventListener = function patchedAddEventListener(type, fn, options) {
+  if (patchingFailed) return;
+  try {
+    EventTarget.prototype.addEventListener = function patchedAddEventListener(type, fn, options) {
     // Skip if we're past the limit
     if (registrySize >= REGISTRY_LIMIT) {
       return originalAddEventListener.call(this, type, fn, options);
@@ -72,10 +81,16 @@ function patchAddEventListener() {
     // Call original
     return originalAddEventListener.call(this, type, fn, options);
   };
+  } catch (e) {
+    console.warn('CleanClick: Failed to patch addEventListener:', e);
+    patchingFailed = true;
+  }
 }
 
 function patchRemoveEventListener() {
-  EventTarget.prototype.removeEventListener = function patchedRemoveEventListener(type, fn, options) {
+  if (patchingFailed) return;
+  try {
+    EventTarget.prototype.removeEventListener = function patchedRemoveEventListener(type, fn, options) {
     // Remove from shadow registry
     const typeMap = shadowRegistry.get(this);
     if (typeMap) {
@@ -97,6 +112,9 @@ function patchRemoveEventListener() {
 
     return originalRemoveEventListener.call(this, type, fn, options);
   };
+  } catch (e) {
+    console.warn('CleanClick: Failed to patch removeEventListener:', e);
+  }
 }
 
 // ─── Query API ─────────────────────────────────────────────────────
